@@ -1,0 +1,6 @@
+C:\IEC61850-90-5\cmd\win\IEC61850-90-5\IEC61850-90-5Sample\Debug\usr_sample.obj
+C:\IEC61850-90-5\cmd\win\IEC61850-90-5\IEC61850-90-5Sample\Debug\sv_fixed_off_enc.obj
+C:\IEC61850-90-5\cmd\win\IEC61850-90-5\IEC61850-90-5Sample\Debug\iec_90_5_udp_tx.obj
+C:\IEC61850-90-5\cmd\win\IEC61850-90-5\IEC61850-90-5Sample\Debug\usr_sample_load_cfg.obj
+C:\IEC61850-90-5\cmd\win\IEC61850-90-5\IEC61850-90-5Sample\Debug\sv_dec.obj
+C:\IEC61850-90-5\cmd\win\IEC61850-90-5\IEC61850-90-5Sample\Debug\iec_crypto_windows.obj

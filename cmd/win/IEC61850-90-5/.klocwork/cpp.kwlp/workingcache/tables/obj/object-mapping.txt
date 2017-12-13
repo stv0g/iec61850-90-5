@@ -1,0 +1,13 @@
+C:\IEC61850-90-5\cmd\win\IEC61850-90-5\IEC61850-90-5Sample\Debug\dblLnkLst.obj;dblLnkLst.c_22.o
+C:\IEC61850-90-5\cmd\win\IEC61850-90-5\IEC61850-90-5Sample\Debug\usr_sample.obj;usr_sample.c_2.o
+C:\IEC61850-90-5\cmd\win\IEC61850-90-5\IEC61850-90-5Sample\Debug\usr_sample_load_cfg.obj;usr_sample_load_cfg.c_3.o
+C:\IEC61850-90-5\cmd\win\IEC61850-90-5\IEC61850-90-5Sample\Debug\iec_90_5_kdc_int.obj;iec_90_5_kdc_int.c_21.o
+C:\IEC61850-90-5\cmd\win\IEC61850-90-5\IEC61850-90-5Sample\Debug\iec_90_5_enc.obj;iec_90_5_enc.c_14.o
+C:\IEC61850-90-5\cmd\win\IEC61850-90-5\IEC61850-90-5Sample\Debug\iec_90_5_udp_rx.obj;iec_90_5_udp_rx.c_16.o
+C:\IEC61850-90-5\cmd\win\IEC61850-90-5\IEC61850-90-5Sample\Debug\iec_crypto_windows.obj;iec_crypto_windows.c_0.o
+C:\IEC61850-90-5\cmd\win\IEC61850-90-5\IEC61850-90-5Sample\Debug\sv_fixed_off_enc.obj;sv_fixed_off_enc.c_19.o
+C:\IEC61850-90-5\cmd\win\IEC61850-90-5\IEC61850-90-5Sample\Debug\sv_dec.obj;sv_dec.c_18.o
+C:\IEC61850-90-5\cmd\win\IEC61850-90-5\IEC61850-90-5Sample\Debug\iec_90_5_ErrorHandler.obj;iec_90_5_ErrorHandler.c_15.o
+C:\IEC61850-90-5\cmd\win\IEC61850-90-5\IEC61850-90-5Sample\Debug\iec_90_5_key_store.obj;iec_90_5_key_store.c_20.o
+C:\IEC61850-90-5\cmd\win\IEC61850-90-5\IEC61850-90-5Sample\Debug\iec_90_5_udp_tx.obj;iec_90_5_udp_tx.c_17.o
+C:\IEC61850-90-5\cmd\win\IEC61850-90-5\IEC61850-90-5Sample\Debug\iec_90_5_dec.obj;iec_90_5_dec.c_1.o

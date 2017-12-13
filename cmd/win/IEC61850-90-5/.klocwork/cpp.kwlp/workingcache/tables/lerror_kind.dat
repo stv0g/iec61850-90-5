@@ -1,0 +1,51 @@
+65792;ASSIGNCOND;assignment in condition
+65793;ASSIGNCOND.BOOL;boolean variable is assigned
+65794;ASSIGNCOND.CALL;right part in assignment is a function call
+66048;SEMICOL;suspiciously placed semicolon
+66304;EFFECT;statement has no effect
+66560;NONCONSTRUC;Method (not a constructor) has the same name as class does
+131328;UNREACH;code is unreachable
+131329;UNREACH.BREAK;unreachable code contains only 'break' or 'continue' statement
+131330;UNREACH.RETURN;unreachable void 'return' statement
+131331;UNREACH.RETURN0;unreachable 'return' with simple statement
+131584;LA_UNUSED;label '%s' is never used
+131840;LV_UNUSED;variable '%s' is never used
+131841;LV_UNUSED.DEAD;variable '%s' is used in the unreachable code only
+131842;PA_UNUSED;unused variable '%s' is a function parameter
+131843;PA_UNUSED.DEAD;parameter '%s' is used in the unreachable code only
+132097;VOIDRET;void function returns value
+132098;RETVOID;non-void function returns void value
+132099;RETVOID.IMPLICIT;implicitly non-void function returns void value
+132100;FUNCRET;non-void function does not return a value
+132101;FUNCRET.IMPLICIT;implicitly non-void function does not return a value
+196864;UNINIT;'%s' might be used uninitialized in this function
+197120;LOCRET;function returns reference to local object
+197376;VA_UNUSED;value of '%s' is never used after assignment
+197377;VA_UNUSED.INIT;lost value of '%s' is assigned at the place of definition
+197378;VA_UNUSED.INITCONST;lost value of '%s' is assigned at the place of definition
+197632;NUL;the dereferenced pointer '%s' might be NULL
+197633;NUL.FATAL;the dereferenced pointer '%s' is always NULL
+197634;NUL.PATH;the dereferenced pointer '%s' is NULL on some path
+197635;NUL.FUNC;the dereferenced pointer '%s' is a result of function that might return NULL
+197888;ABR;array index of '%s' may be outside of the bounds
+198145;FNH;freeing non-heap memory
+198146;FMM;freeing memory by mismatched function
+198147;FUM;freeing unallocated memory
+198148;FUM.ZERO;freeing null pointed memory
+198400;MLK;possible memory leak
+198656;UFM.GENERIC;generic usage of freed memory
+198657;UFM.RETURN;function returns freed memory
+198658;UFM.DEREF;dereference of freed memory
+198659;UFM.FFM;freeing freed memory
+198660;UFM.PARAMPASS;pointer to freed memory is passed as an actual parameter
+198661;UFM.USE;pointer to the freed memory is used
+198912;BO.HEAP;overflow of the buffer allocated in heap
+262145;SV.STRBO.GETS;'gets' does not check buffer boundaries, very risky!
+262146;SV.STRBO.UNBOUND_SPRINTF;formatted output to string may overflow the buffer
+262147;SV.STRBO.BOUND_SPRINTF;formatted output to string may overflow the buffer
+262148;SV.STRBO.BOUND_COPY;bound string copy may have incorrect upper limit and thus overflow the buffer
+262149;SV.STRBO.UNBOUND_COPY;unbound string copy function may overflow the buffer
+262401;SV.WEAK_CRYPTO.WEAK_HASH;'%s' is a weak hash function, use stronger hash functions
+262657;SV.TOCTOU.FILE_ACCESS;function '%s' operates on file names, subject to race condition
+262913;SV.FMTSTR.GENERIC;possibly non-constant format string, subject to format exploits
+263169;SV.CODE_INJECTION.SHELL_EXEC;function '%s' allows arbitrary code execution if argument is not checked properly

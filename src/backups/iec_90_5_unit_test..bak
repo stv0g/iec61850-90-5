@@ -1,0 +1,396 @@
+/************************************************************************/
+/* SISCO SOFTWARE MODULE HEADER *****************************************/
+/************************************************************************/
+/*	(c) Copyright Systems Integration Specialists Company, Inc.,	*/
+/*	2011-2011, All Rights Reserved					*/
+/*									*/
+/* MODULE NAME : iec_90_5_key_store.c						*/
+/* PRODUCT(S)  : MMS-EASE Lite						*/
+/*									*/
+/* MODULE DESCRIPTION :							*/
+/*	Decoder for IEC 61850-90-5 Session/CLTP Protocol				*/
+/*									*/
+/* GLOBAL FUNCTIONS DEFINED IN THIS MODULE :				*/
+/*	NONE								*/
+/*									*/
+/* MODIFICATION LOG :							*/
+/*  Date     Who			Comments			*/
+/* --------  ---  ------   -------------------------------------------	*/
+/* 10/04/11  HSF	   Initial revision				*/
+/************************************************************************/
+#include "glbtypes.h"
+#include "sysincs.h"
+#include "mem_chk.h"
+#include "time.h"
+#include "iec_90_5.h"
+
+/************************************************************************/
+/* For debug version, use a static pointer to avoid duplication of 	*/
+/* __FILE__ strings.							*/
+/************************************************************************/
+
+#ifdef DEBUG_SISCO
+SD_CONST static ST_CHAR *SD_CONST thisFileName = __FILE__;
+#endif
+
+static IEC_90_5_KEY_CHAINS keyChains;		  /*stores the memory resident keys in chains	*/
+
+static ST_VOID init_key_chain (IEC_CHAIN_INFO *chain)
+{
+  chain->pIpV4Storage = NULL;
+  chain->pIpV6Storage = NULL;
+  chain->pStartKeyInfo= NULL;
+}
+ST_VOID init_key_storage()
+{
+  init_key_chain(&keyChains.GooseChain);
+  init_key_chain(&keyChains.SVChain);
+  init_key_chain(&keyChains.TunnelChain);
+
+}
+
+/******************************************************************************************************/
+/******************************************************************************************************/
+/*	      The following section are internal helper functions				      */
+/******************************************************************************************************/
+/******************************************************************************************************/
+
+/************************************************************************************/
+/*					find_chain_head				    */
+/* returns the head of a Key Storage chain based upon the usage (GOOSE, SV, Tunnel) */
+/* internal helper function only						    */
+/************************************************************************************/
+
+static IEC_CHAIN_INFO *find_chain_head(ST_UINT8 usageType)
+{
+  IEC_CHAIN_INFO *pChainTemp=NULL;
+
+  switch(usageType)
+  {
+    case IEC_KEY_USAGE_TYPE_SV:
+      pChainTemp= &keyChains.SVChain;
+      break;
+
+    case IEC_KEY_USAGE_TYPE_GOOSE:
+      pChainTemp = &keyChains.GooseChain;
+      break;
+
+    case IEC_KEY_USAGE_TYPE_TUNNEL:
+      pChainTemp = &keyChains.TunnelChain;
+      break;
+
+    default:
+      break;
+  }
+  
+  return(pChainTemp);
+}
+
+
+/************************************************************************************/
+/*					find_key_storage_head			    */
+/* returns the head of a Key Storage head based upon the address type		    */
+/* internal helper function only						    */
+/************************************************************************************/
+static IEC_90_5_KEY_PAYLOAD_ID **find_key_storage_head(IEC_CHAIN_INFO *keyChain, ST_UINT8 addressType)
+{
+
+IEC_90_5_KEY_PAYLOAD_ID **pTempStore=NULL;
+
+  switch(addressType)
+  {
+    case IP_V4_ADDRESS_TYPE:
+	pTempStore = &keyChain->pIpV4Storage;
+	break;
+
+    case IP_V6_ADDRESS_TYPE:
+	pTempStore = &keyChain->pIpV6Storage;
+
+    case ETHERNET_MAC_ADDRESS_TYPE:
+    default:
+	break;
+  }
+
+  return(pTempStore);
+}
+
+/************************************************************************************/
+/*					find_key_storage			    */
+/* returns the head of a Key Storage head based upon the address type		    */
+/* internal helper function only						    */
+/************************************************************************************/
+static IEC_90_5_KEY_PAYLOAD_ID *find_key_storage(IEC_CHAIN_INFO *keyChain,  IEC_KEY_ADDRESS *pAddress, char *pDatSetRef)
+{
+
+IEC_90_5_KEY_PAYLOAD_ID **pTempStoreHead=NULL;
+IEC_90_5_KEY_PAYLOAD_ID *pNext;
+int result, result1;
+  
+  pTempStoreHead = find_key_storage_head(keyChain, pAddress->typeOfAddress);
+  if (*pTempStoreHead == NULL)
+    return(NULL);
+
+  //now need to search the chain for the appropriate Storage Information
+  pNext = *pTempStoreHead;
+  while(pNext!=NULL)
+    {
+    result = strcmp(pNext->DataSetRef,pDatSetRef);
+    result1 = memcmp(pNext->keyAddress.pAddress,pAddress->pAddress, pNext->keyAddress.lenOfAddress);
+    if( (strcmp(pNext->DataSetRef,pDatSetRef)) ||
+	(pNext->keyAddress.typeOfAddress!=pAddress->typeOfAddress) ||
+	(pNext->keyAddress.lenOfAddress!=pAddress->lenOfAddress) ||
+        (memcmp(pNext->keyAddress.pAddress,pAddress->pAddress, pNext->keyAddress.lenOfAddress)!=0))
+      pNext = (IEC_90_5_KEY_PAYLOAD_ID *)pNext->pNext;
+    else
+      break;
+    }
+
+
+  return(pNext);
+}
+
+/************************************************************************************/
+/*					find_key_in_chain			    */
+/* searches for key information based upon CHAIN		  		    */
+/* internal helper function only						    */
+/************************************************************************************/
+static IEC_90_5_KEY_INFO *find_key_in_chain(IEC_CHAIN_INFO *keyChain, ST_UCHAR *pKeyID)
+{
+IEC_90_5_KEY_INFO *pNext=NULL;
+
+    if((keyChain==NULL) || (pKeyID==NULL))
+      return(NULL);
+
+    if((pNext = keyChain->pStartKeyInfo)==NULL)
+      return(NULL);
+
+    while((pNext!=NULL) && (memcmp (pNext->key_id,pKeyID,SIZE_OF_KEY_ID)))
+	pNext= pNext->next;
+
+    return(pNext);
+}
+
+
+
+
+static ST_BOOLEAN destroy_key_info(IEC_90_5_KEY_INFO *pKeyInfo)
+{
+  if(pKeyInfo->pKey)
+    chk_free(pKeyInfo->pKey);
+
+  memset(pKeyInfo->key_id, 0, SIZE_OF_KEY_ID);
+  pKeyInfo->keyLen = 0;
+  pKeyInfo->elapsedTimeUntilExpiration = 0;
+  pKeyInfo->timeOfexpiration = 0; 
+  return(TRUE);
+}
+
+static ST_BOOLEAN add_key(IEC_90_5_KEY_PAYLOAD_ID *pKeyStorage, IEC_90_5_KEY_INFO *pKeyInfo,  ST_UINT8 typeOfKey,  ST_UINT16 key_len, ST_UCHAR *pKey,  ST_UCHAR *pKeyID, ST_UINT32 time_remaining )
+{
+
+  
+  //set the time remaining and expiration time, both are in seconds
+  if(time_remaining == 0)			//then will default to the maximum
+	pKeyInfo->elapsedTimeUntilExpiration = MAX_ALLOWED_KEY_EXPIRATION_SECONDS;
+  else
+    pKeyInfo->elapsedTimeUntilExpiration = time_remaining;
+
+  pKeyInfo->timeOfexpiration = time(NULL) + pKeyInfo->elapsedTimeUntilExpiration;  //value can just now be compared 
+
+
+  // now need to make sure to deallocate previously allocated storage
+  if (pKeyInfo->pKey!=NULL)
+    chk_free (pKeyInfo->pKey);
+    
+  pKeyInfo->pKey = (ST_UCHAR *)chk_calloc(1,key_len);
+  memcpy(pKeyInfo->pKey, pKey, key_len);
+  
+  pKeyInfo->keyLen = key_len;
+
+  memcpy(pKeyInfo->key_id,pKeyID,SIZE_OF_KEY_ID);
+  pKeyInfo-> typeOfKey = typeOfKey;
+  
+  return(TRUE);	
+}
+
+
+ST_BOOLEAN add_next_key( IEC_90_5_KEY_PAYLOAD_ID *pKeyStorage, ST_UINT8 typeOfKey, ST_UINT16 key_len, ST_UCHAR *pKey,  ST_UCHAR *pKeyID, ST_UINT32 time_remaining)
+{
+  return(add_key(pKeyStorage, pKeyStorage->nextKey, typeOfKey, key_len, pKey, pKeyID, time_remaining));
+}
+
+ST_BOOLEAN add_current_key( IEC_90_5_KEY_PAYLOAD_ID *pKeyStorage, ST_UINT8 typeOfKey, ST_UINT16 key_len, ST_UCHAR *pKey, ST_UCHAR *pKeyID, ST_UINT32 time_remaining)
+{
+  return(add_key(pKeyStorage,pKeyStorage->currentKey, typeOfKey, key_len, pKey, pKeyID, time_remaining));
+}
+
+
+
+
+/******************************************************************************************************/
+/******************************************************************************************************/
+/*	      The following section are gloabal PayloadID functions				      */
+/******************************************************************************************************/
+/******************************************************************************************************/
+//this function needs to be called prior to each transmission (e.g. to get a key rotation
+//a return value of TRUE indicates that the application needs to 
+//return values for manage_tx_key
+//#define KEYS_NOK 0			//indicates that neither the primary nor next key are valid
+//#define KEYS_OK   1			//indicates that the Primary key is ok
+//#define PRIME_KEY_OK_NEXT_KEY_NOK 1		//indicates that the primary key is OK, but there is no next key
+ST_UINT8 manage_tx_key(IEC_90_5_KEY_PAYLOAD_ID *pKeyRoot)
+{
+ time_t seconds;
+
+ seconds = time(NULL);			/*get the number of seconds */
+ if (seconds > pKeyRoot->currentKey->timeOfexpiration)			/*then the primary has expire  */
+   {
+	destroy_key_info(pKeyRoot->currentKey);
+	 add_current_key( pKeyRoot, pKeyRoot->nextKey->typeOfKey, pKeyRoot->nextKey->keyLen, pKeyRoot->nextKey->pKey,  pKeyRoot->nextKey->key_id, pKeyRoot->nextKey->elapsedTimeUntilExpiration);
+	 destroy_key_info(pKeyRoot->nextKey);
+
+//place to spawn a thread to go back to GDOI to refresh the next key
+	 if(pKeyRoot->currentKey->pKey!=NULL)
+	   return(PRIME_KEY_OK_NEXT_KEY_NOK);
+	 else
+	   return(KEYS_NOK);
+   }
+
+  if(pKeyRoot->nextKey->pKey==NULL)
+    return(PRIME_KEY_OK_NEXT_KEY_NOK);
+  else
+    return(KEYS_OK);
+
+}
+
+
+
+
+
+
+
+/************************************************************************************/
+/*					destroy_KeyPayload			    */
+/*  function frees storage for  key payload and associated information	 	    */
+/*  including key information that were allocated				    */
+/*										    */
+/*  Return:  BOOLEAN (TRUE)							    */
+/* 										    */
+/************************************************************************************/
+ST_BOOLEAN destroy_keyPayload (IEC_90_5_KEY_PAYLOAD_ID *pKeyRoot)
+{
+   IEC_90_5_KEY_PAYLOAD_ID **pHeadofStore;
+   IEC_CHAIN_INFO *pTempChain;	
+
+//  destroy_key_info(pKeyRoot->currentKey);
+//  destroy_key_info(pKeyRoot->nextKey);
+
+ /* now need to free up what was previously allocated	*/
+  if(pKeyRoot->keyAddress.pAddress)
+    chk_free(pKeyRoot->keyAddress.pAddress);
+
+  if(pKeyRoot->DataSetRef)
+    chk_free(pKeyRoot->DataSetRef);
+
+ /*unlink from the appropriate chain			*/
+  if(pKeyRoot->pPrev)
+    {
+      if(pKeyRoot->pNext)
+	  {
+	  pKeyRoot->pNext->pPrev = pKeyRoot->pPrev;
+	  pKeyRoot->pPrev->pPrev = pKeyRoot->pNext;
+	  }
+      else
+	  pKeyRoot->pPrev->pNext = NULL;
+    }
+  else
+    {
+    // this means that the payload is the first in the list and have to find the root node 
+      if((pTempChain =find_chain_head(pKeyRoot->keyUsageType))!=NULL)
+	{
+	  if((pHeadofStore= find_key_storage_head(pTempChain, pKeyRoot->keyAddress.typeOfAddress))!=NULL)
+	    {
+	      *pHeadofStore = pKeyRoot->pNext;
+	       if(pKeyRoot->pNext)
+		 pKeyRoot->pNext->pPrev = NULL;
+	    }
+	}
+     }
+
+ /* free up the actual storage				*/
+     chk_free(pKeyRoot);
+
+}
+
+/************************************************************************************/
+/*					create_KeyPayload			    */
+/*  function allocates storage for new key storage and places it into the 	    */
+/*  the appropriate key chain for efficient lookup				    */
+/*  all inputs to the function, if allocated by the application can be freed	    */
+/*  upon return.								    */
+/*  The function does not interact with the GDOI KDC, that is under control	    */
+/*  of the application initially.						    */
+/*										    */
+/*  Return:  Pointer to the allocated storage, if NULL there was a problem	    */
+/* 										    */
+/************************************************************************************/
+
+
+IEC_90_5_KEY_PAYLOAD_ID *create_KeyPayload( ST_UINT8 usageType, IEC_KEY_ADDRESS *pAddress, char *pDatSetRef)	//used to allocate key storage and put it into the appropriate chain
+{
+   IEC_90_5_KEY_PAYLOAD_ID **pHeadofStore;
+   IEC_90_5_KEY_PAYLOAD_ID *pNextStore;
+   IEC_90_5_KEY_PAYLOAD_ID *pTempStore;
+   IEC_CHAIN_INFO *pTempChain;	
+						//pointer to allocated information	
+   	  
+  if(( usageType> MAX_IEC_KEY_USAGE_TYPE)||(pAddress->typeOfAddress >IP_V6_ADDRESS_TYPE)
+	|| (pAddress->lenOfAddress ==0) || (pAddress->pAddress==NULL))		//we can't do anything since there is no chain for it
+    return(NULL);
+
+   if((pTempChain =find_chain_head(usageType))==NULL)	    //get the chain that will need to be used
+    return(NULL);
+
+   if((pHeadofStore= find_key_storage_head(pTempChain, pAddress->typeOfAddress))==NULL)
+    return(NULL);
+
+  if((pTempStore = find_key_storage(pTempChain, pAddress, pDatSetRef))==NULL)		//see if it is already in the chain
+    {
+    pTempStore = (IEC_90_5_KEY_PAYLOAD_ID *) chk_calloc(1, sizeof(IEC_90_5_KEY_PAYLOAD_ID));
+    pTempStore->keyUsageType = usageType;
+
+
+    if(pTempStore!=NULL)
+    {
+
+    /* we have stuff to fill in	      */
+      pTempStore->keyAddress.typeOfAddress = pAddress->typeOfAddress;
+      pTempStore->keyAddress.lenOfAddress = pAddress->lenOfAddress;  
+      pTempStore->keyAddress.pAddress = chk_calloc(1,pTempStore->keyAddress.lenOfAddress);
+       memcpy(pTempStore->keyAddress.pAddress,pAddress->pAddress, pTempStore->keyAddress.lenOfAddress);
+
+      pTempStore->dataSetRefLen = (ST_UINT8)strlen(pDatSetRef);
+      pTempStore->DataSetRef = chk_calloc(1,(pTempStore->dataSetRefLen+1));
+      strcpy(pTempStore->DataSetRef,pDatSetRef);
+
+   }
+
+   //now that we have it filled in, time to link the storage into the appropriate chain
+    
+     pNextStore= *pHeadofStore;
+     if(pNextStore!=NULL)
+       pNextStore->pPrev = (struct iec_90_5_key_payload_id *) pTempStore;
+
+     pTempStore->pNext= (struct iec_90_5_key_payload_id *) pNextStore;
+     pTempStore->pPrev = NULL;
+     *pHeadofStore = pTempStore;
+  }
+   
+  return(pTempStore);
+
+}
+
+
+
+
+

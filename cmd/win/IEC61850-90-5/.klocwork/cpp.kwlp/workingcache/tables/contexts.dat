@@ -1,0 +1,15 @@
+1;wndMenu`;//hwndofitemsubmenuifone;BOOLfFocused:1`;//itemhasthefocus
+2;Focused:1`;//bar,popuphasthefocus;}MENUBARINFO,*PMENUBARINFO,*LPME
+3;RefId`;unsignedlongPointerLength`;;intfDontCallFreeInst:1`;intfInOnl
+4;gPointerLength`;intfInDontFree:1`;;intfInOnlyParam:1`;intfHasReturn:
+5;ntFree:1`;intfDontCallFreeInst:1`;;intfHasReturn:1`;intfHasExtension
+6;allFreeInst:1`;intfInOnlyParam:1`;;intfHasExtensions:1`;intfHasNewCo
+7;tfInOnlyParam:1`;intfHasReturn:1`;;intfHasNewCorrDesc:1`;intfIsIn:1`;
+8;HasReturn:1`;intfHasExtensions:1`;;intfIsIn:1`;intfIsOut:1`;intfIsOic
+9;tensions:1`;intfHasNewCorrDesc:1`;;intfIsOut:1`;intfIsOicf:1`;intfBuf
+10;intfHasNewCorrDesc:1`;intfIsIn:1`;;intfIsOicf:1`;intfBufferValid:1`;i
+11;rrDesc:1`;intfIsIn:1`;intfIsOut:1`;;intfBufferValid:1`;intfHasMemoryV
+12;IsIn:1`;intfIsOut:1`;intfIsOicf:1`;;intfHasMemoryValidateCallback:1`;
+13;`;intfIsOicf:1`;intfBufferValid:1`;;intfInFree:1`;intfNeedMCCP:1`;intf
+14;intfHasMemoryValidateCallback:1`;;intfNeedMCCP:1`;intfUnused:3`;intf
+15;ValidateCallback:1`;intfInFree:1`;;intfUnused:3`;intfUnused2:16`;unsi

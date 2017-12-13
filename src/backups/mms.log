@@ -1,0 +1,14 @@
+
+
+***********************************************************
+          LOGGING STARTED Fri Sep 09 14:00:41 2011
+***********************************************************
+
+2011-09-09 14:00:41.392 SX_LOG_ERR (osicfgx.c 1525) 
+  NetAddr Type=IPADDR not allowed in RemoteAddress='remote1' (TCP not supported). This entry ignored.
+
+2011-09-09 14:00:41.579 SLOGALWAYS (udp_pub.c 646) 
+  UDP Publisher mapping:
+    MAC=01-01-01-01-01-01	IPAddr=239.0.0.1
+    MAC=01-0C-CD-01-00-01	IPAddr=239.0.0.2
+    MAC=01-0C-CD-01-00-03	IPAddr=239.0.0.3

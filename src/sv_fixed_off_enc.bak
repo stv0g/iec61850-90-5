@@ -1,0 +1,492 @@
+/************************************************************************/
+/* SISCO SOFTWARE MODULE HEADER *****************************************/
+/************************************************************************/
+/*	(c) Copyright Systems Integration Specialists Company, Inc.,	*/
+/*	2011-2012, All Rights Reserved					*/
+/*									*/
+/* MODULE NAME : udp_pub.c						*/
+/* PRODUCT(S)  : MMS-EASE Lite						*/
+/*									*/
+/* MODULE DESCRIPTION :							*/
+/*	UDP Publisher sample application				*/
+/*									*/
+/* GLOBAL FUNCTIONS DEFINED IN THIS MODULE :				*/
+/*	NONE								*/
+/*									*/
+/* MODIFICATION LOG :							*/
+/*  Date     Who			Comments			*/
+/* --------  ---  ------   -------------------------------------------	*/
+/* 03/24/12  HSF	   Corrected OptFld support			*/
+/* 02/18/12  HSF	   Added sv-optflds and changed smp_mod to be	*/
+/*			    a pointer since it is not allowed to be in	*/
+/*			    optflds					*/
+/* 12/01/11  HSF	   Initial Release				*/
+/************************************************************************/
+#include "iec_glbtypes.h"
+#include "iec_sysincs.h"
+#include "iec_90_5.h"
+
+
+
+#define MAX_ALLOWED_SV_SIZE 64000						//only allow SVs of  1500 bytes
+
+//********** size of the hdr ************************
+//	tag 				60					1
+//	length				  02  xx xx				3
+//  number of ASDU			80  01 xx				3
+//  sequence of ASDU			82  82 xx xx				4
+#define SV_HDR_SIZE 11		
+
+//**********size of the common ASDU information *****
+#define SIZE_OF_INIT_SEQ 4
+//  sequence			30 82 xx xx					4
+#define SIZE_OF_MSVID	2
+//  msvid					80 01 				2
+#define SIZE_OF_DATSET	2
+//  datSet					81 01				2
+#define COMMON_SMP_OFFSET  8
+#define SIZE_OF_SMPCNT 5
+//  smpcnt					82 03 xx xx xx 			5
+#define SIZE_OF_CONFREV	 7
+// confrev					83 05 xx xx xx xx xx		7
+#define SIZE_OF_REFTIM 10
+//  refrtim		not included due to timestamp				10
+#define SIZE_OF_SMPSYNCH 3
+// smpsynch					85 01 xx			3
+#define SIZE_OF_SMPRATE 5
+// smprate					86 03 xx xx xx			0
+#define SIZE_OF_ASDU_DATA 4
+// asdu_data				87 82 xx xx				4
+#define SIZE_OF_SMPMOD 5
+// smpMod					88 03 xx xx xx			0
+#define SIZE_OF_UTCTS 10
+// utcTimeStamp				89 08 xx xx xx ...			0
+#define COMMON_ASDU_SIZE	(SIZE_OF_INIT_SEQ +	SIZE_OF_MSVID +	 SIZE_OF_SMPCNT +  SIZE_OF_CONFREV + SIZE_OF_ASDU_DATA + SIZE_OF_SMPMOD + SIZE_OF_UTCTS)
+
+//to get the total size, need to add the size of the Msvid and datSetRef	
+
+
+int sv_enc_update_lengths( SV_ENC_STRUCT *pCntrlStruc,		//pointer the the control structure for the buffer
+			   unsigned int num_asdus_to_use	//number of the actual ASDUs that will be used
+			  )
+{
+ST_UINT16 size =0;
+
+    if(num_asdus_to_use > (pCntrlStruc->max_num_ASDUs_allocated))
+      return(IEC905_ErrorHandler(LARGER_THAN_ALLOWED_PDU,__FILE__,__LINE__));
+
+    size= (pCntrlStruc->size_of_asdu )*num_asdus_to_use ;
+    *pCntrlStruc->pASDUSeqLen = htons(size);	//ASDU Sequence length
+
+    *pCntrlStruc->pNumASDUVal = (ST_UCHAR)  num_asdus_to_use;
+
+    size +=7;
+    
+    *pCntrlStruc->pPDULen = htons(size);
+
+    pCntrlStruc->length_to_send = size+4;     //the +4 is due to the tag, len_of_len, and 2 length octets
+
+    return(SUCCESS_IEC905);
+}	   
+  
+/******************************************************************************/
+/*	    destroy_sv_encode_struct					      */
+/*									      */
+/* Function frees the encode buffer and structure and returns SUCCES or an    */
+/* error								      */
+/******************************************************************************/
+int destroy_sv_encode_struct (SV_ENC_STRUCT * pDestroy)
+{
+    if(pDestroy!=NULL)
+    {
+      if (pDestroy->pSVbuffer!=NULL)
+	free(pDestroy->pSVbuffer);
+      
+      free(pDestroy);
+    }
+
+  return(SUCCESS_IEC905);
+}
+
+/******************************************************************************/
+/*	    initialize_sv_encode_struct					      */
+/*									      */
+/* Function allocates an encode buffer and returns a Control structure.	      */
+/*									      */
+/* The allocated buffer includes the maximum number of ASDUs specified.	      */
+/* The non-sample fields in the ASDUs are initialized with the values provided*/
+/* as function inputs.							      */
+/******************************************************************************/
+SV_ENC_STRUCT * initialize_sv_encode_struct (char * pMsvid,	  //pointer to a NULL terminated MSVID value may not be more than 127
+				    char * pDatSetRef,		 //pointer to a NULL terminated DataSetReference string, may not be more than 127
+				    unsigned int max_num_asdus,	 //maximum number of ASDUs, may not be more than 127
+				    ST_UINT32 confrev,
+				    ST_UCHAR  smpSync,
+				    ST_UINT16 smpRate,
+				    ST_UINT16 *smpMod,
+				    ST_UINT16 size_of_asdu_data,	 //size of ASDU data in bytes
+				    ST_UINT8 sv_optflds
+				    )
+{
+ unsigned int  asdu_size=0;
+ unsigned int smpcnt_offset=0;
+ unsigned int conf_rev_offset=0;
+ unsigned int smpsynch_offset=0;
+ unsigned int smpRate_offset=0;
+ unsigned int asdu_data_offset=0;
+ unsigned int asdu_data_data_offset=0;
+ unsigned int smpmod_offset=0;
+ unsigned int timeStamp_offset=0;
+ST_UINT16 total_asdu_size=0;
+ unsigned int total_size_to_allocate=0;
+ unsigned int string_field_sizes=0;	
+ unsigned int size_of_enc_struct;
+ SV_ENC_STRUCT *pMyEncStruct;
+unsigned char *pEncBuffer;
+unsigned int i;
+ASDU_ENC_INFO *pMyCurrentASDUInfo;
+
+		
+	asdu_size = 0;
+
+	if(pMsvid)
+		{
+		asdu_size +=  SIZE_OF_MSVID;
+		asdu_size += (unsigned int)strlen(pMsvid);
+		}
+
+	if((sv_optflds &&  SV_INCLUDE_DATA_SET) && (pDatSetRef !=NULL))
+	  {
+	    asdu_size += SIZE_OF_SMPRATE;
+		asdu_size += (unsigned int)strlen(pDataSetRef);
+	  }
+
+
+	if(smpMod != NULL)
+		asdu_size += SIZE_OF_SMPMOD;
+	
+	//calculate size based upon optflds
+
+/*
+#define SV_INCLUDE_REFRESH_TIME	  0x80
+#define SV_INCLUDE_SAMPLE_SYNC	  0x40	      //do not used, just provided for backward compatibility with V1
+#define SV_INCLUDE_SAMPLE_RATE	  0x20
+#define SV_INCLUDE_DATA_SET	  0x10
+#define SV_INCLUDE_SECURITY	  0x08	      //ignored, not used
+#define SV_INCLUDE_UTC_TIME	  0x04	      //added by 90-5
+*/
+	if(sv_optflds &&  SV_INCLUDE_REFRESH_TIME)
+	    asdu_size += SIZE_OF_REFTIM;
+
+	if(sv_optflds &&  SV_INCLUDE_SAAMPLE_SYNC)
+	    asdu_size += SIZE_OF_SMPSYNCH;
+
+	if(sv_optflds &&  SV_INCLUDE_SAMPLE_RATE)
+	    asdu_size += SIZE_OF_SMPRATE;
+
+
+	if(sv_optflds &&  SV_INCLUDE_UTC_TIME)
+	    asdu_size += SIZE_OF_UTCTS;
+
+
+	asdu_size = COMMON_ASDU_SIZE + string_field_sizes + size_of_asdu_data;
+
+	total_size_to_allocate = asdu_size *  max_num_asdus +  SV_HDR_SIZE;
+
+	if(total_size_to_allocate > MAX_ALLOWED_SV_SIZE)
+	  {
+	   IEC905_ErrorHandler(LARGER_THAN_ALLOWED_PDU,__FILE__,__LINE__);
+	   return(NULL);
+	  }
+	//calculate how much to allocate.  The -1 is due to the fact that 1 ASDU_ENC_INFO is already
+	//included in SV_ENC_STRUCT;
+	size_of_enc_struct = sizeof(SV_ENC_STRUCT) + sizeof( ASDU_ENC_INFO) *  (max_num_asdus-1);
+	if((pMyEncStruct = (SV_ENC_STRUCT *)calloc(size_of_enc_struct, sizeof(unsigned char)))==NULL)	//use calloc to make sure all zeros
+	{
+	  IEC905_ErrorHandler(MEMORY_ALLOCATION_ERROR,__FILE__,__LINE__);
+	  return(NULL);
+	}
+   
+	pMyEncStruct->size_of_asdu = asdu_size;
+	pMyEncStruct->max_num_ASDUs_allocated = max_num_asdus;
+
+	//allocate the actual encode buffer
+	if((pEncBuffer = calloc(1,total_size_to_allocate)) ==NULL)
+	{
+	  free(pMyEncStruct);
+	  IEC905_ErrorHandler(MEMORY_ALLOCATION_ERROR,__FILE__,__LINE__);
+	  return(NULL);
+	}
+
+	pMyEncStruct->pSVbuffer = pEncBuffer;
+
+#define SV_PDU_TAG    0x60
+	*pEncBuffer++ = SV_PDU_TAG;
+	*pEncBuffer++ = 0x82;	      //length of the value
+	pMyEncStruct->pPDULen = (ST_UINT16 *)pEncBuffer;
+	
+	//now we skip the 2 bytes allocated for the length, will need to be filled in during encode
+	pEncBuffer +=2;
+
+	//Now need to encode the number of ASDUS
+#define NUM_ASDU_TAG 0x80
+	*pEncBuffer++ = NUM_ASDU_TAG;
+	*pEncBuffer++ = 0x01;		//length of the number of ASDUs, maximum number is 127
+	pMyEncStruct->pNumASDUVal=pEncBuffer;
+
+	++pEncBuffer;		  //Skip the value, will need to be filled in during encode
+
+#define SEQUENCE_OF_ASDU_TAG 0xA2
+	*pEncBuffer++ = SEQUENCE_OF_ASDU_TAG;
+	*pEncBuffer++ = 0x82;	  //length of the length of the sequence
+	pMyEncStruct->pASDUSeqLen = (ST_UINT16 *)pEncBuffer;
+
+	//now skip the value of the length
+	pEncBuffer+=2;
+	
+	//now we need to iterate and fill in all of the ASDU information
+	for (i = 0; i<max_num_asdus;i++)
+	{
+	  pMyCurrentASDUInfo = &(pMyEncStruct->asdus[0]);
+	  pMyCurrentASDUInfo->pASDU = pEncBuffer;
+
+#define ASDU_SEQ_TAG  0x30
+	  *pEncBuffer++=ASDU_SEQ_TAG;
+	  *pEncBuffer++=0x82;		//length of the length of the ASDU
+	  
+
+	  *(ST_UINT16 *)pEncBuffer = htons(asdu_size-SIZE_OF_INIT_SEQ);	/* SPDU Version	*/
+	   pEncBuffer += 2;
+
+	  //now ready to encode the MVSID if it was passed in
+	  if(pMsvid)
+	  {
+#define MSVID_TAG 0x80
+	    *pEncBuffer++ = MSVID_TAG;
+	    *pEncBuffer++ = (unsigned char)strlen(pMsvid);
+	     memcpy(pEncBuffer,pMsvid,strlen(pMsvid));
+	     pEncBuffer += strlen(pMsvid);
+	  }
+
+	  //now ready to encode the DataSet if it was passed in
+#define DATSET_TAG 0x81
+	  if((pDatSetRef) && (sv_optflds & SV_INCLUDE_DATA_SET))
+	  {
+	    *pEncBuffer++ = DATSET_TAG;
+	    *pEncBuffer++ = (unsigned char)strlen(pDatSetRef);
+	     memcpy(pEncBuffer,pDatSetRef,strlen(pDatSetRef));
+	     pEncBuffer += strlen(pDatSetRef);
+	  }
+
+	  //encode the SMPCNT
+#define SMPCNT_TAG 0x82
+	  *pEncBuffer++ =  SMPCNT_TAG;
+	  *pEncBuffer++ = 0x03;	
+	   ++pEncBuffer;			//now have a pointer to where the actual value goes
+	  
+	  pMyCurrentASDUInfo->pSmpCntValue = (ST_UINT16*)pEncBuffer;	//this value will need to be filled in during the actual encode
+	  pEncBuffer +=2;
+
+
+	  //the ConfRev may not be changed dynamically.  If it is changed, need to create a new buffer and free the old one
+#define CONFREV_TAG 0x83
+	  *pEncBuffer++ = CONFREV_TAG;
+	  *pEncBuffer++ = 0x5;		  //length of the confrev making sure the value is always positive
+	  ++pEncBuffer;
+	  *(ST_UINT32 *)pEncBuffer = htonl(confrev);	/* SPDU Version	*/
+	   pEncBuffer += 4;	  
+	
+	  // RefrTim
+#define REFRTM_TAG 0x84
+	  if(sv_optflds & SV_INCLUDE_REFRESH_TIME)
+	    {
+	    *pEncBuffer++=REFRTM_TAG;
+	    *pEncBuffer++ =0x08;	      //length of the value
+	     pMyCurrentASDUInfo->pASDU_TimeStamp=pEncBuffer;	  //store the pointer to the data area that will need to be updated.
+	     pEncBuffer +=8;
+	    }
+	  else
+	    pMyCurrentASDUInfo->pASDU_TimeStamp;
+
+	  //now encode the SmpSynch
+#define SMPSYNCH_TAG 0x85
+	  if(sv_optflds & SV_INCLUDE_SAMPLE_SYNC)
+	    {
+	    *pEncBuffer++ = SMPSYNCH_TAG;
+	    *pEncBuffer++ = 0x1;		  //length of the value
+	    pMyCurrentASDUInfo->pSmpCntValue = (ST_UINT16 *)pEncBuffer;
+	    *pEncBuffer++ = 0x01;		  //default the value to TRUE , indicating that it is synchronized
+	    }
+	  else
+	    pMyCurrentASDUInfo->pSmpCntValue = NULL;
+
+
+	  //this code initializes the SMPRate, and the code does not allow it to be changed dynamically.
+#define SMPRATE_TAG 0x86
+	  if(sv_optflds & SV_INCLUDE_SAMPLE_SYNC)
+	    {
+	    *pEncBuffer++= SMPRATE_TAG;
+	    *pEncBuffer++ = 0x03;		  //length of the value, it is three to prevent negatives
+	    *pEncBuffer++ = 0x00;
+	    ++pEncBuffer;
+	    *(ST_UINT16 *)pEncBuffer = htons(smpRate);	/* SPDU Version	*/
+	     pEncBuffer += 2;
+	    }
+
+	  
+#define SAMPLES_TAG 0x87
+	  *pEncBuffer++ = SAMPLES_TAG;
+	  *pEncBuffer++= 0x82;		    //length of the length
+	  *(ST_UINT16 *)pEncBuffer = htons(size_of_asdu_data);	/* SPDU Version	*/
+	   pEncBuffer += 2;	  
+	  
+	  //now we are where the actual data goes
+	  pMyCurrentASDUInfo->pASDU_data = pEncBuffer;
+	  pEncBuffer += size_of_asdu_data;		  
+
+
+#define SMPMOD_TAG 0x88
+	  if(smpMod!=NULL)		//if pointer is NULL, skip
+	    {
+	    *pEncBuffer++=SMPMOD_TAG;
+	    *pEncBuffer++=0x03;		//length of the value.
+	    ++pEncBuffer;
+	    *(ST_UINT16 *)pEncBuffer = htons(*smpMod);	/* SPDU Version	*/
+	     pEncBuffer += 2;
+	    }
+
+
+#define UTCTS_TAG 0x89
+	  if(sv_optflds & SV_INCLUDE_UTC_TIME)
+	    {
+	    *pEncBuffer++=UTCTS_TAG;
+	    *pEncBuffer++ =0x08;	      //length of the value
+	    pMyCurrentASDUInfo->pASDU_TimeStamp=pEncBuffer;	  //store the pointer to the data area that will need to be updated.
+	    pEncBuffer +=8;
+	    }
+
+      }	//end of the loop to fill in the ASDUs
+
+    //now update the lengths in case the maximum ASDU are always sent
+
+    sv_enc_update_lengths( pMyEncStruct,max_num_asdus);
+
+    return(pMyEncStruct);
+    
+
+	//now ready to start initializing the data
+}
+
+
+/********************************************************************************************/
+/*		      sv_data_helper_prim						    */
+/*											    */
+/* this function is an implementation of Table 15 in IEC 61850-9-2 and allows the user	    */
+/* to determine the correct size of the data elements.					    */
+/*											    */
+/* the function returns the length/size of the data element type (ret_len) and the	    */
+/* offset to the next data item.							    */
+/*											    */
+/*  Inputs:										    */
+/*	    dataType: one of the SV_DATATYPES enumerations				    */
+/*	    initial_offset:  The offset to the current data element			    */
+/*	    ret_len:  A pointer to where the length of the element should be returned	    */
+/*											    */
+/*  Return:  Offset to the next data element.  Will be negative if the dataType is not	    */
+/*	      recognized								    */
+/********************************************************************************************/
+
+int sv_data_helper_prim(unsigned int dataType, int initialDataOffset, int *pRetLen)
+{
+int retLen;
+int retOffset=initialDataOffset;
+
+    if(initialDataOffset <0)		    //don't allow negative values
+      return(IEC905_ErrorHandler (INVALID_INPUT_PARAMETER, __FILE__,__LINE__));
+
+    switch (dataType)
+    {
+      case SV_BOOLEAN:
+      case SV_INT8:
+      case SV_INT8U:
+	  retLen = 1;
+	  break;
+
+      case SV_INT16:
+      case SV_INT16U:
+	  retLen= 2;
+	  break;
+
+      case SV_INT32:
+      case SV_INT32U:
+      case SV_FLOAT32:
+      case SV_ENUMERATED:
+      case SV_CODEDENUM:
+	  retLen = 4;
+	  break;
+
+      
+      case SV_ENTRYTIME:
+	  retLen = 6;
+	  break;
+
+      case SV_INT64:
+      case SV_FLOAT64:
+      case SV_TIMESTAMP:
+	  retLen=8;
+	  break;
+
+      case SV_OCTETSTRING:
+      case SV_UNICODESTRING:
+      case SV_OBJECTNAME:
+      case SV_OBJECTREFERENCE:
+	  retLen=20;
+	  break;
+
+      case SV_VISIBLESTRING:
+	  retLen=35;
+	  break;
+
+      case SV_INT24U:	      //don't support this one    
+      default:
+	  IEC905_ErrorHandler (INVALID_INPUT_PARAMETER, __FILE__,__LINE__);
+	  retLen = INVALID_INPUT_PARAMETER;
+	  break;
+
+    }
+    if(retLen>0)
+      retOffset = initialDataOffset + retLen;
+    else
+      retOffset = INVALID_INPUT_PARAMETER;
+      
+    *pRetLen = retLen;
+    return(retOffset);
+}
+	
+
+/********************************************************************************************/
+/*		      sv_data_helper_calculate_samples_size_prim			    */
+/*											    */
+/*											    */
+/* the function returns the length/size of the data element type (ret_len) and the	    */
+/* offset to the next data item and calculates an accruing size (total_calc_len)	    */
+/*											    */
+/*  Inputs:										    */
+/*	    dataType: one of the SV_DATATYPES enumerations				    */
+/*	    initial_offset:  The offset to the current data element			    */
+/*	    ret_len:  A pointer to where the length of the element should be returned	    */
+/*	    total_calc_len: pointer to the accrued total.  User must initial to zero	    */
+/*											    */
+/*  Return:  Offset to the next data element.  Will be negative if the dataType is not	    */
+/*	      recognized								    */
+/********************************************************************************************/
+int sv_data_helper_calculate_samples_size_prim (unsigned int dataType, int initialDataOffset, int *pRetLen, int *pTotalCalcLen)
+{
+int newOffset;
+
+    newOffset = sv_data_helper_prim(dataType, initialDataOffset,  pRetLen);
+    if(newOffset>=0)
+      *pTotalCalcLen += *pRetLen;
+
+    return (newOffset);
+}									

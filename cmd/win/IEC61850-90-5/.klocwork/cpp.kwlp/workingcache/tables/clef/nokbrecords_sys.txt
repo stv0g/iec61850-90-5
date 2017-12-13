@@ -1,0 +1,5 @@
+C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinBase.h
+C:\Program Files\Microsoft Visual Studio 8\VC\include\stdio.h
+C:\Program Files\Microsoft Visual Studio 8\VC\include\sys\stat.h
+C:\Program Files\Microsoft Visual Studio 8\VC\include\sys\timeb.h
+C:\Program Files\Microsoft Visual Studio 8\VC\include\time.h

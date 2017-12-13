@@ -1,0 +1,23 @@
+0;22.kb
+1;1.kb:15.kb 0.kb 20_pre.kb
+2;14.kb:15.kb 0.kb
+3;15.kb:2_pre.kb
+4;21.kb:15.kb 20_pre.kb
+5;20.kb:15.kb 2_pre.kb
+6;16.kb:15.kb 20.kb
+7;17.kb:15.kb
+8;0.kb
+9;18.kb:15.kb
+10;19.kb:15.kb
+11;2.kb:22.kb 1.kb 14.kb 15.kb 21.kb 20.kb 16.kb 17.kb 18.kb 19.kb 3.kb
+12;3.kb
+13;1_pre.kb:15_pre.kb 0.kb
+14;14_pre.kb:15_pre.kb 0.kb
+15;15_pre.kb
+16;21_pre.kb:15_pre.kb
+17;20_pre.kb:15_pre.kb
+18;16_pre.kb:15_pre.kb 20_pre.kb
+19;17_pre.kb:15_pre.kb
+20;18_pre.kb:15_pre.kb
+21;19_pre.kb:15_pre.kb
+22;2_pre.kb:22.kb 1_pre.kb 14_pre.kb 15_pre.kb 21_pre.kb 20_pre.kb 16_pre.kb 17_pre.kb 18_pre.kb 19_pre.kb 3.kb

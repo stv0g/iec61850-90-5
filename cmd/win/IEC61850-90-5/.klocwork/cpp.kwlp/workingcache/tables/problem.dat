@@ -1,0 +1,15 @@
+1;121;42;12253;5;42;8;-129330966;1;1;Bit field 'fBarFocused' has one bit and is signed
+2;121;42;12254;5;42;8;-1648360399;1;1;Bit field 'fFocused' has one bit and is signed
+3;121;72;684;5;72;8;-78311704;1;1;Bit field 'fInDontFree' has one bit and is signed
+4;121;72;685;5;72;8;-681518585;1;1;Bit field 'fDontCallFreeInst' has one bit and is signed
+5;121;72;686;5;72;8;94211158;1;1;Bit field 'fInOnlyParam' has one bit and is signed
+6;121;72;687;5;72;8;-1175186780;1;1;Bit field 'fHasReturn' has one bit and is signed
+7;121;72;688;5;72;8;-348362872;1;1;Bit field 'fHasExtensions' has one bit and is signed
+8;121;72;689;5;72;8;-1150726871;1;1;Bit field 'fHasNewCorrDesc' has one bit and is signed
+9;121;72;690;5;72;8;96486773;1;1;Bit field 'fIsIn' has one bit and is signed
+10;121;72;691;5;72;8;-1303871234;1;1;Bit field 'fIsOut' has one bit and is signed
+11;121;72;692;5;72;8;-1765314547;1;1;Bit field 'fIsOicf' has one bit and is signed
+12;121;72;693;5;72;8;915554134;1;1;Bit field 'fBufferValid' has one bit and is signed
+13;121;72;694;5;72;8;637760528;1;1;Bit field 'fHasMemoryValidateCallback' has one bit and is signed
+14;121;72;695;5;72;8;-1770191561;1;1;Bit field 'fInFree' has one bit and is signed
+15;121;72;696;5;72;8;1253306527;1;1;Bit field 'fNeedMCCP' has one bit and is signed

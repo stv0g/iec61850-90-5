@@ -1,0 +1,154 @@
+/************************************************************************/
+/* SISCO SOFTWARE MODULE HEADER *****************************************/
+/************************************************************************/
+/*	(c) Copyright Systems Integration Specialists Company, Inc.,	*/
+/*	2011-2011, All Rights Reserved					*/
+/*									*/
+/* MODULE NAME : udp_rx.c						*/
+/* PRODUCT(S)  : MMS-EASE Lite						*/
+/*									*/
+/* MODULE DESCRIPTION :							*/
+/*	UDP Subscriber receive functions.				*/
+/*									*/
+/* GLOBAL FUNCTIONS DEFINED IN THIS MODULE :				*/
+/*			udp_rx_init					*/
+/*			udp_rx						*/
+/*									*/
+/* MODIFICATION LOG :							*/
+/*  Date     Who	   Comments					*/
+/* --------  ---  ------   -------------------------------------------  */
+/* 07/22/11  JRB	   Initial revision				*/
+/************************************************************************/
+#include "glbtypes.h"
+#include "sysincs.h"
+/* NOTE: "sysincs.h" includes <winsock2.h>.	*/
+#include <ws2tcpip.h>	/* Add this for "ip_mreq".	*/
+#include "udp.h"
+
+/************************************************************************/
+/************************************************************************/
+ST_RET udp_rx_init (UDP_SUB_CFG *udp_sub_cfg, SOCKET *pReceivingSocket)
+     {
+     SOCKET             ReceivingSocket;
+     SOCKADDR_IN        ReceiverAddr;
+     SOCKADDR_IN        SenderAddr;
+     int                SenderAddrSize = sizeof(SenderAddr);
+     int                ByteReceived = 5;
+#if 1	/* NOTE: use this for SSM	*/
+struct ip_mreq_source mreq_source;	/* for Source Specific Multicast (SSM)	*/
+#else
+struct ip_mreq mreq;
+#endif
+#if defined(_WIN32)
+ST_ULONG nonblock_on=1;	/* CRITICAL: must be non-zero to enable non-blocking*/
+#else
+int nonblock_on=1;	/* CRITICAL: must be non-zero to enable non-blocking*/
+#endif
+ST_INT j;
+
+  // NOTE: assume WSAStartup already called.
+  // Create a new socket to receive datagrams on.
+
+  ReceivingSocket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+ 
+  if (ReceivingSocket == INVALID_SOCKET)
+    {
+    printf("Server: Error at socket(): %ld\n", WSAGetLastError());
+    return -1;
+    }
+ 
+  // Set up a SOCKADDR_IN structure that will tell bind that we
+  // want to receive datagrams from all interfaces using port 5150.
+ 
+  // The IPv4 family
+  ReceiverAddr.sin_family = AF_INET;
+  // Get Port no. from config
+  ReceiverAddr.sin_port = htons(udp_sub_cfg->IPPort);
+  // From all interface (0.0.0.0)
+  ReceiverAddr.sin_addr.s_addr = inet_addr ("0.0.0.0");	//binds OK. Receives loopback UDP OK.
+ 
+  // Associate the address information with the socket using bind.
+  // At this point you can receive datagrams on your bound socket.
+  if (bind(ReceivingSocket, (SOCKADDR *)&ReceiverAddr, sizeof(ReceiverAddr)) == SOCKET_ERROR)
+    {
+    printf("Server: bind() failed! Error: %ld.\n", WSAGetLastError());
+    // Close the socket
+    closesocket(ReceivingSocket);
+    // and exit with error
+    return -1;
+    }
+ 
+  /* NOTE: Some website said add this to receive Multicast. Don't remember website.*/
+  for (j = 0;  j < udp_sub_cfg->numIPAddr;  j++)
+    {
+    /* use setsockopt() to request that the kernel join a multicast group */
+#if 1	/* NOTE: use this for SSM	*/
+    mreq_source.imr_multiaddr.s_addr=inet_addr(udp_sub_cfg->IPAddr[j]);
+    mreq_source.imr_interface.s_addr=htonl(INADDR_ANY);
+    mreq_source.imr_sourceaddr.s_addr=inet_addr(udp_sub_cfg->SrcIPAddr[j]);
+    if (setsockopt(ReceivingSocket,IPPROTO_IP,IP_ADD_SOURCE_MEMBERSHIP,
+        (char *)&mreq_source,sizeof(mreq_source)))
+      printf ("Error %d setting IP_ADD_MEMBERSHIP socket option", WSAGetLastError());
+#else
+    mreq.imr_multiaddr.s_addr=inet_addr(udp_sub_cfg->IPAddr[j]);
+    mreq.imr_interface.s_addr=htonl(INADDR_ANY);
+    if (setsockopt(ReceivingSocket,IPPROTO_IP,IP_ADD_MEMBERSHIP,(char *)&mreq,sizeof(mreq)))
+      printf ("Error %d setting IP_ADD_MEMBERSHIP socket option", WSAGetLastError());
+#endif
+    }
+  // Some info on the receiver side...
+  getsockname(ReceivingSocket, (SOCKADDR *)&ReceiverAddr, (int *)sizeof(ReceiverAddr));
+ 
+#if 0	//DEBUG: enable these printfs only for debugging
+  printf("Server: Receiving IP(s) used: %s\n", inet_ntoa(ReceiverAddr.sin_addr));
+  printf("Server: Receiving port used: %d\n", htons(ReceiverAddr.sin_port));
+ 
+  printf("Server: I\'m ready to receive a datagram...\n");
+#endif
+ 
+  /* This ioctl call should make recvfrom return immediately.	*/
+  ioctlsocket (ReceivingSocket, FIONBIO, &nonblock_on);
+  *pReceivingSocket = ReceivingSocket;
+  return (SD_SUCCESS);
+  }
+
+/************************************************************************/
+/*			udp_rx						*/
+/* Receive one message.							*/
+/* NOTE: Initially "*rx_len" is size of buffer. When this funct returns	*/
+/*       it is the actual num bytes received.				*/
+/************************************************************************/
+ST_RET udp_rx (
+	SOCKET ReceivingSocket,
+	ST_UCHAR *rx_buf,	/* Caller buffer for received packet	*/
+	ST_INT *rx_len)		/* buffer len				*/
+  {
+  SOCKADDR_IN        SenderAddr;
+  int                SenderAddrSize = sizeof(SenderAddr);
+  int                ByteReceived;
+  ST_RET             retcode;
+
+  ByteReceived = recvfrom(ReceivingSocket, rx_buf, *rx_len, 0,
+                        (SOCKADDR *)&SenderAddr, &SenderAddrSize);
+  if ( ByteReceived > 0 )
+    {
+    retcode = SD_SUCCESS;
+#if 0	//DEBUG: enable these printfs only for debugging. Change to logs?
+    // Some info on the sender side
+    //DEBUG: Probably don't need getpeername. SenderAddr already set by recvfrom
+    getpeername(ReceivingSocket, (SOCKADDR *)&SenderAddr, &SenderAddrSize);
+    printf("Server: Sending IP used: %s\n", inet_ntoa(SenderAddr.sin_addr));
+    printf("Server: Sending port used: %d\n", htons(SenderAddr.sin_port));
+#endif
+    }
+  else
+    {
+    retcode = SD_FAILURE;
+#if 0	//DEBUG: enable these printfs only for debugging. Change to logs?
+    printf("Server: recvfrom() failed with error code: %d\n", WSAGetLastError());
+#endif
+    }
+
+  *rx_len = ByteReceived;	/* Chg rx_len to actual num bytes received*/
+  return (retcode);
+  }

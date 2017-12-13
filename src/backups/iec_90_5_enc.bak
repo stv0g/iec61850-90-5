@@ -1,0 +1,655 @@
+/************************************************************************/
+/* SISCO SOFTWARE MODULE HEADER *****************************************/
+/************************************************************************/
+/*	(c) Copyright Systems Integration Specialists Company, Inc.,	*/
+/*	2011-2011, All Rights Reserved					*/
+/*									*/
+/* MODULE NAME : udp_pub.c						*/
+/* PRODUCT(S)  : MMS-EASE Lite						*/
+/*									*/
+/* MODULE DESCRIPTION :							*/
+/*	UDP Publisher sample application				*/
+/*									*/
+/* GLOBAL FUNCTIONS DEFINED IN THIS MODULE :				*/
+/*	NONE								*/
+/*									*/
+/* MODIFICATION LOG :							*/
+/*  Date     Who			Comments			*/
+/* --------  ---  ------   -------------------------------------------	*/
+/* 08/31/11  JRB	   Fix CLTP encoding.				*/
+/* 07/22/11  JRB	   Initial revision				*/
+/************************************************************************/
+#include "glbtypes.h"
+#include "sysincs.h"
+#include "mem_chk.h"
+#include "iec_90_5.h"
+#include "clnp_sne.h"
+#include "ethertyp.h"
+#include "udp.h"
+#include "stdafx.h"
+#include <windows.h>
+#include "wincrypt.h"
+/************************************************************************/
+/* For debug version, use a static pointer to avoid duplication of 	*/
+/* __FILE__ strings.							*/
+/************************************************************************/
+
+#ifdef DEBUG_SISCO
+SD_CONST static ST_CHAR *SD_CONST thisFileName = __FILE__;
+#endif
+
+ST_UINT32 spdu_num = 0;	/* increment each time PDU sent	*/
+ST_UINT16 spdu_ver = 1;
+
+
+HCRYPTKEY ImportKeyData(HCRYPTPROV hProvider, ALG_ID Algid, BYTE *pbKeyData, DWORD cbKeyData)
+{
+BOOL bResult = FALSE;
+BYTE *pbData = NULL;
+DWORD cbData, cbHeaderLen, cbKeyLen, dwDataLen;
+ALG_ID *pAlgid;
+HCRYPTKEY hImpKey = 0, hKey;
+BLOBHEADER *pBlob;
+
+if(!CryptGetUserKey(hProvider, AT_KEYEXCHANGE, &hImpKey))
+  {
+	if (GetLastError() != NTE_NO_KEY)
+	  {
+	  CryptDestroyKey(hImpKey);
+	  return (0);
+	  }
+
+	if (!CryptGenKey(hProvider, AT_KEYEXCHANGE, (1024<<16), &hImpKey))
+	  {
+	  CryptDestroyKey(hImpKey);
+	  return (0);
+	  }
+  }
+
+  cbData = cbKeyData;
+  cbHeaderLen = sizeof(BLOBHEADER) + sizeof(ALG_ID);
+
+  if (!CryptEncrypt(hImpKey,0, TRUE, 0,0, &cbData,cbData))
+	  {
+	  CryptDestroyKey(hImpKey);
+	  return (0);
+	  }
+  
+  pbData = (BYTE *)chk_calloc(1,(cbData + cbHeaderLen));
+  if (pbData==NULL)
+	  {
+	  CryptDestroyKey(hImpKey);
+	  return (0);
+	  }
+
+  memcpy(pbData + cbHeaderLen, pbKeyData, cbKeyData);
+  cbKeyLen = cbKeyData;
+  if(!CryptEncrypt(hImpKey, 0,TRUE,0,pbData+cbHeaderLen,&cbKeyLen, cbData))
+  {
+	  chk_free(pbData);
+	  CryptDestroyKey(hImpKey);
+	  return (0);
+  }
+  pBlob = (BLOBHEADER *)pbData;
+  pAlgid = (ALG_ID *)(pbData + sizeof(BLOBHEADER));
+  pBlob->bType = SIMPLEBLOB;
+  pBlob ->bVersion = 2;
+  pBlob->reserved = 0;
+  pBlob->aiKeyAlg = Algid;
+  dwDataLen = sizeof(ALG_ID);
+  if (!CryptGetKeyParam(hImpKey, KP_ALGID, (BYTE *)pAlgid, &dwDataLen, 0))
+  {
+	  chk_free(pbData);
+	  CryptDestroyKey(hImpKey);
+	  return (0);
+  }
+
+  bResult = CryptImportKey(hProvider, pbData, cbData + cbHeaderLen, hImpKey, 0, &hKey);
+  if(bResult)
+    memset(pbKeyData, 0, cbKeyData);
+
+  chk_free(pbData);
+  CryptDestroyKey(hImpKey);
+  return(bResult ? hKey : 0);
+
+
+}
+
+ST_UCHAR * create_SHA256_HMAC(IEC_90_5_HDR_INFO *hdr)
+{
+	//--------------------------------------------------------------------
+//  Declare variables.
+
+//--------------------------------------------------------------------
+//  Declare variables.
+
+// Declare variables.
+//
+// hProv:           Handle to a cryptographic service provider (CSP). 
+//                  This example retrieves the default provider for  
+//                  the PROV_RSA_FULL provider type.  
+// hHash:           Handle to the hash object needed to create a hash.
+// hKey:            Handle to a symmetric key. This example creates a 
+//                  key for the RC4 algorithm.
+// hHmacHash:       Handle to an HMAC hash.
+// pbHash:          Pointer to the hash.
+// dwDataLen:       Length, in bytes, of the hash.
+// Data1:           Password string used to create a symmetric key.
+// Data2:           Message string to be hashed.
+// HmacInfo:        Instance of an HMAC_INFO structure that contains 
+//                  information about the HMAC hash.
+// 
+HCRYPTPROV  hProv       = (HCRYPTPROV )NULL;
+HCRYPTHASH  hHash       = (HCRYPTHASH)NULL;
+HCRYPTKEY   hKey        = (HCRYPTKEY)NULL;
+HCRYPTHASH  hHmacHash   = (HCRYPTHASH )NULL;
+PBYTE       pbHash      = NULL;
+DWORD       dwDataLen   = 0;
+BYTE        Data1[]     = {0x70,0x61,0x73,0x73,0x77,0x6F,0x72,0x64};
+BYTE        Data2[]     = {0x6D,0x65,0x73,0x73,0x61,0x67,0x65};
+HMAC_INFO   HmacInfo;
+DWORD i;
+
+//--------------------------------------------------------------------
+// Zero the HMAC_INFO structure and use the SHA1 algorithm for
+// hashing.
+
+ZeroMemory(&HmacInfo, sizeof(HmacInfo));
+HmacInfo.HashAlgid = CALG_SHA1;
+
+//--------------------------------------------------------------------
+// Acquire a handle to the default RSA cryptographic service provider.
+
+if (!CryptAcquireContext(
+    &hProv,                   // handle of the CSP
+    NULL,                     // key container name
+    NULL,                     // CSP name
+    PROV_RSA_FULL,            // provider type
+    CRYPT_VERIFYCONTEXT))     // no key access is requested
+{
+   printf(" Error in AcquireContext 0x%08x \n",
+          GetLastError());
+   goto ErrorExit;
+}
+
+//--------------------------------------------------------------------
+// Derive a symmetric key from a hash object by performing the
+// following steps:
+//    1. Call CryptCreateHash to retrieve a handle to a hash object.
+//    2. Call CryptHashData to add a text string (password) to the 
+//       hash object.
+//    3. Call CryptDeriveKey to create the symmetric key from the
+//       hashed password derived in step 2.
+// You will use the key later to create an HMAC hash object. 
+
+if (!CryptCreateHash(
+    hProv,                    // handle of the CSP
+    CALG_SHA1,                // hash algorithm to use
+    0,                        // hash key
+    0,                        // reserved
+    &hHash))                  // address of hash object handle
+{
+   printf("Error in CryptCreateHash 0x%08x \n",
+          GetLastError());
+   goto ErrorExit;
+}
+
+if (!CryptHashData(
+    hHash,                    // handle of the hash object
+    Data1,                    // password to hash
+    sizeof(Data1),            // number of bytes of data to add
+    0))                       // flags
+{
+   printf("Error in CryptHashData 0x%08x \n", 
+          GetLastError());
+   goto ErrorExit;
+}
+
+//need to use the key given in the 90-5 Header
+
+if (!CryptDeriveKey(
+    hProv,                    // handle of the CSP
+    CALG_RC4,                 // algorithm ID
+    hHash,                    // handle to the hash object
+    0,                        // flags
+    &hKey))                   // address of the key handle
+{
+   printf("Error in CryptDeriveKey 0x%08x \n", 
+          GetLastError());
+   goto ErrorExit;
+}
+
+//--------------------------------------------------------------------
+// Create an HMAC by performing the following steps:
+//    1. Call CryptCreateHash to create a hash object and retrieve 
+//       a handle to it.
+//    2. Call CryptSetHashParam to set the instance of the HMAC_INFO 
+//       structure into the hash object.
+//    3. Call CryptHashData to compute a hash of the message.
+//    4. Call CryptGetHashParam to retrieve the size, in bytes, of
+//       the hash.
+//    5. Call malloc to allocate memory for the hash.
+//    6. Call CryptGetHashParam again to retrieve the HMAC hash.
+
+if (!CryptCreateHash(
+    hProv,                    // handle of the CSP.
+    CALG_HMAC,                // HMAC hash algorithm ID
+    hKey,                     // key for the hash (see above)
+    0,                        // reserved
+    &hHmacHash))              // address of the hash handle
+{
+   printf("Error in CryptCreateHash 0x%08x \n", 
+          GetLastError());
+   goto ErrorExit;
+}
+
+if (!CryptSetHashParam(
+    hHmacHash,                // handle of the HMAC hash object
+    HP_HMAC_INFO,             // setting an HMAC_INFO object
+    (BYTE*)&HmacInfo,         // the HMAC_INFO object
+    0))                       // reserved
+{
+   printf("Error in CryptSetHashParam 0x%08x \n", 
+          GetLastError());
+   goto ErrorExit;
+}
+
+if (!CryptHashData(
+    hHmacHash,                // handle of the HMAC hash object
+    Data2,                    // message to hash
+    sizeof(Data2),            // number of bytes of data to add
+    0))                       // flags
+{
+   printf("Error in CryptHashData 0x%08x \n", 
+          GetLastError());
+   goto ErrorExit;
+}
+
+//--------------------------------------------------------------------
+// Call CryptGetHashParam twice. Call it the first time to retrieve
+// the size, in bytes, of the hash. Allocate memory. Then call 
+// CryptGetHashParam again to retrieve the hash value.
+
+if (!CryptGetHashParam(
+    hHmacHash,                // handle of the HMAC hash object
+    HP_HASHVAL,               // query on the hash value
+    NULL,                     // filled on second call
+    &dwDataLen,               // length, in bytes, of the hash
+    0))
+{
+   printf("Error in CryptGetHashParam 0x%08x \n", 
+          GetLastError());
+   goto ErrorExit;
+}
+
+pbHash = (BYTE*)malloc(dwDataLen);
+if(NULL == pbHash) 
+{
+   printf("unable to allocate memory\n");
+   goto ErrorExit;
+}
+    
+if (!CryptGetHashParam(
+    hHmacHash,                 // handle of the HMAC hash object
+    HP_HASHVAL,                // query on the hash value
+    pbHash,                    // pointer to the HMAC hash value
+    &dwDataLen,                // length, in bytes, of the hash
+    0))
+{
+   printf("Error in CryptGetHashParam 0x%08x \n", GetLastError());
+   goto ErrorExit;
+}
+
+// Print the hash to the console.
+
+printf("The hash is:  ");
+for( i = 0 ; i < dwDataLen ; i++) 
+{
+   printf("%2.2x ",pbHash[i]);
+}
+printf("\n");
+
+// Free resources.
+ErrorExit:
+    if(hHmacHash)
+        CryptDestroyHash(hHmacHash);
+    if(hKey)
+        CryptDestroyKey(hKey);
+    if(hHash)
+        CryptDestroyHash(hHash);    
+    if(hProv)
+        CryptReleaseContext(hProv, 0);
+    if(pbHash)
+        free(pbHash);
+    return 0;
+}
+
+
+/************************************************************************/
+/* This function encodes the chain of payloads							*/
+/************************************************************************/
+ST_UCHAR *encode_payloads(
+		IEC_90_5_PAYLOAD_DEF *payload_chain,
+		ST_UCHAR *enc_ptr)
+{
+IEC_90_5_PAYLOAD_DEF *internal_payload_chain = payload_chain;
+ST_UCHAR *cur_ptr = enc_ptr;
+
+  while(internal_payload_chain)
+  {
+	  /*encode the payload tag  */
+	  *cur_ptr++ = internal_payload_chain->payload_tag;
+
+	  /*encode the simulation bit  */
+	  if(internal_payload_chain->simulationBit)
+		  *cur_ptr++=0x01;
+	  else
+		  *cur_ptr++=0x00;
+
+	  /*encode the appID */
+      *(ST_UINT16 *)cur_ptr = htons(internal_payload_chain->appID);	/* APPID*/
+		cur_ptr += 2;
+
+	  /* now if it is tunneled payload there is more to do */
+	  if(internal_payload_chain->payload_tag==TUNNEL_PAYLOAD_TYPE_TAG)
+	  {
+		  memcpy(cur_ptr,&internal_payload_chain->dst_mac,6);
+		  cur_ptr+=6;
+
+		  *(ST_UINT16 *)cur_ptr = htons(internal_payload_chain->tpid);	/* TPID*/
+		   cur_ptr += 2;
+
+		   *(ST_UINT16 *)cur_ptr = htons(internal_payload_chain->tci);	/* TCI*/
+		   cur_ptr += 2;
+	  }
+
+	  /*encode the lentgth	(common for all Payloads			*/
+	  *(ST_UINT16 *)cur_ptr = htons(internal_payload_chain->pdu_len);	
+	  cur_ptr += 2;
+
+	  if(internal_payload_chain->payload_tag==TUNNEL_PAYLOAD_TYPE_TAG)
+	  {
+	    /* Encode the Ethertype ID.	*/
+		*(ST_UINT16 *)cur_ptr = htons(internal_payload_chain->etype_id);
+		cur_ptr += 2;
+	  }
+
+  /* Copy the rest of the "tunnelled" PDU	*/
+  memcpy (cur_ptr, internal_payload_chain->pdu_ptr, (size_t)(internal_payload_chain->pdu_len));
+  cur_ptr += internal_payload_chain->pdu_len;
+  internal_payload_chain = internal_payload_chain->next;
+  }
+  return(cur_ptr);
+}
+
+/* the following is a user supplied encryption function					*/
+ST_UCHAR *usr_encrypt_payloads(
+    IEC_90_5_HDR_INFO *hdr,
+	ST_UCHAR *unencrypted_buffer,
+	ST_UINT32 *payload_len
+	)
+{
+ST_UCHAR *enc_buf_ptr;
+ST_UINT32 result_enc_len = *payload_len;
+
+	/* for now, just take the uncrypted buffer and put it into another buffer */
+	/* this buffer will be freed by the 90-5 encoder						  */
+	enc_buf_ptr = chk_calloc (1,*payload_len);
+
+	/* the following will need to be replaced by an actual encryption call */
+	memcpy(enc_buf_ptr,unencrypted_buffer,*payload_len);
+
+	/*after the encryption into the buffer, the payload_length must be updated */
+	/* with the resulting encrypted length										*/
+	*payload_len = result_enc_len;
+
+	return(enc_buf_ptr);
+
+	
+}
+/************************************************************************/
+/* the following function is a user supplied function that encrypts the */
+/* the user data and return a pointer and length to the encrypted data  */
+/* so the rest of 90-5 packet can be put togther						*/
+/************************************************************************/
+ST_UCHAR *encrypt_user_data(
+    IEC_90_5_HDR_INFO *hdr,					/* pointer on where to get security information */
+	ST_UINT32 *payload_len,					/* length calculated for unencrypted payload */
+	IEC_90_5_PAYLOAD_DEF *payload_chain_ptr	/* ptr to the beggining of the payload chain  */
+	)		
+{
+ST_UCHAR *key_ptr = hdr->key_ptr;
+ST_UCHAR secAlgType = hdr->secAlgType;			/* type of encryption to be used	     */
+ST_UCHAR *unencrypted_buffer;
+ST_UCHAR *encrypted_buffer;
+/*ST_UINT16 encrypted_data_len;				*//*to be used to contain the encrypted user data length */
+
+	/* make sure that there is not a mistake					*/
+	if((secAlgType==SEC_ALG_NONE) || (secAlgType>SEC_ALG_AES_256_GCM))
+	{
+		return(NULL);
+	}
+
+	/* allocate a buffer for the non-encrypted user data	*/
+	unencrypted_buffer = chk_malloc(*payload_len);
+
+	/*now created the un-encrypted user data in the buffer */
+	encode_payloads(payload_chain_ptr,unencrypted_buffer);
+
+	/* allocate the buffer to use for encryption, typically this will be the original lenght */
+	/* and up to 256 additional bytes														 */
+	encrypted_buffer = usr_encrypt_payloads(hdr, unencrypted_buffer,payload_len);
+
+	/* get rid of the unencrypted buffer that was allocated									*/
+	chk_free (unencrypted_buffer);
+
+	return(encrypted_buffer);
+}
+
+/************************************************************************/
+/* NOTE: tunnel_pdu_ptr points to GOOSE/SMPVAL PDU starting right AFTER	*/
+/*   Ethertype ID. This would be easier if it pointed to the		*/
+/*   Ethertype ID, but clnp_snet_read doesn't give us that.		*/
+/************************************************************************/
+ST_UCHAR *udp_iec_90_5_enc (
+	IEC_90_5_HDR_INFO *hdr,			/*points to the header information*/
+	IEC_90_5_PAYLOAD_DEF *payload,	/*points to the first in the chain of payload information (freeing of the information is reponsibility of the caller*/
+	ST_UINT32 *enc_len_ptr
+	)
+  {
+/* the overhead for the Session Hdr is		*/
+/* 1 byte - SI								*/
+/* 1 byte - LI								*/
+/* 4 bytes - SPDU Length					Common HDR*/
+/* 4 bytes  - SPDU number					Common HDR*/
+/* 2 bytes  - version						Common HDR*/
+/* 4 bytes - time of current key			Common HDR*/
+/* 2 bytes - time of next key				Common HDR*/
+/* 1 byte	- Encryption Alg				Common HDR*/
+/* 1 byte - Signature Alg					Common HDR*/
+/* 4 byte - KeyID							Common HDR */
+#define IEC_90_5_SESSION_HDR_SIZE 24
+#define IEC_90_5_SI_COMMHDR_SIZE 18
+
+ST_UCHAR *enc_buf;
+ST_UCHAR *cur_ptr;
+ST_UINT hdr_len= IEC_90_5_SESSION_HDR_SIZE ;
+ST_UINT common_hdr_len = IEC_90_5_SI_COMMHDR_SIZE ;
+ST_UINT32 spdu_len=0;
+ST_UINT32 payload_len=0;
+ST_UINT alloc_len;	/* allocated len for encoded message	*/
+ST_UINT enc_len;	/* total len of encoded message (should match alloc_len)	*/
+ST_UCHAR *encrypted_user_data_ptr=NULL;
+ST_UCHAR *spdu_start_ptr;					/*needed for the signature			*/
+IEC_90_5_PAYLOAD_DEF *temp_payload_ptr=payload;
+
+/* determine how large of a packet it allocate  */
+
+/* first need to run through the chain of payload definition  and calculate the payload length*/
+  while(temp_payload_ptr!=NULL)
+  {
+	switch(temp_payload_ptr->payload_tag)
+	{
+#define NON_TUNNEL_PAYLOAD_HDR_SIZE	6					/* 1 byte tag + 1 byte Simulation + 2 bytes appID + 2 bytes length = 6 */
+	case GOOSE_PAYLOAD_TYPE_TAG:
+	case  SV_PAYLOAD_TYPE_TAG:
+	case  MNGT_PAYLOAD_TYPE_TAG:
+		payload_len += (temp_payload_ptr->pdu_len)+6;	/* add the PDU length  */
+		temp_payload_ptr= temp_payload_ptr->next;
+		break;
+
+/* overhead for Tunnel Payload			*/
+/* 1 byte -		Payload Tag				*/
+/* 1 byte -		Simulation Bit			*/
+/* 2 bytes -	appid					*/
+/* 6 bytes -	destination Mac			*/
+/* 2 bytes -	TPID					*/
+/* 2 bytes -	TCI						*/
+/* 2 bytes -	pdu_len					*/
+#define TUNNEL_PAYLOAD_HDR_SIZE			16				/* 1 byte tag + 1 byte Simulation + 2 bytes appID + 6 bytes dest mac address 2 bytes length = 6 */
+	case TUNNEL_PAYLOAD_TYPE_TAG:
+		payload_len = (temp_payload_ptr->pdu_len)+TUNNEL_PAYLOAD_HDR_SIZE;
+		temp_payload_ptr= temp_payload_ptr->next;
+		 break;
+
+	default:							/* should never hit this default, but provided as a safety anyway will just use the common stuff */
+		payload_len += (temp_payload_ptr->pdu_len)+6;	/* add the PDU length  */
+		temp_payload_ptr= temp_payload_ptr->next;
+		break;		
+	}
+  }
+
+//if the payload is to be encrypted, the payloads need to be constructed into a buffer and then encrypted
+if(hdr->secAlgType!=SEC_ALG_NONE)
+{
+  encrypted_user_data_ptr = encrypt_user_data(hdr, &payload_len, payload);
+  if (encrypted_user_data_ptr == NULL)			/*then there was an issue and need to halt the encode			*/
+	  return(NULL);
+} 
+
+/* now have calculated the payload length, now need to calculate the SPDU length  */
+
+  spdu_len = payload_len + IEC_90_5_SESSION_HDR_SIZE+sizeof(payload_len);
+
+#define CLTP_HDR_SIZE 2;
+  alloc_len = spdu_len + CLTP_HDR_SIZE;
+
+  if(hdr->hmacAlg!=HMAC_ALG_None)		/*then we need to allocate additional bytes for the HMAC */
+  {
+#define MAX_HMAC_SIZE 64				/*oversized for now										*/
+      alloc_len += MAX_HMAC_SIZE;
+  }
+
+  enc_buf = chk_calloc (1, alloc_len);
+  cur_ptr = enc_buf;
+
+  /* Encode CLTP Transport	*/
+  *(cur_ptr++) = 0x01;		/* LI - Transport Unit Data header len (variable part empty)*/
+  *(cur_ptr++) = 0x40;		/* Transport Unit Data PDU	*/
+  /* Session	*/  
+  *(cur_ptr++) = hdr->SessionIdentifer;		/* SI (Session Identifier)	*/
+  /* LI is len of header. DOES NOT include user data.	*/
+  *(cur_ptr++) = hdr_len;	/* LI	*/
+
+  spdu_start_ptr = cur_ptr;			/*save for the signature  */
+
+  *(cur_ptr++) = 0x80;			/* commonHeader	*/
+  *(cur_ptr++) = common_hdr_len;	/* commonHeader	length	*/
+
+  *(ST_UINT32 *)cur_ptr = htonl(spdu_len);	/* SPDU len	*/
+  cur_ptr += sizeof(spdu_len);
+
+  *(ST_UINT32 *)cur_ptr = htonl(spdu_num);	/* SPDU number	*/
+  cur_ptr += sizeof(spdu_num);
+
+  *(ST_UINT16 *)cur_ptr = htons(spdu_ver);	/* SPDU Version	*/
+  cur_ptr += sizeof(spdu_ver);
+  
+  /* fill in the security informaiton					*/
+  memcpy(cur_ptr,hdr->timeOfCurrentKey,4);
+  cur_ptr+=4;
+  *(ST_UINT16 *)cur_ptr = htons(hdr->timeToNextKey);	/* SPDU Version	*/
+   cur_ptr+=2;
+  *(cur_ptr++)=hdr->secAlgType;
+  *(cur_ptr++)=hdr->hmacAlg;
+
+  /*fill in the key id							*/
+  memcpy(cur_ptr,hdr->key_id,IEC_90_5_SIZE_OF_KEY_ID);
+  cur_ptr += IEC_90_5_SIZE_OF_KEY_ID;
+
+
+/* now need to peform the payload encoding					*/
+  if (encrypted_user_data_ptr==NULL)
+  {
+	*(ST_UINT32 *)cur_ptr = htonl(payload_len);
+    cur_ptr += sizeof(payload_len);
+	cur_ptr = encode_payloads(payload,cur_ptr);
+  }
+  else
+  {
+	   *(ST_UINT32 *)cur_ptr = htonl(payload_len);
+        cur_ptr += sizeof(payload_len);  
+	    memcpy(cur_ptr, encrypted_user_data_ptr,payload_len);
+		chk_free(encrypted_user_data_ptr);
+		cur_ptr +=payload_len;
+  }
+
+  enc_len = (ST_UINT)(cur_ptr - enc_buf);		/* then encode_length may not match the allocated length since the size of the signature is not known up front*/
+  *enc_len_ptr = enc_len;
+
+  spdu_num++;	/* increment global spdu_num for next PDU*/
+
+  /* now need to do the signature						*/
+/*    cur_ptr = create_signature(cur_ptr,spdu_start_ptr,hdr->hmacAlg,hdr->key_id);  to be added */
+  return (enc_buf);
+  }
+
+  
+/************************************************************************/
+/* NOTE: tunnel_pdu_ptr points to GOOSE/SMPVAL PDU starting right AFTER	*/
+/*   Ethertype ID. This would be easier if it pointed to the		*/
+/*   Ethertype ID, but clnp_snet_read doesn't give us that.		*/
+/************************************************************************/
+ST_UCHAR *udp_tunnel_enc (
+	ST_UCHAR *dst_mac,		/* DST MAC (must be 6 bytes)	*/
+	ST_UINT16 tci,			/* TCI from original message*/
+    ST_UINT16 etype_id,	/* Ethertype ID from original message*/
+	ST_UCHAR *etype_pdu_ptr,	/* pointer after Ethertype ID	*/
+	ST_UINT16 etype_pdu_len,	/* len of PDU after Ethertype ID*/
+	ST_UINT *enc_len_ptr)
+  {
+
+IEC_90_5_HDR_INFO hdr_info;
+IEC_90_5_PAYLOAD_DEF payload_info;
+ST_UCHAR *temp_ptr;
+
+
+/* example of filling in the hearder  */
+hdr_info.SessionIdentifer = IEC_90_5_SI_TYPE_TUNNEL;
+hdr_info.hmacAlg = HMAC_ALG_None;
+hdr_info.secAlgType = SEC_ALG_NONE;
+hdr_info.timeToNextKey= 0;
+memset(hdr_info.timeOfCurrentKey,0,4);
+
+/* fill in the payload_information  */
+payload_info.payload_tag = TUNNEL_PAYLOAD_TYPE_TAG;
+payload_info.appID = 0;
+payload_info.pdu_len = etype_pdu_len;
+payload_info.pdu_ptr = etype_pdu_ptr;
+payload_info.etype_id = etype_id;
+payload_info.simulationBit = 0x00;
+payload_info.etype_id = etype_id;
+payload_info.tci = tci;
+payload_info.tpid = 0x00;
+memcpy(&payload_info.dst_mac,dst_mac,6);
+payload_info.next = NULL;
+
+  temp_ptr = udp_iec_90_5_enc(&hdr_info,&payload_info,enc_len_ptr);
+  return (temp_ptr);
+  }
+
+
+
+  
+
+  

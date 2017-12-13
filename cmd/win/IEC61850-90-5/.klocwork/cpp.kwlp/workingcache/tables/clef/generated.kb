@@ -1,0 +1,1138 @@
+usr_compare_HMAC  -  RET  $1-><id>iec_61850_90_5_hdr_info::hmacAlg</id> EQ(0) [6, 255]:EQ(-1)
+usr_compare_HMAC  -  RET  1:[-1,0]
+usr_compare_HMAC  -  DMEM  ,MRF,1
+usr_compare_HMAC  -  DMEM  ,NMRF,2
+usr_compare_HMAC  -  DMEM  ,MRF,4
+usr_compare_HMAC  -  xNPD  $1 EQ(0) : 1
+usr_compare_HMAC  -  xNPD  $1-><id>iec_61850_90_5_hdr_info::hmacAlg</id> EQ(1), $4 EQ(0) : 4
+usr_compare_HMAC  -  xNPD  $1-><id>iec_61850_90_5_hdr_info::hmacAlg</id> EQ(2) EQ(5), $4 EQ(0) : 4
+usr_compare_HMAC  -  xNPD  $1-><id>iec_61850_90_5_hdr_info::hmacAlg</id> EQ(3), $4 EQ(0) : 4
+usr_compare_HMAC  -  xNPD  $1-><id>iec_61850_90_5_hdr_info::hmacAlg</id> EQ(4), $4 EQ(0) : 4
+usr_compare_HMAC  -  NPD.SRC
+usr_compare_HMAC  -  R  1:$1
+usr_compare_HMAC  -  R  env:$2
+usr_compare_HMAC  -  R  env:$3
+usr_compare_HMAC  -  R  env:$4
+usr_compare_HMAC  -  R  1:$1-><id>iec_61850_90_5_hdr_info::hmacAlg</id>
+usr_compare_HMAC  -  R  env:$1-><id>iec_61850_90_5_hdr_info::keyLen</id>
+usr_compare_HMAC  -  R  env:$1-><id>iec_61850_90_5_hdr_info::pKey</id>
+usr_compare_HMAC  -  R  env:*$4
+usr_compare_HMAC  -  W  env:*$2
+usr_compare_HMAC  -  W  env:*$1-><id>iec_61850_90_5_hdr_info::pKey</id>
+usr_create_HMAC  -  RET  1:EQ(0)
+usr_create_HMAC  -  DMEM  ,MRF,1
+usr_create_HMAC  -  DMEM  ,NMRF,2
+usr_create_HMAC  -  DMEM  ,MRF,4
+usr_create_HMAC  -  DMEM  ,MRF,5
+usr_create_HMAC  -  NNTS.SRC  1 : $4 : 1 : size : [10] :
+usr_create_HMAC  -  xNPD  $1 EQ(0) : 1
+usr_create_HMAC  -  xNPD  $1-><id>iec_61850_90_5_hdr_info::hmacAlg</id> EQ(1), $4 EQ(0), env : 4
+usr_create_HMAC  -  xNPD  $1-><id>iec_61850_90_5_hdr_info::hmacAlg</id> EQ(2) EQ(5), $4 EQ(0), env : 4
+usr_create_HMAC  -  xNPD  $1-><id>iec_61850_90_5_hdr_info::hmacAlg</id> EQ(3), $4 EQ(0), env : 4
+usr_create_HMAC  -  xNPD  $1-><id>iec_61850_90_5_hdr_info::hmacAlg</id> EQ(4), $4 EQ(0), env : 4
+usr_create_HMAC  -  xNPD  $1-><id>iec_61850_90_5_hdr_info::hmacAlg</id> EQ(1), $5 EQ(0), env : 5
+usr_create_HMAC  -  xNPD  $1-><id>iec_61850_90_5_hdr_info::hmacAlg</id> EQ(2) EQ(5), $5 EQ(0), env : 5
+usr_create_HMAC  -  xNPD  $1-><id>iec_61850_90_5_hdr_info::hmacAlg</id> EQ(3), $5 EQ(0), env : 5
+usr_create_HMAC  -  xNPD  $1-><id>iec_61850_90_5_hdr_info::hmacAlg</id> EQ(4), $5 EQ(0), env : 5
+usr_create_HMAC  -  NPD.SRC
+usr_create_HMAC  -  R  1:$1
+usr_create_HMAC  -  R  env:$2
+usr_create_HMAC  -  R  env:$3
+usr_create_HMAC  -  R  env:$4
+usr_create_HMAC  -  R  env:$5
+usr_create_HMAC  -  R  1:$1-><id>iec_61850_90_5_hdr_info::hmacAlg</id>
+usr_create_HMAC  -  R  env:$1-><id>iec_61850_90_5_hdr_info::keyLen</id>
+usr_create_HMAC  -  R  env:$1-><id>iec_61850_90_5_hdr_info::pKey</id>
+usr_create_HMAC  -  R  env:*$5
+usr_create_HMAC  -  W  env:*$2
+usr_create_HMAC  -  W  env:*$4
+usr_create_HMAC  -  W  env:*$5
+usr_create_HMAC  -  W  env:*$1-><id>iec_61850_90_5_hdr_info::pKey</id>
+usr_encrypt_payloads  -  RET  env:EQ(0)
+usr_encrypt_payloads  -  DMEM  ,MRF,1
+usr_encrypt_payloads  -  DMEM  ,MRF,2
+usr_encrypt_payloads  -  DMEM  ,MRF,3
+usr_encrypt_payloads  -  ALLOC  stdc : 1 : $$ : 1
+usr_encrypt_payloads  -  BAA  R:1:$2:[0,(*$3)-1],1
+usr_encrypt_payloads  -  BPS  bytesize($$)=(*$3)*1
+usr_encrypt_payloads  -  BPS  charlength($$)=min(charlength($2),max(0,*$3))
+usr_encrypt_payloads  -  NNTS.SRC  1 : $$ : 1 : size : [*$3] :
+usr_encrypt_payloads  -  xNPD  *$3 GE(1), $2 EQ(0) : 2
+usr_encrypt_payloads  -  xNPD  $3 EQ(0) : 3
+usr_encrypt_payloads  -  NPD.SRC  env : $$ : $$ EQ(0)
+usr_encrypt_payloads  -  R  1:$2
+usr_encrypt_payloads  -  R  1:$3
+usr_encrypt_payloads  -  R  1:*$2
+usr_encrypt_payloads  -  R  1:*$3
+usr_encrypt_payloads  -  UnsafeAllocSizeAccepter  *$3
+usr_encrypt_payloads  -  UnsafeArrayIndexAccepter  *$3
+usr_encrypt_payloads  -  W  1:*$3
+usr_decrypt_payloads  -  RET  env:EQ(0)
+usr_decrypt_payloads  -  DMEM  ,MRF,1
+usr_decrypt_payloads  -  DMEM  ,MRF,2
+usr_decrypt_payloads  -  DMEM  ,MRF,3
+usr_decrypt_payloads  -  DMEM  ,MRF,4
+usr_decrypt_payloads  -  ALLOC  stdc : 1 : $$ : 1
+usr_decrypt_payloads  -  BAA  R:1:$2:[0,(*$3)-1],1
+usr_decrypt_payloads  -  BPS  bytesize($$)=(*$3)*1
+usr_decrypt_payloads  -  BPS  charlength($$)=min(charlength($2),max(0,*$3))
+usr_decrypt_payloads  -  NNTS.SRC  1 : $$ : 1 : size : [*$3] :
+usr_decrypt_payloads  -  xNPD  *$3 GE(1), $2 EQ(0) : 2
+usr_decrypt_payloads  -  xNPD  $3 EQ(0) : 3
+usr_decrypt_payloads  -  NPD.SRC  env : $$ : $$ EQ(0)
+usr_decrypt_payloads  -  R  1:$2
+usr_decrypt_payloads  -  R  1:$3
+usr_decrypt_payloads  -  R  1:*$2
+usr_decrypt_payloads  -  R  1:*$3
+usr_decrypt_payloads  -  UnsafeAllocSizeAccepter  *$3
+usr_decrypt_payloads  -  UnsafeArrayIndexAccepter  *$3
+usr_decrypt_payloads  -  W  1:*$3
+strncpy_safe  -  DMEM  ,MRF,1
+strncpy_safe  -  DMEM  ,MRF,2
+strncpy_safe  -  BAA  R:1:$2:[0,charlength($2)],1
+strncpy_safe  -  BAA  R:1:$1:[0,$3-1]
+strncpy_safe  -  BAA  R:1:$1:[0,charlength($2)]
+strncpy_safe  -  BPS  charlength($1)=$3
+strncpy_safe  -  xNPD  $1 EQ(0), $3 GE(0), [$3>=charlength($2)] : 1
+strncpy_safe  -  xNPD  $2 EQ(0) : 2
+strncpy_safe  -  NPD.SRC
+strncpy_safe  -  R  1:$1
+strncpy_safe  -  R  1:$2
+strncpy_safe  -  R  1:$3
+strncpy_safe  -  R  1:*$2
+strncpy_safe  -  TSprop  $1 : $2
+strncpy_safe  -  W  1:*$1
+startup_cfg_read  -  RET  1:[-1,0]
+startup_cfg_read  -  DMEM  ,MRF,1
+startup_cfg_read  -  DMEM  ,MRF,2
+startup_cfg_read  -  BAA  R:1:$2:[0,4456-1],1
+startup_cfg_read  -  BPS  charlength($2)=0
+startup_cfg_read  -  xNPD  $1 EQ(0) : 1
+startup_cfg_read  -  xNPD  $2 EQ(0) : 2
+startup_cfg_read  -  NPD.SRC
+startup_cfg_read  -  R  env:$1
+startup_cfg_read  -  R  env:$2
+startup_cfg_read  -  RELEASE
+startup_cfg_read  -  SETZERO  $2 : [4456,4456]
+startup_cfg_read  -  SETZERO  $2 : [4456,4456]
+startup_cfg_read  -  SETZERO  $2 : [4456,4456]
+startup_cfg_read  -  SETZERO  $2 : [4456,4456]
+startup_cfg_read  -  TaintedIntData  $2-><id>startup_cfg::statResetTime</id>
+startup_cfg_read  -  TaintedIntData  $2-><id>startup_cfg::updScktBufSize</id>
+startup_cfg_read  -  TaintedIntData  $2-><id>startup_cfg::transmissionIntervalMsec</id>
+startup_cfg_read  -  TaintedIntData  $2-><id>startup_cfg::logIntervalSeconds</id>
+startup_cfg_read  -  TaintedIntData  $2-><id>startup_cfg::threadStrtDelay</id>
+startup_cfg_read  -  W  env:*$1
+startup_cfg_read  -  W  env:*$2
+startup_cfg_read  -  W  env:*$2-><id>startup_cfg::interaceID</id>
+startup_cfg_read  -  W  env:*$2-><id>startup_cfg::destIPAddressSMV</id>
+startup_cfg_read  -  W  env:*$2-><id>startup_cfg::destIPAddressGOOSE</id>
+startup_cfg_read  -  W  env:*$2-><id>startup_cfg::destIPAddressTunnell</id>
+startup_cfg_read  -  W  env:*$2-><id>startup_cfg::subscriptions</id>
+startup_cfg_read  -  W  env:*$2-><id>startup_cfg::subscriptions</id>-><id>subscriber_address::subAddress</id>
+startup_cfg_read  -  W  env:*$2-><id>startup_cfg::subscriptions</id>-><id>subscriber_address::srcAddress</id>
+startup_cfg_read  -  W  env:*$2-><id>startup_cfg::subscriptions</id>-><id>subscriber_address::dataSetRef</id>
+startup_cfg_read  -  W  env:*$2-><id>startup_cfg::subscriptions</id>-><id>subscriber_address::pRxdCntrl</id>
+iec905_sess_dec  -  RET  env:EQ(-409) [0, 255]
+iec905_sess_dec  -  DMEM  ,MRF,1
+iec905_sess_dec  -  DMEM  ,MRF,2
+iec905_sess_dec  -  ALLOC
+iec905_sess_dec  -  xNPD  $1 EQ(0) : 1
+iec905_sess_dec  -  xNPD  $1-><id>iec_90_5_rx::pRXDbuffer</id> NE(0), $1-><id>iec_90_5_rx::lenRXDBuffer</id> [0,255], $2 EQ(0), env : 2
+iec905_sess_dec  -  NPD.SRC
+iec905_sess_dec  -  R  1:$1
+iec905_sess_dec  -  R  env:$2
+iec905_sess_dec  -  R  1:$1-><id>iec_90_5_rx::pRXDbuffer</id>
+iec905_sess_dec  -  R  env:$1-><id>iec_90_5_rx::lenRXDBuffer</id>
+iec905_sess_dec  -  R  env:$2-><id>iec_comm_address::typeOfAddress</id>
+iec905_sess_dec  -  R  env:$2-><id>iec_comm_address::lenOfAddress</id>
+iec905_sess_dec  -  R  env:$2-><id>iec_comm_address::pAddress</id>
+iec905_sess_dec  -  R  env:*$1-><id>iec_90_5_rx::pRXDbuffer</id>
+iec905_sess_dec  -  R  env:*$2-><id>iec_comm_address::pAddress</id>
+iec905_sess_dec  -  W  1:$1-><id>iec_90_5_rx::pHDR</id>
+iec905_sess_dec  -  W  1:$1-><id>iec_90_5_rx::pPayload</id>
+iec905_destroy_dec_info  -  RET  1:EQ(0)
+iec905_destroy_dec_info  -  DMEM  ,NMRF,1
+iec905_destroy_dec_info  -  SAFE_FREE  stdc  $1-><id>iec_90_5_rx::pHDR</id>
+iec905_destroy_dec_info  -  FREE  stdc  $1-><id>iec_90_5_rx::pRXDbuffer</id>
+iec905_destroy_dec_info  -  FREE  stdc  $1
+iec905_destroy_dec_info  -  xNPD  $1 EQ(0) : 1
+iec905_destroy_dec_info  -  NPD.SRC
+iec905_destroy_dec_info  -  R  env:$1
+iec905_destroy_dec_info  -  R  env:$1-><id>iec_90_5_rx::pHDR</id>
+iec905_destroy_dec_info  -  R  env:$1-><id>iec_90_5_rx::pPayload</id>
+iec905_destroy_dec_info  -  R  env:$1-><id>iec_90_5_rx::pRXDbuffer</id>
+iec905_destroy_dec_info  -  R  env:$1-><id>iec_90_5_rx::pPayload</id>-><id>IEC905_SESS_PAYLOAD_DEF::next</id>
+iec905_destroy_dec_info  -  W  1:$1-><id>iec_90_5_rx::pHDR</id>
+iec905_destroy_dec_info  -  W  1:$1-><id>iec_90_5_rx::pPayload</id>
+iec905_create_dec_info  -  RET  env:EQ(0)
+iec905_create_dec_info  -  ALLOC  stdc : env : $$ : $$ NE(0)
+iec905_create_dec_info  -  BPS  bytesize($$)=1*13
+iec905_create_dec_info  -  BPS  charlength($$)=0
+iec905_create_dec_info  -  xNPD
+iec905_create_dec_info  -  NPD.SRC  env : $$ : $$ EQ(0)
+example_SV_enc  -  RET  env:EQ(0)
+example_SV_enc  -  DMEM  ,NMRF,1
+example_SV_enc  -  DMEM  ,MRF,3
+example_SV_enc  -  DMEM  ,MRF,4
+example_SV_enc  -  ALLOC
+example_SV_enc  -  BPS  charlength($$)=0
+example_SV_enc  -  xNPD  $1 EQ(0) : 1
+example_SV_enc  -  xNPD  $4 EQ(0), env : 4
+example_SV_enc  -  NPD.SRC  env : $$ : $$ EQ(0)
+example_SV_enc  -  R  1:$1
+example_SV_enc  -  R  env:$2
+example_SV_enc  -  R  env:$3
+example_SV_enc  -  R  env:$4
+example_SV_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>
+example_SV_enc  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>
+example_SV_enc  -  R  env:$1-><id>iec905_msg_cntrl::requestedUpdate</id>
+example_SV_enc  -  R  env:$1-><id>iec905_msg_cntrl::spdu_num_tx</id>
+example_SV_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pNext</id>
+example_SV_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pPrev</id>
+example_SV_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pChain</id>
+example_SV_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::key_id</id>
+example_SV_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::keyLen</id>
+example_SV_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pKey</id>
+example_SV_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::timeOfexpiration</id>
+example_SV_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pUsedBy</id>
+example_SV_enc  -  R  env:*$3
+example_SV_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>
+example_SV_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pNext</id>
+example_SV_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::key_id</id>
+example_SV_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+example_SV_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+example_SV_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pChain</id>
+example_SV_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::key_id</id>
+example_SV_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pKey</id>
+example_SV_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+example_SV_enc  -  UnsafeArrayIndexAccepter  $2
+example_SV_enc  -  W  env:*$1
+example_SV_enc  -  W  env:*$4
+example_SV_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>
+example_SV_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>
+example_SV_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pNext</id>
+example_SV_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pPrev</id>
+example_SV_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pChain</id>
+example_SV_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::key_id</id>
+example_SV_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pKey</id>
+example_SV_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pUsedBy</id>
+example_SV_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+example_SV_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+example_SV_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pChain</id>
+example_SV_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::key_id</id>
+example_SV_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pKey</id>
+example_SV_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+main  -  RET  1:EQ(0)
+main  -  DMEM  ,MRF,2
+main  -  ACQUIRE
+main  -  ALLOC
+main  -  xNPD
+main  -  NPD.SRC
+main  -  RELEASE
+ctrlCfun  -  xNPD
+ctrlCfun  -  NPD.SRC
+ctrlCfun  -  R  dummy
+example_tunnel_enc  -  RET  env:EQ(0)
+example_tunnel_enc  -  DMEM  ,NMRF,1
+example_tunnel_enc  -  DMEM  ,MRF,2
+example_tunnel_enc  -  DMEM  ,MRF,5
+example_tunnel_enc  -  DMEM  ,MRF,7
+example_tunnel_enc  -  ALLOC
+example_tunnel_enc  -  BAA  R:1:$2:[0,6-1],1
+example_tunnel_enc  -  BPS  charlength($$)=0
+example_tunnel_enc  -  xNPD  $1 EQ(0) : 1
+example_tunnel_enc  -  xNPD  $2 EQ(0) : 2
+example_tunnel_enc  -  xNPD  $7 EQ(0), env : 7
+example_tunnel_enc  -  NPD.SRC  env : $$ : $$ EQ(0)
+example_tunnel_enc  -  R  1:$1
+example_tunnel_enc  -  R  1:$2
+example_tunnel_enc  -  R  env:$3
+example_tunnel_enc  -  R  env:$4
+example_tunnel_enc  -  R  env:$5
+example_tunnel_enc  -  R  env:$6
+example_tunnel_enc  -  R  env:$7
+example_tunnel_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>
+example_tunnel_enc  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>
+example_tunnel_enc  -  R  env:$1-><id>iec905_msg_cntrl::requestedUpdate</id>
+example_tunnel_enc  -  R  env:$1-><id>iec905_msg_cntrl::spdu_num_tx</id>
+example_tunnel_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pNext</id>
+example_tunnel_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pPrev</id>
+example_tunnel_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pChain</id>
+example_tunnel_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::key_id</id>
+example_tunnel_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::keyLen</id>
+example_tunnel_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pKey</id>
+example_tunnel_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::timeOfexpiration</id>
+example_tunnel_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pUsedBy</id>
+example_tunnel_enc  -  R  1:*$2
+example_tunnel_enc  -  R  env:*$5
+example_tunnel_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>
+example_tunnel_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pNext</id>
+example_tunnel_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::key_id</id>
+example_tunnel_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+example_tunnel_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+example_tunnel_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pChain</id>
+example_tunnel_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::key_id</id>
+example_tunnel_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pKey</id>
+example_tunnel_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+example_tunnel_enc  -  UnsafeArrayIndexAccepter  $6
+example_tunnel_enc  -  W  env:*$1
+example_tunnel_enc  -  W  env:*$7
+example_tunnel_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>
+example_tunnel_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>
+example_tunnel_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pNext</id>
+example_tunnel_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pPrev</id>
+example_tunnel_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pChain</id>
+example_tunnel_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::key_id</id>
+example_tunnel_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pKey</id>
+example_tunnel_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pUsedBy</id>
+example_tunnel_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+example_tunnel_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+example_tunnel_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pChain</id>
+example_tunnel_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::key_id</id>
+example_tunnel_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pKey</id>
+example_tunnel_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+example_GOOSE_enc  -  RET  env:EQ(0)
+example_GOOSE_enc  -  DMEM  ,NMRF,1
+example_GOOSE_enc  -  DMEM  ,MRF,3
+example_GOOSE_enc  -  DMEM  ,MRF,4
+example_GOOSE_enc  -  ALLOC
+example_GOOSE_enc  -  BPS  charlength($$)=0
+example_GOOSE_enc  -  xNPD  $1 EQ(0) : 1
+example_GOOSE_enc  -  xNPD  $4 EQ(0), env : 4
+example_GOOSE_enc  -  NPD.SRC  env : $$ : $$ EQ(0)
+example_GOOSE_enc  -  R  1:$1
+example_GOOSE_enc  -  R  env:$2
+example_GOOSE_enc  -  R  env:$3
+example_GOOSE_enc  -  R  env:$4
+example_GOOSE_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>
+example_GOOSE_enc  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>
+example_GOOSE_enc  -  R  env:$1-><id>iec905_msg_cntrl::requestedUpdate</id>
+example_GOOSE_enc  -  R  env:$1-><id>iec905_msg_cntrl::spdu_num_tx</id>
+example_GOOSE_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pNext</id>
+example_GOOSE_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pPrev</id>
+example_GOOSE_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pChain</id>
+example_GOOSE_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::key_id</id>
+example_GOOSE_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::keyLen</id>
+example_GOOSE_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pKey</id>
+example_GOOSE_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::timeOfexpiration</id>
+example_GOOSE_enc  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pUsedBy</id>
+example_GOOSE_enc  -  R  env:*$3
+example_GOOSE_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>
+example_GOOSE_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pNext</id>
+example_GOOSE_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::key_id</id>
+example_GOOSE_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+example_GOOSE_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+example_GOOSE_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pChain</id>
+example_GOOSE_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::key_id</id>
+example_GOOSE_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pKey</id>
+example_GOOSE_enc  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+example_GOOSE_enc  -  UnsafeArrayIndexAccepter  $2
+example_GOOSE_enc  -  W  env:*$1
+example_GOOSE_enc  -  W  env:*$4
+example_GOOSE_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>
+example_GOOSE_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>
+example_GOOSE_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pNext</id>
+example_GOOSE_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pPrev</id>
+example_GOOSE_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pChain</id>
+example_GOOSE_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::key_id</id>
+example_GOOSE_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pKey</id>
+example_GOOSE_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pUsedBy</id>
+example_GOOSE_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+example_GOOSE_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+example_GOOSE_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pChain</id>
+example_GOOSE_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::key_id</id>
+example_GOOSE_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pKey</id>
+example_GOOSE_enc  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+usr_notify_of_key_updated_needed  -  DMEM  ,NMRF,1
+usr_notify_of_key_updated_needed  -  xNPD  $1 EQ(0) : 1
+usr_notify_of_key_updated_needed  -  NPD.SRC
+usr_notify_of_key_updated_needed  -  R  1:$1
+usr_notify_of_key_updated_needed  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::key_id</id>
+usr_notify_of_key_updated_needed  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+usr_notify_of_key_updated_needed  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+usr_notify_of_key_updated_needed  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pChain</id>
+usr_notify_of_key_updated_needed  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pKey</id>
+usr_notify_of_key_updated_needed  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+usr_notify_of_key_updated_needed  -  R  env:*$1
+usr_notify_of_key_updated_needed  -  R  env:*$1-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::pAddress</id>
+usr_notify_of_key_updated_needed  -  R  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::key_id</id>
+usr_notify_of_key_updated_needed  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+usr_notify_of_key_updated_needed  -  W  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>
+usr_notify_of_key_updated_needed  -  W  env:$1-><id>iec905_msg_cntrl::pNextKey</id>
+usr_notify_of_key_updated_needed  -  W  env:$1-><id>iec905_msg_cntrl::requestedUpdate</id>
+usr_notify_of_key_updated_needed  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>
+usr_notify_of_key_updated_needed  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>
+usr_notify_of_key_updated_needed  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::key_id</id>
+usr_notify_of_key_updated_needed  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+usr_notify_of_key_updated_needed  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+usr_notify_of_key_updated_needed  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pChain</id>
+usr_notify_of_key_updated_needed  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pKey</id>
+usr_notify_of_key_updated_needed  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+usr_notify_of_error  -  DMEM  ,MRF,2
+usr_notify_of_error  -  xNPD
+usr_notify_of_error  -  NPD.SRC
+usr_notify_of_error  -  R  env:$1
+usr_notify_of_error  -  R  1:$2
+usr_notify_of_error  -  R  1:$3
+usr_notify_of_error  -  W  env:*$2
+IEC905_ErrorHandler  -  DMEM  ,NMRF,2
+IEC905_ErrorHandler  -  xNPD
+IEC905_ErrorHandler  -  NPD.SRC
+IEC905_ErrorHandler  -  R  env:$1
+IEC905_ErrorHandler  -  R  env:$2
+IEC905_ErrorHandler  -  R  env:$3
+IEC905_ErrorHandler  -  W  env:*$2
+IEC905_GetLastError  -  RET  env:EQ(0)
+IEC905_GetLastError  -  xNPD
+IEC905_GetLastError  -  NPD.SRC  env : $$ : $$ EQ(0)
+IEC905_GetSpecificEntry  -  RET  $1 LE(-1) GE(10):EQ(0)
+IEC905_GetSpecificEntry  -  RET  env:EQ(0)
+IEC905_GetSpecificEntry  -  xNPD
+IEC905_GetSpecificEntry  -  NPD.SRC  $1 GE(10) : $$ : $$ EQ(0)
+IEC905_GetSpecificEntry  -  NPD.SRC  $1 [0,9], env : $$ : $$ EQ(0)
+IEC905_GetSpecificEntry  -  R  1:$1
+IEC905_XlatErrorCode  -  xNPD
+IEC905_XlatErrorCode  -  NPD.SRC
+IEC905_XlatErrorCode  -  R  env:$1
+iec905_sess_enc  -  RET  $1-><id>iec_61850_90_5_hdr_info::secAlgType</id> LE(-1) GE(3), $1-><id>iec_61850_90_5_hdr_info::hmacAlg</id> LE(0) GE(256):EQ(0)
+iec905_sess_enc  -  RET  $1-><id>iec_61850_90_5_hdr_info::secAlgType</id> LE(-1) GE(3):EQ(0)
+iec905_sess_enc  -  RET  $1-><id>iec_61850_90_5_hdr_info::SessionIdentifer</id> LE(-1) GE(256), $1-><id>iec_61850_90_5_hdr_info::secAlgType</id> LE(0) GE(3), $1-><id>iec_61850_90_5_hdr_info::hmacAlg</id> LE(-1) GE(256):EQ(0)
+iec905_sess_enc  -  RET  $1-><id>iec_61850_90_5_hdr_info::SessionIdentifer</id> LE(-1) GE(256), $1-><id>iec_61850_90_5_hdr_info::hmacAlg</id> LE(-1) GE(256):EQ(0)
+iec905_sess_enc  -  RET  env:EQ(0)
+iec905_sess_enc  -  DMEM  ,MRF,1
+iec905_sess_enc  -  DMEM  ,MRF,2
+iec905_sess_enc  -  DMEM  ,MRF,3
+iec905_sess_enc  -  DMEM  ,MRF,4
+iec905_sess_enc  -  ALLOC  stdc : $1-><id>iec_61850_90_5_hdr_info::SessionIdentifer</id> [0,255], $1-><id>iec_61850_90_5_hdr_info::secAlgType</id> [1,2], $1-><id>iec_61850_90_5_hdr_info::hmacAlg</id> EQ(0) [6, 255], env : $$ : $1-><id>iec_61850_90_5_hdr_info::secAlgType</id> [0,2], *$$ EQ(1), *$3 [0,65519], $$ NE(0)
+iec905_sess_enc  -  BPS  charlength($$)=0
+iec905_sess_enc  -  xNPD  $1 EQ(0), env : 1
+iec905_sess_enc  -  xNPD  $1-><id>iec_61850_90_5_hdr_info::SessionIdentifer</id> [0,255], $1-><id>iec_61850_90_5_hdr_info::secAlgType</id> [0,2], $1-><id>iec_61850_90_5_hdr_info::hmacAlg</id> [0,255], $3 EQ(0), env : 3
+iec905_sess_enc  -  xNPD  $4 EQ(0) : 4
+iec905_sess_enc  -  NPD.SRC  $1-><id>iec_61850_90_5_hdr_info::secAlgType</id> [1,255], env : $$ : $$ EQ(0)
+iec905_sess_enc  -  NPD.SRC  $1-><id>iec_61850_90_5_hdr_info::secAlgType</id> [0,2], $1-><id>iec_61850_90_5_hdr_info::hmacAlg</id> [0,255], env : $$ : $$ EQ(0)
+iec905_sess_enc  -  R  env:$1
+iec905_sess_enc  -  R  env:$2
+iec905_sess_enc  -  R  env:$3
+iec905_sess_enc  -  R  env:$4
+iec905_sess_enc  -  R  env:$1-><id>iec_61850_90_5_hdr_info::timeOfCurrentKey</id>
+iec905_sess_enc  -  R  env:$1-><id>iec_61850_90_5_hdr_info::timeToNextKey</id>
+iec905_sess_enc  -  R  env:$1-><id>iec_61850_90_5_hdr_info::secAlgType</id>
+iec905_sess_enc  -  R  env:$1-><id>iec_61850_90_5_hdr_info::hmacAlg</id>
+iec905_sess_enc  -  R  env:$1-><id>iec_61850_90_5_hdr_info::keyLen</id>
+iec905_sess_enc  -  R  env:$1-><id>iec_61850_90_5_hdr_info::pKey</id>
+iec905_sess_enc  -  R  env:$1-><id>iec_61850_90_5_hdr_info::pKeyID</id>
+iec905_sess_enc  -  R  env:$2-><id>IEC905_SESS_PAYLOAD_DEF::next</id>
+iec905_sess_enc  -  R  env:$2-><id>IEC905_SESS_PAYLOAD_DEF::payload_tag</id>
+iec905_sess_enc  -  R  env:$2-><id>IEC905_SESS_PAYLOAD_DEF::simulationBit</id>
+iec905_sess_enc  -  R  env:$2-><id>IEC905_SESS_PAYLOAD_DEF::appID</id>
+iec905_sess_enc  -  R  env:$2-><id>IEC905_SESS_PAYLOAD_DEF::pduLen</id>
+iec905_sess_enc  -  R  env:$2-><id>IEC905_SESS_PAYLOAD_DEF::pPDU</id>
+iec905_sess_enc  -  R  env:$2-><id>IEC905_SESS_PAYLOAD_DEF::dst_mac</id>
+iec905_sess_enc  -  R  env:$2-><id>IEC905_SESS_PAYLOAD_DEF::tpid</id>
+iec905_sess_enc  -  R  env:$2-><id>IEC905_SESS_PAYLOAD_DEF::tci</id>
+iec905_sess_enc  -  R  env:$2-><id>IEC905_SESS_PAYLOAD_DEF::etype_id</id>
+iec905_sess_enc  -  R  env:*$4
+iec905_sess_enc  -  R  env:*$1-><id>iec_61850_90_5_hdr_info::pKeyID</id>
+iec905_sess_enc  -  R  env:*$2-><id>IEC905_SESS_PAYLOAD_DEF::pPDU</id>
+iec905_sess_enc  -  UnsafeAllocSizeAccepter  $2-><id>IEC905_SESS_PAYLOAD_DEF::pduLen</id>
+iec905_sess_enc  -  UnsafeArrayIndexAccepter  $2-><id>IEC905_SESS_PAYLOAD_DEF::pduLen</id>
+iec905_sess_enc  -  W  env:*$3
+iec905_sess_enc  -  W  env:*$4
+iec905_sess_enc  -  W  env:*$1-><id>iec_61850_90_5_hdr_info::pKey</id>
+iec905_igmpv3_group_destroy  -  RET  $1 EQ(0), $2 GE(0):EQ(0)
+iec905_igmpv3_group_destroy  -  RET  $1-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::typeOfAddress</id> [1,255], $1 NE(0), $2 GE(0):NE(0)
+iec905_igmpv3_group_destroy  -  RET  $1-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::typeOfAddress</id> NE(0), $1 EQ(0):EQ(0)
+iec905_igmpv3_group_destroy  -  RET  $1-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::typeOfAddress</id> EQ(0), $1 NE(0), $2 EQ(0):NE(0)
+iec905_igmpv3_group_destroy  -  RET  env:EQ(0)
+iec905_igmpv3_group_destroy  -  DMEM  ,NMRF,1
+iec905_igmpv3_group_destroy  -  xNPD
+iec905_igmpv3_group_destroy  -  NPD.SRC  $1 EQ(0), $2 GE(0) : $$ : $$ EQ(0)
+iec905_igmpv3_group_destroy  -  NPD.SRC  $1-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::typeOfAddress</id> EQ(0), $1-><id>iec905_msg_cntrl::srcKeyAddress</id>.<id>iec_comm_address::lenOfAddress</id> [1,255], $1 NE(0), $2 GE(1), env : $$ : $$ EQ(0)
+iec905_igmpv3_group_destroy  -  NPD.SRC  $1-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::typeOfAddress</id> EQ(0), $1-><id>iec905_msg_cntrl::srcKeyAddress</id>.<id>iec_comm_address::lenOfAddress</id> EQ(0), $1 NE(0), $2 GE(1), env : $$ : $$ EQ(0)
+iec905_igmpv3_group_destroy  -  R  env:$1
+iec905_igmpv3_group_destroy  -  R  env:$2
+iec905_igmpv3_group_destroy  -  R  env:$1-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::typeOfAddress</id>
+iec905_igmpv3_group_destroy  -  R  env:$1-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::lenOfAddress</id>
+iec905_igmpv3_group_destroy  -  R  env:$1-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::pAddress</id>
+iec905_igmpv3_group_destroy  -  R  env:$1-><id>iec905_msg_cntrl::srcKeyAddress</id>.<id>iec_comm_address::lenOfAddress</id>
+iec905_igmpv3_group_destroy  -  R  env:$1-><id>iec905_msg_cntrl::srcKeyAddress</id>.<id>iec_comm_address::pAddress</id>
+iec905_igmpv3_group_destroy  -  R  env:$1-><id>iec905_msg_cntrl::pPrev</id>
+iec905_igmpv3_group_destroy  -  R  env:$1-><id>iec905_msg_cntrl::pNext</id>
+iec905_igmpv3_group_destroy  -  R  env:$1-><id>iec905_msg_cntrl::keyUsageType</id>
+iec905_igmpv3_group_destroy  -  R  env:$1-><id>iec905_msg_cntrl::pDataSetRef</id>
+iec905_igmpv3_group_destroy  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>
+iec905_igmpv3_group_destroy  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>
+iec905_igmpv3_group_destroy  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pNext</id>
+iec905_igmpv3_group_destroy  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_igmpv3_group_destroy  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pChain</id>
+iec905_igmpv3_group_destroy  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pKey</id>
+iec905_igmpv3_group_destroy  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_igmpv3_group_destroy  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+iec905_igmpv3_group_destroy  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_igmpv3_group_destroy  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pChain</id>
+iec905_igmpv3_group_destroy  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pKey</id>
+iec905_igmpv3_group_destroy  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_igmpv3_group_destroy  -  R  env:*$1-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::pAddress</id>
+iec905_igmpv3_group_destroy  -  R  env:*$1-><id>iec905_msg_cntrl::pPrev</id>
+iec905_igmpv3_group_destroy  -  R  env:*$1-><id>iec905_msg_cntrl::pNext</id>
+iec905_igmpv3_group_destroy  -  R  env:*$1-><id>iec905_msg_cntrl::pDataSetRef</id>
+iec905_igmpv3_group_destroy  -  R  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pNext</id>
+iec905_igmpv3_group_destroy  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+iec905_igmpv3_group_destroy  -  W  env:$1-><id>iec905_msg_cntrl::pPrev</id>-><id>iec905_msg_cntrl::pNext</id>
+iec905_igmpv3_group_destroy  -  W  env:$1-><id>iec905_msg_cntrl::pNext</id>-><id>iec905_msg_cntrl::pPrev</id>
+iec905_igmpv3_group_destroy  -  W  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pNext</id>
+iec905_igmpv3_group_destroy  -  W  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_igmpv3_group_destroy  -  W  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_igmpv3_group_destroy  -  W  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+iec905_igmpv3_group_destroy  -  W  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_igmpv3_group_destroy  -  W  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_igmpv3_group_destroy  -  W  env:*$1-><id>iec905_msg_cntrl::pPrev</id>-><id>iec905_msg_cntrl::pNext</id>
+iec905_igmpv3_group_destroy  -  W  env:*$1-><id>iec905_msg_cntrl::pNext</id>-><id>iec905_msg_cntrl::pPrev</id>
+iec905_igmpv3_group_destroy  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pNext</id>
+iec905_igmpv3_group_destroy  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_igmpv3_group_destroy  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_igmpv3_group_destroy  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+iec905_igmpv3_group_destroy  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_igmpv3_group_destroy  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_close_socket  -  xNPD
+iec905_close_socket  -  NPD.SRC
+iec905_close_socket  -  R  dummy
+iec905_close_socket  -  RELEASE
+iec905_igmpv3_group_enroll  -  RET  $2 [1,255], $6 GE(0):EQ(0)
+iec905_igmpv3_group_enroll  -  RET  $2 EQ(0), $3 EQ(0), $6 GE(0):EQ(0)
+iec905_igmpv3_group_enroll  -  RET  $2 NE(0), $3 EQ(0), $6 LE(0):EQ(0)
+iec905_igmpv3_group_enroll  -  RET  $2 EQ(0), $6 EQ(0):EQ(0)
+iec905_igmpv3_group_enroll  -  RET  $2 NE(0), $3 EQ(0):EQ(0)
+iec905_igmpv3_group_enroll  -  RET  env:EQ(0)
+iec905_igmpv3_group_enroll  -  DMEM  ,MRF,3
+iec905_igmpv3_group_enroll  -  DMEM  ,MRF,4
+iec905_igmpv3_group_enroll  -  DMEM  ,MRF,5
+iec905_igmpv3_group_enroll  -  ALLOC
+iec905_igmpv3_group_enroll  -  BAA  R:1:$3:[0,charlength($3)],1
+iec905_igmpv3_group_enroll  -  BAA  R:1:$5:[0,charlength($5)],1
+iec905_igmpv3_group_enroll  -  BAA  R:1:$4:[0,charlength($4)],1
+iec905_igmpv3_group_enroll  -  NNTS.SRC  1 : $$-><id>iec905_msg_cntrl::srcKeyAddress</id>.<id>iec_comm_address::pAddress</id> : 1 : size : [0] :
+iec905_igmpv3_group_enroll  -  xNPD  $1 [0,2], $2 EQ(0), $3 NE(0), $5 EQ(0), $6 GE(1), env : 5
+iec905_igmpv3_group_enroll  -  NPD.SRC  $2 [0,255], $6 GE(0), env : $$ : $$ EQ(0)
+iec905_igmpv3_group_enroll  -  NPD.SRC  $1 [0,2], $2 EQ(0), $3 NE(0), $4 EQ(0), $6 GE(1), env : $$-><id>iec905_msg_cntrl::srcKeyAddress</id>.<id>iec_comm_address::pAddress</id> : $$-><id>iec905_msg_cntrl::srcKeyAddress</id>.<id>iec_comm_address::pAddress</id> EQ(0), $$ NE(0)
+iec905_igmpv3_group_enroll  -  NPD.SRC  $1 [0,2], $2 EQ(0), $3 NE(0), $6 GE(1), env : $$-><id>iec905_msg_cntrl::pPrev</id> : $$-><id>iec905_msg_cntrl::pPrev</id> EQ(0), $$ NE(0)
+iec905_igmpv3_group_enroll  -  R  env:$1
+iec905_igmpv3_group_enroll  -  R  1:$2
+iec905_igmpv3_group_enroll  -  R  env:$3
+iec905_igmpv3_group_enroll  -  R  env:$4
+iec905_igmpv3_group_enroll  -  R  env:$5
+iec905_igmpv3_group_enroll  -  R  env:$6
+iec905_igmpv3_group_enroll  -  R  env:*$5
+iec905_igmpv3_group_enroll  -  TSprop  $$-><id>iec905_msg_cntrl::pDataSetRef</id> : $5
+iec905_rx_init  -  RET  env:EQ(0)
+iec905_rx_init  -  DMEM  ,MRF,1
+iec905_rx_init  -  ACQUIRE  winsock : $1 NE(0) : *$1 : *$1 LE(4294967294), $$ EQ(0)
+iec905_rx_init  -  xNPD  $1 EQ(0) : 1
+iec905_rx_init  -  NPD.SRC
+iec905_rx_init  -  R  1:$1
+iec905_rx_init  -  R  env:$2
+iec905_rx_init  -  W  1:*$1
+iec905_ip_init  -  RET  1:EQ(-100) EQ(0)
+iec905_ip_init  -  xNPD
+iec905_ip_init  -  NPD.SRC
+iec905_tx_pdu_init  -  RET  1:[-211, -209] EQ(0)
+iec905_tx_pdu_init  -  xNPD
+iec905_tx_pdu_init  -  NPD.SRC
+iec905_tx_pdu_open_socket_with_priorities  -  RET  env:EQ(-212) [-105, -104] EQ(0)
+iec905_tx_pdu_open_socket_with_priorities  -  DMEM  ,MRF,1
+iec905_tx_pdu_open_socket_with_priorities  -  DMEM  ,MRF,2
+iec905_tx_pdu_open_socket_with_priorities  -  DMEM  ,MRF,3
+iec905_tx_pdu_open_socket_with_priorities  -  DMEM  ,MRF,4
+iec905_tx_pdu_open_socket_with_priorities  -  DMEM  ,MRF,5
+iec905_tx_pdu_open_socket_with_priorities  -  ACQUIRE  winsock : 1 : (*$1)-><id>iecsocket_info::SendingSocket</id> : *$1 NE(0), $$ EQ(0)
+iec905_tx_pdu_open_socket_with_priorities  -  ALLOC  stdc : env : *$1 : *$1 NE(0), $$ EQ(0)
+iec905_tx_pdu_open_socket_with_priorities  -  BAA  R:1:$2:[0,min(0,charlength($2))]
+iec905_tx_pdu_open_socket_with_priorities  -  BPS  charlength($1)=0
+iec905_tx_pdu_open_socket_with_priorities  -  xNPD  $1 EQ(0) : 1
+iec905_tx_pdu_open_socket_with_priorities  -  xNPD  $2 EQ(0), env : 2
+iec905_tx_pdu_open_socket_with_priorities  -  xNPD  $5 EQ(0), env : 5
+iec905_tx_pdu_open_socket_with_priorities  -  NPD.SRC  $1 NE(0), env : *$1 : *$1 EQ(0)
+iec905_tx_pdu_open_socket_with_priorities  -  R  1:$1
+iec905_tx_pdu_open_socket_with_priorities  -  R  env:$2
+iec905_tx_pdu_open_socket_with_priorities  -  R  env:$3
+iec905_tx_pdu_open_socket_with_priorities  -  R  env:$4
+iec905_tx_pdu_open_socket_with_priorities  -  R  env:$5
+iec905_tx_pdu_open_socket_with_priorities  -  R  env:$3-><id>ethertype_8021Q::priority</id>
+iec905_tx_pdu_open_socket_with_priorities  -  R  env:$3-><id>ethertype_8021Q::vlanID</id>
+iec905_tx_pdu_open_socket_with_priorities  -  R  env:$5-><id>iec_comm_address::pAddress</id>
+iec905_tx_pdu_open_socket_with_priorities  -  R  env:*$2
+iec905_tx_pdu_open_socket_with_priorities  -  RELEASE
+iec905_tx_pdu_open_socket_with_priorities  -  W  1:*$1
+destroy_address_structure  -  DMEM  ,NMRF,1
+destroy_address_structure  -  FREE  stdc  $1-><id>iec_comm_address::pAddress</id>
+destroy_address_structure  -  FREE  stdc  $1
+destroy_address_structure  -  xNPD
+destroy_address_structure  -  NPD.SRC
+destroy_address_structure  -  R  1:$1
+destroy_address_structure  -  R  env:$1-><id>iec_comm_address::pAddress</id>
+iec905_tx_pdu_close_socket  -  RET  1:EQ(0)
+iec905_tx_pdu_close_socket  -  DMEM  ,NMRF,1
+iec905_tx_pdu_close_socket  -  FREE  stdc  $1
+iec905_tx_pdu_close_socket  -  xNPD
+iec905_tx_pdu_close_socket  -  NPD.SRC
+iec905_tx_pdu_close_socket  -  R  1:$1
+iec905_tx_pdu_close_socket  -  R  env:$1-><id>iecsocket_info::FlowHandle</id>
+iec905_tx_pdu_close_socket  -  R  env:$1-><id>iecsocket_info::FilterHandle</id>
+iec905_tx_pdu_close_socket  -  R  env:$1-><id>iecsocket_info::SendingSocket</id>
+iec905_tx_pdu_close_socket  -  RELEASE  winsock : $1 NE(0) : $1-><id>iecsocket_info::SendingSocket</id> : 1
+iec905_tx_pdu_close_socket  -  W  env:*$1-><id>iecsocket_info::FlowHandle</id>
+iec905_tx_pdu_close_socket  -  W  env:*$1-><id>iecsocket_info::FilterHandle</id>
+create_address_structure  -  RET  $1 NE(0):EQ(0)
+create_address_structure  -  RET  env:EQ(0)
+create_address_structure  -  DMEM  ,MRF,2
+create_address_structure  -  ALLOC  stdc : $1 EQ(0), env : $$ : $$-><id>iec_comm_address::typeOfAddress</id> EQ(0), $$-><id>iec_comm_address::lenOfAddress</id> EQ(4), $$-><id>iec_comm_address::pAddress</id> NE(0), $$ NE(0)
+create_address_structure  -  BAA  R:1:$2:[0,charlength($2)],1
+create_address_structure  -  BPS  bytesize($$)=6
+create_address_structure  -  BPS  charlength($$)=2147483647
+create_address_structure  -  xNPD  $1 EQ(0), $2 EQ(0), env : 2
+create_address_structure  -  NPD.SRC  $1 NE(0) : $$ : $$ EQ(0)
+create_address_structure  -  NPD.SRC  $1 EQ(0), env : $$ : $$ EQ(0)
+create_address_structure  -  R  1:$1
+create_address_structure  -  R  env:$2
+iec905_tx_pdu  -  RET  1:EQ(0)
+iec905_tx_pdu  -  DMEM  ,MRF,1
+iec905_tx_pdu  -  DMEM  ,MRF,2
+iec905_tx_pdu  -  DMEM  ,MRF,4
+iec905_tx_pdu  -  DMEM  ,MRF,6
+iec905_tx_pdu  -  BAA  R:1:$4:[0,$5-1],1
+iec905_tx_pdu  -  xNPD  $1 EQ(0) : 1
+iec905_tx_pdu  -  xNPD  $2 EQ(0) : 2
+iec905_tx_pdu  -  xNPD  $4 EQ(0) : 4
+iec905_tx_pdu  -  xNPD  $1-><id>iecsocket_info::SendingSocket</id> GE(0), $6 EQ(0), env : 6
+iec905_tx_pdu  -  NPD.SRC
+iec905_tx_pdu  -  R  1:$1
+iec905_tx_pdu  -  R  1:$2
+iec905_tx_pdu  -  R  1:$3
+iec905_tx_pdu  -  R  1:$4
+iec905_tx_pdu  -  R  1:$5
+iec905_tx_pdu  -  R  env:$6
+iec905_tx_pdu  -  R  env:$6-><id>iec905_msg_cntrl::stats</id>.<id>iec905_statistics::TotalTxPktCnt</id>
+iec905_tx_pdu  -  R  1:$1-><id>iecsocket_info::SendingSocket</id>
+iec905_tx_pdu  -  R  1:$2-><id>iec_comm_address::pAddress</id>
+iec905_tx_pdu  -  UnsafeArrayIndexAccepter  $5
+iec905_tx_pdu  -  W  env:$6-><id>iec905_msg_cntrl::stats</id>.<id>iec905_statistics::TotalTxPktCnt</id>
+sv_decode  -  RET  env:EQ(0)
+sv_decode  -  DMEM  ,NMRF,1
+sv_decode  -  ALLOC  stdc : $2 [0,65535], env : $$ : $$-><id>sv_dec_struct::num_ASDUs</id> EQ(1), $$-><id>sv_dec_struct::asdus</id> NE(0), $$ NE(0)
+sv_decode  -  BPS  charlength($$)=0
+sv_decode  -  xNPD  $1 EQ(0) : 1
+sv_decode  -  NPD.SRC  $2 [0,65535], env : $$ : $$ EQ(0)
+sv_decode  -  R  env:$1
+sv_decode  -  R  env:*$1
+sv_data_helper_prim  -  RET  $2 GE(0):EQ(-2) GE(1)
+sv_data_helper_prim  -  RET  $1 EQ(0), $2 GE(0):GE(1)
+sv_data_helper_prim  -  RET  $1 EQ(2), $2 GE(0):GE(2)
+sv_data_helper_prim  -  RET  $1 EQ(3), $2 GE(0):GE(4)
+sv_data_helper_prim  -  RET  $1 EQ(19), $2 GE(0):GE(6)
+sv_data_helper_prim  -  RET  $1 EQ(4), $2 GE(0):GE(8)
+sv_data_helper_prim  -  RET  $1 EQ(13), $2 GE(0):GE(20)
+sv_data_helper_prim  -  RET  $1 EQ(14), $2 GE(0):GE(35)
+sv_data_helper_prim  -  RET  $1 EQ(7), $2 GE(0):EQ(-2)
+sv_data_helper_prim  -  DMEM  ,MRF,3
+sv_data_helper_prim  -  xNPD  $1 GE(0), $2 GE(0), $3 EQ(0) : 3
+sv_data_helper_prim  -  NPD.SRC
+sv_data_helper_prim  -  R  env:$1
+sv_data_helper_prim  -  R  1:$2
+sv_data_helper_prim  -  R  env:$3
+sv_data_helper_prim  -  W  env:*$3
+initialize_sv_encode_struct  -  RET  $3 LE(0):EQ(0)
+initialize_sv_encode_struct  -  RET  env:EQ(0)
+initialize_sv_encode_struct  -  DMEM  ,MRF,1
+initialize_sv_encode_struct  -  DMEM  ,MRF,2
+initialize_sv_encode_struct  -  DMEM  ,MRF,7
+initialize_sv_encode_struct  -  ALLOC  stdc : $3 EQ(1), env : $$ : $$-><id>sv_enc_struct::pSVbuffer</id> NE(0), $$-><id>sv_enc_struct::max_num_ASDUs_allocated</id> [0,1], $$-><id>sv_enc_struct::size_of_asdu</id> GE(40), $$-><id>sv_enc_struct::pPDULen</id> NE(2), $$-><id>sv_enc_struct::pNumASDUVal</id> NE(6), $$-><id>sv_enc_struct::pASDUSeqLen</id> NE(9), $$ NE(0)
+initialize_sv_encode_struct  -  BAA  R:1:$2:[0,charlength($2)],1
+initialize_sv_encode_struct  -  BAA  R:1:$1:[0,charlength($1)-1],1
+initialize_sv_encode_struct  -  BPS  charlength($$)=0
+initialize_sv_encode_struct  -  xNPD
+initialize_sv_encode_struct  -  NPD.SRC  env : $$ : $$ EQ(0)
+initialize_sv_encode_struct  -  R  env:$1
+initialize_sv_encode_struct  -  R  env:$2
+initialize_sv_encode_struct  -  R  env:$3
+initialize_sv_encode_struct  -  R  env:$4
+initialize_sv_encode_struct  -  R  env:$6
+initialize_sv_encode_struct  -  R  env:$7
+initialize_sv_encode_struct  -  R  env:$8
+initialize_sv_encode_struct  -  R  env:$9
+initialize_sv_encode_struct  -  R  env:*$1
+initialize_sv_encode_struct  -  R  env:*$2
+initialize_sv_encode_struct  -  R  env:*$7
+initialize_sv_encode_struct  -  UnsafeAllocSizeAccepter  $3
+initialize_sv_encode_struct  -  UnsafeLoopBoundAccepter  $3
+sv_data_helper_calculate_samples_size_prim  -  RET  env:EQ(-2)
+sv_data_helper_calculate_samples_size_prim  -  DMEM  ,MRF,3
+sv_data_helper_calculate_samples_size_prim  -  DMEM  ,MRF,4
+sv_data_helper_calculate_samples_size_prim  -  xNPD  $1 GE(0), $2 GE(0), $3 EQ(0) : 3
+sv_data_helper_calculate_samples_size_prim  -  xNPD  $4 EQ(0), env : 4
+sv_data_helper_calculate_samples_size_prim  -  NPD.SRC
+sv_data_helper_calculate_samples_size_prim  -  R  env:$1
+sv_data_helper_calculate_samples_size_prim  -  R  1:$2
+sv_data_helper_calculate_samples_size_prim  -  R  env:$3
+sv_data_helper_calculate_samples_size_prim  -  R  env:$4
+sv_data_helper_calculate_samples_size_prim  -  R  env:*$3
+sv_data_helper_calculate_samples_size_prim  -  R  env:*$4
+sv_data_helper_calculate_samples_size_prim  -  W  env:*$3
+sv_data_helper_calculate_samples_size_prim  -  W  env:*$4
+destroy_sv_encode_struct  -  RET  1:EQ(0)
+destroy_sv_encode_struct  -  DMEM  ,NMRF,1
+destroy_sv_encode_struct  -  FREE  stdc  $1-><id>sv_enc_struct::pSVbuffer</id>
+destroy_sv_encode_struct  -  FREE  stdc  $1
+destroy_sv_encode_struct  -  xNPD
+destroy_sv_encode_struct  -  NPD.SRC
+destroy_sv_encode_struct  -  R  1:$1
+destroy_sv_encode_struct  -  R  env:$1-><id>sv_enc_struct::pSVbuffer</id>
+sv_enc_update_lengths  -  RET  $1-><id>sv_enc_struct::max_num_ASDUs_allocated</id> GE(0), $2 GE(0), [($1-><id>sv_enc_struct::max_num_ASDUs_allocated</id>)>=$2]:EQ(0)
+sv_enc_update_lengths  -  RET  env:EQ(0)
+sv_enc_update_lengths  -  DMEM  ,MRF,1
+sv_enc_update_lengths  -  xNPD  $1 EQ(0) : 1
+sv_enc_update_lengths  -  NPD.SRC
+sv_enc_update_lengths  -  R  1:$1
+sv_enc_update_lengths  -  R  env:$2
+sv_enc_update_lengths  -  R  1:$1-><id>sv_enc_struct::max_num_ASDUs_allocated</id>
+sv_enc_update_lengths  -  R  env:$1-><id>sv_enc_struct::size_of_asdu</id>
+sv_enc_update_lengths  -  R  env:$1-><id>sv_enc_struct::pPDULen</id>
+sv_enc_update_lengths  -  R  env:$1-><id>sv_enc_struct::pNumASDUVal</id>
+sv_enc_update_lengths  -  R  env:$1-><id>sv_enc_struct::pASDUSeqLen</id>
+sv_enc_update_lengths  -  W  env:$1-><id>sv_enc_struct::length_to_send</id>
+sv_enc_update_lengths  -  W  env:*$1-><id>sv_enc_struct::pPDULen</id>
+sv_enc_update_lengths  -  W  env:*$1-><id>sv_enc_struct::pNumASDUVal</id>
+sv_enc_update_lengths  -  W  env:*$1-><id>sv_enc_struct::pASDUSeqLen</id>
+iec905_find_rxd_msg_cntrl  -  RET  $1 [0, 159] [163, 255]:EQ(0)
+iec905_find_rxd_msg_cntrl  -  RET  $1 LE(159) GE(163):EQ(0)
+iec905_find_rxd_msg_cntrl  -  RET  env:EQ(0)
+iec905_find_rxd_msg_cntrl  -  DMEM  ,MRF,2
+iec905_find_rxd_msg_cntrl  -  DMEM  ,MRF,3
+iec905_find_rxd_msg_cntrl  -  xNPD  $1 [160,162], $2 EQ(0), env : 2
+iec905_find_rxd_msg_cntrl  -  xNPD  $2-><id>iec_comm_address::typeOfAddress</id> [0,255], $1 [160,162], $3 EQ(0), env : 3
+iec905_find_rxd_msg_cntrl  -  NPD.SRC  $1 [0,255], env : $$ : $$ EQ(0)
+iec905_find_rxd_msg_cntrl  -  NPD.SRC  $2-><id>iec_comm_address::typeOfAddress</id> [0,255], $1 [160,162], env : $$-><id>iec905_msg_cntrl::pNextKey</id> : $$-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::typeOfAddress</id> [0,255], $$-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::pAddress</id> NE(0), $$-><id>iec905_msg_cntrl::pNextKey</id> EQ(0), $$-><id>iec905_msg_cntrl::requestedUpdate</id> NE(0), $$ NE(0)
+iec905_find_rxd_msg_cntrl  -  R  env:$1
+iec905_find_rxd_msg_cntrl  -  R  env:$2
+iec905_find_rxd_msg_cntrl  -  R  env:$3
+iec905_find_rxd_msg_cntrl  -  R  env:$2-><id>iec_comm_address::typeOfAddress</id>
+iec905_find_rxd_msg_cntrl  -  R  env:$2-><id>iec_comm_address::lenOfAddress</id>
+iec905_find_rxd_msg_cntrl  -  R  env:$2-><id>iec_comm_address::pAddress</id>
+iec905_find_rxd_msg_cntrl  -  R  env:*$3
+iec905_find_rxd_msg_cntrl  -  R  env:*$2-><id>iec_comm_address::pAddress</id>
+iec905_manage_keys  -  RET  $1 EQ(0):EQ(0)
+iec905_manage_keys  -  RET  $1-><id>iec905_msg_cntrl::pCurrentKey</id> EQ(0), $1 NE(0):EQ(-502) EQ(0)
+iec905_manage_keys  -  RET  $1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pKey</id> EQ(0), $1-><id>iec905_msg_cntrl::pNextKey</id> NE(0), $1 NE(0):[-502,-501]
+iec905_manage_keys  -  RET  1:[-502, -501] EQ(0)
+iec905_manage_keys  -  DMEM  ,NMRF,1
+iec905_manage_keys  -  xNPD
+iec905_manage_keys  -  NPD.SRC
+iec905_manage_keys  -  R  1:$1
+iec905_manage_keys  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>
+iec905_manage_keys  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>
+iec905_manage_keys  -  R  env:$1-><id>iec905_msg_cntrl::requestedUpdate</id>
+iec905_manage_keys  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pNext</id>
+iec905_manage_keys  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_manage_keys  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pChain</id>
+iec905_manage_keys  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pKey</id>
+iec905_manage_keys  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::timeOfexpiration</id>
+iec905_manage_keys  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_manage_keys  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>
+iec905_manage_keys  -  R  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pNext</id>
+iec905_manage_keys  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+iec905_manage_keys  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_manage_keys  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pChain</id>
+iec905_manage_keys  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::key_id</id>
+iec905_manage_keys  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pKey</id>
+iec905_manage_keys  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_manage_keys  -  W  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pNext</id>
+iec905_manage_keys  -  W  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_manage_keys  -  W  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_manage_keys  -  W  env:*$1
+iec905_manage_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>
+iec905_manage_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pNext</id>
+iec905_manage_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_manage_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_manage_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+iec905_manage_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_manage_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pChain</id>
+iec905_manage_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::key_id</id>
+iec905_manage_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pKey</id>
+iec905_manage_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_create_msg_cntrl_rx  -  RET  env:EQ(0)
+iec905_create_msg_cntrl_rx  -  DMEM  ,MRF,2
+iec905_create_msg_cntrl_rx  -  DMEM  ,MRF,3
+iec905_create_msg_cntrl_rx  -  DMEM  ,MRF,4
+iec905_create_msg_cntrl_rx  -  BAA  R:1:$2:[0,($2-><id>iec_comm_address::lenOfAddress</id>)-1],1
+iec905_create_msg_cntrl_rx  -  BAA  R:1:$4:[0,charlength($4)],1
+iec905_create_msg_cntrl_rx  -  BAA  R:1:$3:[0,($3-><id>iec_comm_address::lenOfAddress</id>)-1],1
+iec905_create_msg_cntrl_rx  -  NNTS.SRC  1 : $$-><id>iec905_msg_cntrl::srcKeyAddress</id>.<id>iec_comm_address::pAddress</id> : 1 : size : [$3-><id>iec_comm_address::lenOfAddress</id>] :
+iec905_create_msg_cntrl_rx  -  xNPD  $1 [0,2], $2 EQ(0) : 2
+iec905_create_msg_cntrl_rx  -  xNPD  $1 [0,2], $4 EQ(0), env : 4
+iec905_create_msg_cntrl_rx  -  NPD.SRC  $1 [0,255], env : $$ : $$ EQ(0)
+iec905_create_msg_cntrl_rx  -  NPD.SRC  $1 [0,2], $3 EQ(0), env : $$-><id>iec905_msg_cntrl::srcKeyAddress</id>.<id>iec_comm_address::pAddress</id> : $$ NE(0), [($$-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::typeOfAddress</id>)==($2-><id>iec_comm_address::typeOfAddress</id>)], [($$-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::lenOfAddress</id>)==($2-><id>iec_comm_address::lenOfAddress</id>)]
+iec905_create_msg_cntrl_rx  -  NPD.SRC  $1 [0,2], $3 NE(0), env : $$-><id>iec905_msg_cntrl::srcKeyAddress</id>.<id>iec_comm_address::pAddress</id> : $$ NE(0), [($$-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::typeOfAddress</id>)==($2-><id>iec_comm_address::typeOfAddress</id>)], [($$-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::lenOfAddress</id>)==($2-><id>iec_comm_address::lenOfAddress</id>)], [($$-><id>iec905_msg_cntrl::srcKeyAddress</id>.<id>iec_comm_address::typeOfAddress</id>)==($3-><id>iec_comm_address::typeOfAddress</id>)], [($$-><id>iec905_msg_cntrl::srcKeyAddress</id>.<id>iec_comm_address::lenOfAddress</id>)==($3-><id>iec_comm_address::lenOfAddress</id>)]
+iec905_create_msg_cntrl_rx  -  NPD.SRC  $1 [0,2], env : $$-><id>iec905_msg_cntrl::pPrev</id> : $$ NE(0), [($$-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::typeOfAddress</id>)==($2-><id>iec_comm_address::typeOfAddress</id>)], [($$-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::lenOfAddress</id>)==($2-><id>iec_comm_address::lenOfAddress</id>)]
+iec905_create_msg_cntrl_rx  -  R  1:$1
+iec905_create_msg_cntrl_rx  -  R  env:$2
+iec905_create_msg_cntrl_rx  -  R  env:$3
+iec905_create_msg_cntrl_rx  -  R  env:$4
+iec905_create_msg_cntrl_rx  -  R  env:$2-><id>iec_comm_address::typeOfAddress</id>
+iec905_create_msg_cntrl_rx  -  R  env:$2-><id>iec_comm_address::lenOfAddress</id>
+iec905_create_msg_cntrl_rx  -  R  env:$2-><id>iec_comm_address::pAddress</id>
+iec905_create_msg_cntrl_rx  -  R  env:$3-><id>iec_comm_address::lenOfAddress</id>
+iec905_create_msg_cntrl_rx  -  R  env:$3-><id>iec_comm_address::pAddress</id>
+iec905_create_msg_cntrl_rx  -  R  env:*$4
+iec905_create_msg_cntrl_rx  -  R  env:*$2-><id>iec_comm_address::pAddress</id>
+iec905_create_msg_cntrl_rx  -  R  env:*$3-><id>iec_comm_address::pAddress</id>
+iec905_create_msg_cntrl_rx  -  TSprop  $$-><id>iec905_msg_cntrl::pDataSetRef</id> : $4
+iec905_create_msg_cntrl_rx  -  UnsafeArrayIndexAccepter  $3-><id>iec_comm_address::lenOfAddress</id>
+iec905_destroy_msg_cntrl  -  RET  $1-><id>iec905_msg_cntrl::keyUsageType</id> [3,255]:EQ(0)
+iec905_destroy_msg_cntrl  -  RET  1:[0,1]
+iec905_destroy_msg_cntrl  -  DMEM  ,NMRF,1
+iec905_destroy_msg_cntrl  -  xNPD  $1 EQ(0) : 1
+iec905_destroy_msg_cntrl  -  NPD.SRC
+iec905_destroy_msg_cntrl  -  R  1:$1
+iec905_destroy_msg_cntrl  -  R  env:$1-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::typeOfAddress</id>
+iec905_destroy_msg_cntrl  -  R  env:$1-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::lenOfAddress</id>
+iec905_destroy_msg_cntrl  -  R  env:$1-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::pAddress</id>
+iec905_destroy_msg_cntrl  -  R  env:$1-><id>iec905_msg_cntrl::srcKeyAddress</id>.<id>iec_comm_address::pAddress</id>
+iec905_destroy_msg_cntrl  -  R  env:$1-><id>iec905_msg_cntrl::pPrev</id>
+iec905_destroy_msg_cntrl  -  R  env:$1-><id>iec905_msg_cntrl::pNext</id>
+iec905_destroy_msg_cntrl  -  R  1:$1-><id>iec905_msg_cntrl::keyUsageType</id>
+iec905_destroy_msg_cntrl  -  R  env:$1-><id>iec905_msg_cntrl::pDataSetRef</id>
+iec905_destroy_msg_cntrl  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>
+iec905_destroy_msg_cntrl  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>
+iec905_destroy_msg_cntrl  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pNext</id>
+iec905_destroy_msg_cntrl  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_destroy_msg_cntrl  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pChain</id>
+iec905_destroy_msg_cntrl  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pKey</id>
+iec905_destroy_msg_cntrl  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_destroy_msg_cntrl  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+iec905_destroy_msg_cntrl  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_destroy_msg_cntrl  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pChain</id>
+iec905_destroy_msg_cntrl  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pKey</id>
+iec905_destroy_msg_cntrl  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_destroy_msg_cntrl  -  R  env:*$1-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::pAddress</id>
+iec905_destroy_msg_cntrl  -  R  env:*$1-><id>iec905_msg_cntrl::pPrev</id>
+iec905_destroy_msg_cntrl  -  R  env:*$1-><id>iec905_msg_cntrl::pNext</id>
+iec905_destroy_msg_cntrl  -  R  env:*$1-><id>iec905_msg_cntrl::pDataSetRef</id>
+iec905_destroy_msg_cntrl  -  R  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pNext</id>
+iec905_destroy_msg_cntrl  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+iec905_destroy_msg_cntrl  -  W  env:$1-><id>iec905_msg_cntrl::pPrev</id>-><id>iec905_msg_cntrl::pNext</id>
+iec905_destroy_msg_cntrl  -  W  env:$1-><id>iec905_msg_cntrl::pNext</id>-><id>iec905_msg_cntrl::pPrev</id>
+iec905_destroy_msg_cntrl  -  W  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pNext</id>
+iec905_destroy_msg_cntrl  -  W  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_destroy_msg_cntrl  -  W  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_destroy_msg_cntrl  -  W  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+iec905_destroy_msg_cntrl  -  W  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_destroy_msg_cntrl  -  W  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_destroy_msg_cntrl  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pNext</id>
+iec905_destroy_msg_cntrl  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_destroy_msg_cntrl  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_destroy_msg_cntrl  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+iec905_destroy_msg_cntrl  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_destroy_msg_cntrl  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_getStats  -  DMEM  ,MRF,1
+iec905_getStats  -  xNPD  $1 EQ(0) : 1
+iec905_getStats  -  NPD.SRC
+iec905_getStats  -  R  1:$1
+iec905_getStats  -  R  env:$2
+iec905_getStats  -  W  1:$1-><id>iec905_statistics::TotalTxPktCnt</id>
+iec905_getStats  -  W  1:$1-><id>iec905_statistics::TotalRxPktCnt</id>
+iec905_getStats  -  W  1:$1-><id>iec905_statistics::TotalRxMissingPktCnt</id>
+iec905_getStats  -  W  1:$1-><id>iec905_statistics::TotalRxPktWithBadHMAC</id>
+iec905_add_next_key  -  RET  env:EQ(0)
+iec905_add_next_key  -  DMEM  ,NMRF,1
+iec905_add_next_key  -  DMEM  ,MRF,4
+iec905_add_next_key  -  DMEM  ,MRF,5
+iec905_add_next_key  -  BAA  R:1:$4:[0,$3-1],1
+iec905_add_next_key  -  BPS  bytesize($$)=1*39
+iec905_add_next_key  -  BPS  charlength($$)=0
+iec905_add_next_key  -  NNTS.SRC  1 : $1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pKey</id> : 1 : size : [$3] :
+iec905_add_next_key  -  NNTS.SRC  1 : $$-><id>iec905_key_info::pKey</id> : 1 : size : [$3] :
+iec905_add_next_key  -  NNTS.SRC  1 : $1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::key_id</id> : 1 : size : [4] :
+iec905_add_next_key  -  NNTS.SRC  1 : $$-><id>iec905_key_info::key_id</id> : 1 : size : [4] :
+iec905_add_next_key  -  xNPD  $1 EQ(0) : 1
+iec905_add_next_key  -  xNPD  $3 GE(1), $4 EQ(0), env : 4
+iec905_add_next_key  -  xNPD  $5 EQ(0), env : 5
+iec905_add_next_key  -  NPD.SRC  env : $$ : $$ EQ(0)
+iec905_add_next_key  -  NPD.SRC  $2 [0,255], $3 [0,65535], env : $$-><id>iec905_key_info::pKey</id> : $1-><id>iec905_msg_cntrl::pNextKey</id> NE(0), $$ NE(0), [($1-><id>iec905_msg_cntrl::pNextKey</id>)==$$]
+iec905_add_next_key  -  R  1:$1
+iec905_add_next_key  -  R  env:$2
+iec905_add_next_key  -  R  env:$3
+iec905_add_next_key  -  R  env:$4
+iec905_add_next_key  -  R  env:$5
+iec905_add_next_key  -  R  env:$6
+iec905_add_next_key  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+iec905_add_next_key  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_add_next_key  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pChain</id>
+iec905_add_next_key  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pKey</id>
+iec905_add_next_key  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_add_next_key  -  R  env:*$1
+iec905_add_next_key  -  R  env:*$4
+iec905_add_next_key  -  R  env:*$5
+iec905_add_next_key  -  R  env:*$1-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::pAddress</id>
+iec905_add_next_key  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+iec905_add_next_key  -  UnsafeArrayIndexAccepter  $3
+iec905_add_next_key  -  W  env:$1-><id>iec905_msg_cntrl::pNextKey</id>
+iec905_add_next_key  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>
+iec905_add_next_key  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+iec905_add_next_key  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_add_next_key  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pChain</id>
+iec905_add_next_key  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pKey</id>
+iec905_add_next_key  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_init_key_storage  -  xNPD
+iec905_init_key_storage  -  NPD.SRC
+iec905_add_current_key  -  RET  env:EQ(0)
+iec905_add_current_key  -  DMEM  ,NMRF,1
+iec905_add_current_key  -  DMEM  ,MRF,4
+iec905_add_current_key  -  DMEM  ,MRF,5
+iec905_add_current_key  -  BAA  R:1:$4:[0,$3-1],1
+iec905_add_current_key  -  BPS  bytesize($$)=1*39
+iec905_add_current_key  -  BPS  charlength($$)=0
+iec905_add_current_key  -  NNTS.SRC  1 : $1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::pKey</id> : 1 : size : [$3] :
+iec905_add_current_key  -  NNTS.SRC  1 : $$-><id>iec905_key_info::pKey</id> : 1 : size : [$3] :
+iec905_add_current_key  -  NNTS.SRC  1 : $1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::key_id</id> : 1 : size : [4] :
+iec905_add_current_key  -  NNTS.SRC  1 : $$-><id>iec905_key_info::key_id</id> : 1 : size : [4] :
+iec905_add_current_key  -  xNPD  $1 EQ(0) : 1
+iec905_add_current_key  -  xNPD  $3 GE(1), $4 EQ(0), env : 4
+iec905_add_current_key  -  xNPD  $5 EQ(0), env : 5
+iec905_add_current_key  -  NPD.SRC  env : $$ : $$ EQ(0)
+iec905_add_current_key  -  NPD.SRC  $2 [0,255], $3 [0,65535], env : $$-><id>iec905_key_info::pKey</id> : $1-><id>iec905_msg_cntrl::pCurrentKey</id> NE(0), $$ NE(0), [($1-><id>iec905_msg_cntrl::pCurrentKey</id>)==$$]
+iec905_add_current_key  -  R  1:$1
+iec905_add_current_key  -  R  env:$2
+iec905_add_current_key  -  R  env:$3
+iec905_add_current_key  -  R  env:$4
+iec905_add_current_key  -  R  env:$5
+iec905_add_current_key  -  R  env:$6
+iec905_add_current_key  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+iec905_add_current_key  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_add_current_key  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pChain</id>
+iec905_add_current_key  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pKey</id>
+iec905_add_current_key  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_add_current_key  -  R  env:*$1
+iec905_add_current_key  -  R  env:*$4
+iec905_add_current_key  -  R  env:*$5
+iec905_add_current_key  -  R  env:*$1-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::pAddress</id>
+iec905_add_current_key  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+iec905_add_current_key  -  UnsafeArrayIndexAccepter  $3
+iec905_add_current_key  -  W  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>
+iec905_add_current_key  -  W  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+iec905_add_current_key  -  W  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_add_current_key  -  W  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_add_current_key  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>
+iec905_add_current_key  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+iec905_add_current_key  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_add_current_key  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_create_msg_cntrl_tx  -  RET  env:EQ(0)
+iec905_create_msg_cntrl_tx  -  DMEM  ,MRF,2
+iec905_create_msg_cntrl_tx  -  DMEM  ,MRF,3
+iec905_create_msg_cntrl_tx  -  DMEM  ,MRF,4
+iec905_create_msg_cntrl_tx  -  BAA  R:1:$2:[0,($2-><id>iec_comm_address::lenOfAddress</id>)-1],1
+iec905_create_msg_cntrl_tx  -  BAA  R:1:$4:[0,charlength($4)],1
+iec905_create_msg_cntrl_tx  -  BAA  R:1:$3:[0,($3-><id>iec_comm_address::lenOfAddress</id>)-1],1
+iec905_create_msg_cntrl_tx  -  NNTS.SRC  1 : $$-><id>iec905_msg_cntrl::srcKeyAddress</id>.<id>iec_comm_address::pAddress</id> : 1 : size : [$3-><id>iec_comm_address::lenOfAddress</id>] :
+iec905_create_msg_cntrl_tx  -  xNPD  $1 [0,2], $2 EQ(0) : 2
+iec905_create_msg_cntrl_tx  -  xNPD  $1 [0,2], $4 EQ(0), env : 4
+iec905_create_msg_cntrl_tx  -  NPD.SRC  $1 [0,255], env : $$ : $$ EQ(0)
+iec905_create_msg_cntrl_tx  -  NPD.SRC  $1 [0,2], $3 EQ(0), env : $$-><id>iec905_msg_cntrl::srcKeyAddress</id>.<id>iec_comm_address::pAddress</id> : $$ NE(0), [($$-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::typeOfAddress</id>)==($2-><id>iec_comm_address::typeOfAddress</id>)], [($$-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::lenOfAddress</id>)==($2-><id>iec_comm_address::lenOfAddress</id>)]
+iec905_create_msg_cntrl_tx  -  NPD.SRC  $1 [0,2], $3 NE(0), env : $$-><id>iec905_msg_cntrl::srcKeyAddress</id>.<id>iec_comm_address::pAddress</id> : $$ NE(0), [($$-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::typeOfAddress</id>)==($2-><id>iec_comm_address::typeOfAddress</id>)], [($$-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::lenOfAddress</id>)==($2-><id>iec_comm_address::lenOfAddress</id>)], [($$-><id>iec905_msg_cntrl::srcKeyAddress</id>.<id>iec_comm_address::typeOfAddress</id>)==($3-><id>iec_comm_address::typeOfAddress</id>)], [($$-><id>iec905_msg_cntrl::srcKeyAddress</id>.<id>iec_comm_address::lenOfAddress</id>)==($3-><id>iec_comm_address::lenOfAddress</id>)]
+iec905_create_msg_cntrl_tx  -  NPD.SRC  $1 [0,2], env : $$-><id>iec905_msg_cntrl::pPrev</id> : $$ NE(0), [($$-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::typeOfAddress</id>)==($2-><id>iec_comm_address::typeOfAddress</id>)], [($$-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::lenOfAddress</id>)==($2-><id>iec_comm_address::lenOfAddress</id>)]
+iec905_create_msg_cntrl_tx  -  R  1:$1
+iec905_create_msg_cntrl_tx  -  R  env:$2
+iec905_create_msg_cntrl_tx  -  R  env:$3
+iec905_create_msg_cntrl_tx  -  R  env:$4
+iec905_create_msg_cntrl_tx  -  R  env:$2-><id>iec_comm_address::typeOfAddress</id>
+iec905_create_msg_cntrl_tx  -  R  env:$2-><id>iec_comm_address::lenOfAddress</id>
+iec905_create_msg_cntrl_tx  -  R  env:$2-><id>iec_comm_address::pAddress</id>
+iec905_create_msg_cntrl_tx  -  R  env:$3-><id>iec_comm_address::lenOfAddress</id>
+iec905_create_msg_cntrl_tx  -  R  env:$3-><id>iec_comm_address::pAddress</id>
+iec905_create_msg_cntrl_tx  -  R  env:*$4
+iec905_create_msg_cntrl_tx  -  R  env:*$2-><id>iec_comm_address::pAddress</id>
+iec905_create_msg_cntrl_tx  -  R  env:*$3-><id>iec_comm_address::pAddress</id>
+iec905_create_msg_cntrl_tx  -  TSprop  $$-><id>iec905_msg_cntrl::pDataSetRef</id> : $4
+iec905_create_msg_cntrl_tx  -  UnsafeArrayIndexAccepter  $3-><id>iec_comm_address::lenOfAddress</id>
+iec905_init_kdc_interface  -  RET  $1 NE(0):EQ(0)
+iec905_init_kdc_interface  -  DMEM  ,MRF,1
+iec905_init_kdc_interface  -  ALLOC
+iec905_init_kdc_interface  -  xNPD
+iec905_init_kdc_interface  -  NPD.SRC
+iec905_init_kdc_interface  -  R  1:$1
+iec905_init_kdc_interface  -  R  env:$2
+iec905_init_kdc_interface  -  R  env:*$1
+iec905_init_kdc_interface  -  R  env:*$1-><id>kdc_credentials::certificate_info</id>
+iec905_init_kdc_interface  -  UnsafeAllocSizeAccepter  $2
+iec905_kdc_bind  -  RET  env:EQ(0)
+iec905_kdc_bind  -  DMEM  ,MRF,1
+iec905_kdc_bind  -  DMEM  ,MRF,2
+iec905_kdc_bind  -  xNPD  $2 EQ(0) : 2
+iec905_kdc_bind  -  NPD.SRC
+iec905_kdc_bind  -  R  env:$1
+iec905_kdc_bind  -  R  1:$2
+iec905_kdc_bind  -  R  env:$2-><id>kdc_ref::pReserved</id>
+iec905_kdc_bind  -  R  env:$2-><id>kdc_ref::refNum</id>
+iec905_kdc_bind  -  R  env:*$2-><id>kdc_ref::pReserved</id>
+iec905_kdc_bind  -  TSprop  $1-><id>iec905_msg_cntrl::pKDCReserved</id> : $2-><id>kdc_ref::pReserved</id>
+iec905_kdc_bind  -  W  env:$1-><id>iec905_msg_cntrl::kdcRefNum</id>
+iec905_kdc_bind  -  W  env:$1-><id>iec905_msg_cntrl::pKDCReserved</id>
+iec905_get_kdc_tx_keys  -  RET  env:EQ(0)
+iec905_get_kdc_tx_keys  -  DMEM  ,NMRF,1
+iec905_get_kdc_tx_keys  -  xNPD  $1 EQ(0) : 1
+iec905_get_kdc_tx_keys  -  NPD.SRC
+iec905_get_kdc_tx_keys  -  R  1:$1
+iec905_get_kdc_tx_keys  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::key_id</id>
+iec905_get_kdc_tx_keys  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+iec905_get_kdc_tx_keys  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_get_kdc_tx_keys  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pChain</id>
+iec905_get_kdc_tx_keys  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pKey</id>
+iec905_get_kdc_tx_keys  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_get_kdc_tx_keys  -  R  env:*$1
+iec905_get_kdc_tx_keys  -  R  env:*$1-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::pAddress</id>
+iec905_get_kdc_tx_keys  -  R  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::key_id</id>
+iec905_get_kdc_tx_keys  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+iec905_get_kdc_tx_keys  -  W  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>
+iec905_get_kdc_tx_keys  -  W  env:$1-><id>iec905_msg_cntrl::pNextKey</id>
+iec905_get_kdc_tx_keys  -  W  env:$1-><id>iec905_msg_cntrl::requestedUpdate</id>
+iec905_get_kdc_tx_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>
+iec905_get_kdc_tx_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>
+iec905_get_kdc_tx_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::key_id</id>
+iec905_get_kdc_tx_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+iec905_get_kdc_tx_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+iec905_get_kdc_tx_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pChain</id>
+iec905_get_kdc_tx_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pKey</id>
+iec905_get_kdc_tx_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+iec905_destroy_KDC_pair  -  RET  1:EQ(0)
+iec905_destroy_KDC_pair  -  xNPD
+iec905_destroy_KDC_pair  -  NPD.SRC
+iec905_destroy_KDC_pair  -  R  env:$1
+iec905_create_KDC_pair  -  RET  $2 EQ(0):EQ(0)
+iec905_create_KDC_pair  -  RET  $3 EQ(0):EQ(0)
+iec905_create_KDC_pair  -  RET  env:EQ(0)
+iec905_create_KDC_pair  -  DMEM  ,MRF,1
+iec905_create_KDC_pair  -  DMEM  ,MRF,2
+iec905_create_KDC_pair  -  DMEM  ,MRF,3
+iec905_create_KDC_pair  -  DMEM  ,MRF,4
+iec905_create_KDC_pair  -  DMEM  ,MRF,5
+iec905_create_KDC_pair  -  ALLOC  stdc : $2 NE(0), $3 NE(0), env : $$ : $$-><id>kdc_ref::pReserved</id> NE(0), $$ NE(0)
+iec905_create_KDC_pair  -  BAA  R:1:$1:[0,charlength($1)]
+iec905_create_KDC_pair  -  BPS  bytesize($$)=1*12
+iec905_create_KDC_pair  -  BPS  charlength($$)=0
+iec905_create_KDC_pair  -  xNPD
+iec905_create_KDC_pair  -  NPD.SRC  env : $$ : $$ EQ(0)
+iec905_create_KDC_pair  -  NPD.SRC  $1 EQ(0), $2 NE(0), $3 NE(0), env : $$-><id>kdc_ref::pUserRef</id> : $$-><id>kdc_ref::pReserved</id> NE(0), $$-><id>kdc_ref::pUserRef</id> EQ(0), $$ NE(0)
+iec905_create_KDC_pair  -  R  env:$1
+iec905_create_KDC_pair  -  R  env:$2
+iec905_create_KDC_pair  -  R  env:$3
+iec905_create_KDC_pair  -  R  env:$4
+iec905_create_KDC_pair  -  R  env:$5
+iec905_create_KDC_pair  -  R  env:*$1
+iec905_create_KDC_pair  -  R  env:*$2
+iec905_create_KDC_pair  -  R  env:*$3
+iec905_create_KDC_pair  -  TSprop  $$-><id>kdc_ref::pUserRef</id> : $1
+iec905_destroy_kdc_credential  -  RET  1:EQ(0)
+iec905_destroy_kdc_credential  -  DMEM  ,NMRF,1
+iec905_destroy_kdc_credential  -  FREE  stdc  $1
+iec905_destroy_kdc_credential  -  xNPD
+iec905_destroy_kdc_credential  -  NPD.SRC
+iec905_destroy_kdc_credential  -  R  1:$1
+get_kdc_rx_keys  -  RET  env:EQ(0)
+get_kdc_rx_keys  -  DMEM  ,NMRF,1
+get_kdc_rx_keys  -  xNPD  $1 EQ(0) : 1
+get_kdc_rx_keys  -  NPD.SRC
+get_kdc_rx_keys  -  R  1:$1
+get_kdc_rx_keys  -  R  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::key_id</id>
+get_kdc_rx_keys  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+get_kdc_rx_keys  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+get_kdc_rx_keys  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pChain</id>
+get_kdc_rx_keys  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pKey</id>
+get_kdc_rx_keys  -  R  env:$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+get_kdc_rx_keys  -  R  env:*$1
+get_kdc_rx_keys  -  R  env:*$1-><id>iec905_msg_cntrl::keyAddress</id>.<id>iec_comm_address::pAddress</id>
+get_kdc_rx_keys  -  R  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::key_id</id>
+get_kdc_rx_keys  -  R  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+get_kdc_rx_keys  -  W  env:$1-><id>iec905_msg_cntrl::pCurrentKey</id>
+get_kdc_rx_keys  -  W  env:$1-><id>iec905_msg_cntrl::pNextKey</id>
+get_kdc_rx_keys  -  W  env:$1-><id>iec905_msg_cntrl::requestedUpdate</id>
+get_kdc_rx_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>
+get_kdc_rx_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>
+get_kdc_rx_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pCurrentKey</id>-><id>iec905_key_info::key_id</id>
+get_kdc_rx_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pNext</id>
+get_kdc_rx_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pPrev</id>
+get_kdc_rx_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pChain</id>
+get_kdc_rx_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pKey</id>
+get_kdc_rx_keys  -  W  env:*$1-><id>iec905_msg_cntrl::pNextKey</id>-><id>iec905_key_info::pUsedBy</id>
+dblLnkAddLast  -  RET  $2 NE(0):EQ(0)
+dblLnkAddLast  -  RET  $2 EQ(0):EQ(1)
+dblLnkAddLast  -  RET  1:[0,1]
+dblLnkAddLast  -  DMEM  ,MRF,1
+dblLnkAddLast  -  DMEM  ,NMRF,2
+dblLnkAddLast  -  xNPD  $1 EQ(0), $2 NE(0) : 1
+dblLnkAddLast  -  NPD.SRC
+dblLnkAddLast  -  R  env:$1
+dblLnkAddLast  -  R  env:$2
+dblLnkAddLast  -  R  env:*$1
+dblLnkAddLast  -  R  env:*$2
+dblLnkAddLast  -  R  env:*(*$1)-><id>dbl_lnk::prev</id>-><id>dbl_lnk::prev</id>
+dblLnkAddLast  -  R  env:*(*$1)-><id>dbl_lnk::next</id>
+dblLnkAddLast  -  R  env:*(*$1)-><id>dbl_lnk::prev</id>
+dblLnkAddLast  -  R  env:**$1
+dblLnkAddLast  -  W  env:$2-><id>dbl_lnk::next</id>
+dblLnkAddLast  -  W  env:$2-><id>dbl_lnk::prev</id>
+dblLnkAddLast  -  W  env:(*$1)-><id>dbl_lnk::prev</id>-><id>dbl_lnk::next</id>
+dblLnkAddLast  -  W  env:(*$1)-><id>dbl_lnk::prev</id>
+dblLnkAddLast  -  W  env:*$1
+dblLnkUnlinkLast  -  RET  *$1 EQ(0):EQ(0)
+dblLnkUnlinkLast  -  DMEM  ,MRF,1
+dblLnkUnlinkLast  -  xNPD  $1 EQ(0) : 1
+dblLnkUnlinkLast  -  NPD.SRC  *$1 EQ(0) : $$ : $$ EQ(0)
+dblLnkUnlinkLast  -  NPD.SRC  *$1 NE(0), $1 NE(0), env : *$1 : $$-><id>dbl_lnk::next</id> NE(0), *$1 EQ(0), $$ NE(0), [($$-><id>dbl_lnk::prev</id>)==$$]
+dblLnkUnlinkLast  -  R  1:$1
+dblLnkUnlinkLast  -  R  env:(*$1)-><id>dbl_lnk::prev</id>
+dblLnkUnlinkLast  -  R  1:*$1
+dblLnkUnlinkLast  -  W  env:*$1
+dblLnkUnlinkLast  -  W  env:*(*$1)-><id>dbl_lnk::next</id>-><id>dbl_lnk::prev</id>
+dblLnkUnlinkLast  -  W  env:*(*$1)-><id>dbl_lnk::prev</id>-><id>dbl_lnk::next</id>
+dblLnkUnlinkLast  -  W  env:*(*$1)-><id>dbl_lnk::next</id>
+dblLnkUnlinkLast  -  W  env:*(*$1)-><id>dbl_lnk::prev</id>
+dblLnkUnlinkLast  -  W  env:**$1
+dblLnkUnlinkFirst  -  RET  *$1 NE(0):NE(0)
+dblLnkUnlinkFirst  -  RET  *$1 EQ(0):EQ(0)
+dblLnkUnlinkFirst  -  DMEM  ,MRF,1
+dblLnkUnlinkFirst  -  xNPD  $1 EQ(0) : 1
+dblLnkUnlinkFirst  -  NPD.SRC  *$1 EQ(0) : $$ : $$ EQ(0)
+dblLnkUnlinkFirst  -  NPD.SRC  *$1 NE(0), $1 NE(0), env : *$1 : *$1 EQ(0), $$ NE(0)
+dblLnkUnlinkFirst  -  R  1:$1
+dblLnkUnlinkFirst  -  R  env:(*$1)-><id>dbl_lnk::next</id>
+dblLnkUnlinkFirst  -  R  env:(*$1)-><id>dbl_lnk::prev</id>
+dblLnkUnlinkFirst  -  R  env:*$1
+dblLnkUnlinkFirst  -  R  env:*(*$1)-><id>dbl_lnk::next</id>-><id>dbl_lnk::prev</id>
+dblLnkUnlinkFirst  -  R  env:*(*$1)-><id>dbl_lnk::next</id>
+dblLnkUnlinkFirst  -  R  env:*(*$1)-><id>dbl_lnk::prev</id>
+dblLnkUnlinkFirst  -  W  env:*$1
+dblLnkUnlinkFirst  -  W  env:*(*$1)-><id>dbl_lnk::next</id>-><id>dbl_lnk::prev</id>
+dblLnkUnlinkFirst  -  W  env:*(*$1)-><id>dbl_lnk::prev</id>-><id>dbl_lnk::next</id>
+dblLnkUnlinkFirst  -  W  env:*(*$1)-><id>dbl_lnk::next</id>
+dblLnkUnlinkFirst  -  W  env:*(*$1)-><id>dbl_lnk::prev</id>
+dblLnkUnlinkFirst  -  W  env:**$1
+dblLnkAddFirst  -  RET  $2 NE(0):EQ(0)
+dblLnkAddFirst  -  RET  $2 EQ(0):EQ(1)
+dblLnkAddFirst  -  RET  1:[0,1]
+dblLnkAddFirst  -  DMEM  ,MRF,1
+dblLnkAddFirst  -  DMEM  ,NMRF,2
+dblLnkAddFirst  -  xNPD  $1 EQ(0), $2 NE(0) : 1
+dblLnkAddFirst  -  NPD.SRC
+dblLnkAddFirst  -  R  env:$1
+dblLnkAddFirst  -  R  env:$2
+dblLnkAddFirst  -  R  env:*$1
+dblLnkAddFirst  -  R  env:*$2
+dblLnkAddFirst  -  R  env:*(*$1)-><id>dbl_lnk::prev</id>-><id>dbl_lnk::next</id>
+dblLnkAddFirst  -  R  env:*(*$1)-><id>dbl_lnk::prev</id>-><id>dbl_lnk::prev</id>
+dblLnkAddFirst  -  R  env:*(*$1)-><id>dbl_lnk::next</id>
+dblLnkAddFirst  -  R  env:*(*$1)-><id>dbl_lnk::prev</id>
+dblLnkAddFirst  -  R  env:**$1
+dblLnkAddFirst  -  W  env:$2-><id>dbl_lnk::next</id>
+dblLnkAddFirst  -  W  env:$2-><id>dbl_lnk::prev</id>
+dblLnkAddFirst  -  W  env:(*$1)-><id>dbl_lnk::prev</id>-><id>dbl_lnk::next</id>
+dblLnkAddFirst  -  W  env:(*$1)-><id>dbl_lnk::prev</id>
+dblLnkAddFirst  -  W  env:*$1

@@ -1,0 +1,137 @@
+48;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinReg.h
+34942;C:\IEC61850-90-5\inc\iec_90_5_load_cfg.h
+77;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinSmCrd.h
+30055;C:\IEC61850-90-5\inc\iec_90_5.h
+31807;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\NtDDPSch.h
+31800;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\DEVPKEY.H
+30039;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\Qos.h
+30045;C:\Program Files\Microsoft Visual Studio 8\VC\include\time.h
+31804;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\Traffic.h
+24;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\sal_supp.h
+100;C:\Program Files\Microsoft Visual Studio 8\VC\include\swprintf.inl
+31580;C:\IEC61850-90-5\src\iec_90_5_udp_rx.c
+70;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinEFS.h
+42;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinUser.h
+31;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\Guiddef.h
+87;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\UrlMon.h
+30051;C:\Program Files\Microsoft Visual Studio 8\VC\include\conio.h
+96;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinSvc.h
+33;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\PshPack4.h
+37;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\ktmtypes.h
+73;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\RpcNsip.h
+30043;C:\Program Files\Microsoft Visual Studio 8\VC\include\sys\timeb.inl
+30053;C:\Program Files\Microsoft Visual Studio 8\VC\include\assert.h
+34941;C:\Program Files\Microsoft Visual Studio 8\VC\include\signal.h
+98;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\Imm.h
+57;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\Rpc.h
+78;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\PrSht.h
+41;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\PshPack1.h
+45;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinCon.h
+64;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinPerf.h
+65;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinSock.h
+34932;C:\IEC61850-90-5\src\sv_dec.c
+76;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinIoCtl.h
+89;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\ServProv.h
+31802;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\windot11.h
+35;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\PshPack2.h
+91;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\OAIdl.h
+30052;C:\IEC61850-90-5\inc\iec_sysincs.h
+75;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WTypes.h
+31806;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\TCGuid.h
+66;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\inaddr.h
+25;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\specstrings_supp.h
+67;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinCrypt.h
+31798;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\Ipifcons.h
+30054;C:\Program Files\Microsoft Visual Studio 8\VC\include\crtdbg.h
+13;C:\Program Files\Microsoft Visual Studio 8\VC\include\excpt.h
+63;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\ShellAPI.h
+80;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\Ole2.h
+69;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\ncrypt.h
+79;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinSpool.h
+31803;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\wlantypes.h
+34924;C:\IEC61850-90-5\src\iec_crypto_windows.c
+18;C:\Program Files\Microsoft Visual Studio 8\VC\include\crtdefs.h
+31578;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\ws2ipdef.h
+104;C:\IEC61850-90-5\src\dblLnkLst.c
+34;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\PopPack.h
+36;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\PshPack8.h
+40;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinGDI.h
+49;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinNetWk.h
+85;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\ObjIdl.h
+56;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\Nb30.h
+35018;C:\IEC61850-90-5\src\usr_sample_load_cfg.c
+22;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinNT.h
+17;C:\Program Files\Microsoft Visual Studio 8\VC\include\sal.h
+46;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\VerRsrc.h
+30044;C:\Program Files\Microsoft Visual Studio 8\VC\include\malloc.h
+12;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\Windows.h
+27;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\specstrings_strict.h
+31520;C:\IEC61850-90-5\src\iec_90_5_kdc_int.c
+31808;C:\IEC61850-90-5\src\iec_90_5_udp_tx.c
+51;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\Dde.h
+35017;C:\IEC61850-90-5\inc\usr_sample_load_cfg.h
+82;C:\Program Files\Microsoft Visual Studio 8\VC\include\stdlib.h
+5;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\sdkddkver.h
+58;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\RpcDce.h
+30049;C:\Program Files\Microsoft Visual Studio 8\VC\include\sys\stat.h
+31799;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\devpropdef.h
+31805;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\qosobjs.h
+31796;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\NtDDNdis.h
+19;C:\Program Files\Microsoft Visual Studio 8\VC\include\vadefs.h
+30056;C:\IEC61850-90-5\src\iec_90_5_ErrorHandler.c
+39;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinError.h
+71;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinSCard.h
+34935;C:\IEC61850-90-5\src\sv_fixed_off_enc.c
+31546;C:\IEC61850-90-5\src\iec_90_5_key_store.c
+30041;C:\Program Files\Microsoft Visual Studio 8\VC\include\sys\timeb.h
+31313;C:\IEC61850-90-5\src\iec_90_5_enc.c
+28;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\driverspecs.h
+30037;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinSock2.h
+62;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\RpcAsync.h
+97;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\Mcx.h
+38;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinBase.h
+30047;C:\Program Files\Microsoft Visual Studio 8\VC\include\time.inl
+31305;C:\IEC61850-90-5\src\iec_90_5_dec.c
+31801;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\pciprop.h
+72;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\RpcNdr.h
+68;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\bcrypt.h
+55;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\MMSystem.h
+43;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\Tvout.h
+31579;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\in6addr.h
+84;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\Unknwn.h
+53;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\Dlgs.h
+23;C:\Program Files\Microsoft Visual Studio 8\VC\include\ctype.h
+74;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\Rpcsal.h
+29;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\kernelspecs.h
+59;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\RpcDceP.h
+31577;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WS2tcpip.h
+20;C:\Program Files\Microsoft Visual Studio 8\VC\include\stdarg.h
+101;C:\IEC61850-90-5\inc\dblLnkLst.h
+34943;C:\IEC61850-90-5\src\usr_sample.c
+21;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinDef.h
+90;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\MsXml.h
+30048;C:\Program Files\Microsoft Visual Studio 8\VC\include\sys\types.h
+30046;C:\Program Files\Microsoft Visual Studio 8\VC\include\wtime.inl
+26;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\specstrings.h
+32;C:\Program Files\Microsoft Visual Studio 8\VC\include\string.h
+83;C:\Program Files\Microsoft Visual Studio 8\VC\include\limits.h
+92;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\PropIdl.h
+30050;C:\Program Files\Microsoft Visual Studio 8\VC\include\sys\stat.inl
+30;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\BaseTsd.h
+30038;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\ws2def.h
+61;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\RpcNtErr.h
+93;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\OleAuto.h
+86;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\CGuid.h
+94;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\CommDlg.h
+95;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\StrAlign.h
+47;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinVer.h
+44;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinNls.h
+60;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\RpcNsi.h
+81;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\ObjBase.h
+88;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\OleIdl.h
+99;C:\Program Files\Microsoft Visual Studio 8\VC\include\stdio.h
+31797;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\ifdef.h
+54;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\LZExpand.h
+50;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\CdErr.h
+52;C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\Ddeml.h
+30040;C:\Program Files\Microsoft Visual Studio 8\VC\include\process.h

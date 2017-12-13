@@ -1,0 +1,2536 @@
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp3873.tmp  create -sd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwps -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp -b C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw3852.tmp
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp3B24.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp3D19.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp -b C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw3852.tmp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw3853.tmp
+Mon Dec 12 15:59:32 EST 2011: Running build preparation stage...
+Mon Dec 12 15:59:32 EST 2011: Build preparation stage completed
+Mon Dec 12 15:59:32 EST 2011: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\iec_crypto_windows.c
+4 error(s) and 0 warning(s)
+Mon Dec 12 15:59:34 EST 2011: Compilation stage completed
+Mon Dec 12 15:59:34 EST 2011: Running C/C++ defects detection stage...
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_crypto_windows.c_0.o
+Mon Dec 12 15:59:35 EST 2011: C/C++ defects detection stage completed
+Mon Dec 12 15:59:35 EST 2011: Running linking stage...
+Mon Dec 12 15:59:35 EST 2011: Linking stage completed
+Build errors summary:
+4 missing include files
+Build contains parse errors, parse_errors.log file can be found here: C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\parse_errors.log
+Build contains errors, build.log file can be found here: C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\build.log
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2011.12.12 15:59:37.497
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp8A90.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp8C47.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw8A70.tmp
+Mon Dec 12 15:59:52 EST 2011: Running build preparation stage...
+Mon Dec 12 15:59:52 EST 2011: Build preparation stage completed
+Mon Dec 12 15:59:52 EST 2011: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\iec_crypto_windows.c
+1 error(s) and 0 warning(s)
+Mon Dec 12 15:59:54 EST 2011: Compilation stage completed
+Mon Dec 12 15:59:54 EST 2011: Running C/C++ defects detection stage...
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_crypto_windows.c_0.o
+Mon Dec 12 15:59:55 EST 2011: C/C++ defects detection stage completed
+Mon Dec 12 15:59:55 EST 2011: Running linking stage...
+Mon Dec 12 15:59:55 EST 2011: Linking stage completed
+Build errors summary:
+One missing include file: 'bcrypt.h'
+Build contains parse errors, parse_errors.log file can be found here: C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\parse_errors.log
+Build contains errors, build.log file can be found here: C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\build.log
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2011.12.12 15:59:56.704
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp660C.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp6794.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw65EC.tmp
+Mon Dec 12 16:05:10 EST 2011: Running build preparation stage...
+Mon Dec 12 16:05:10 EST 2011: Build preparation stage completed
+Mon Dec 12 16:05:11 EST 2011: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\iec_crypto_windows.c
+Mon Dec 12 16:05:13 EST 2011: Compilation stage completed
+Mon Dec 12 16:05:13 EST 2011: Running C/C++ defects detection stage...
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_crypto_windows.c_0.o
+Mon Dec 12 16:05:13 EST 2011: C/C++ defects detection stage completed
+Mon Dec 12 16:05:13 EST 2011: Running linking stage...
+Mon Dec 12 16:05:13 EST 2011: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2011.12.12 16:05:15.258
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpAA93.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpACE6.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwAA73.tmp
+Mon Dec 12 16:19:40 EST 2011: Running build preparation stage...
+Mon Dec 12 16:19:40 EST 2011: Build preparation stage completed
+The project is up to date
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2011.12.12 16:19:40.894
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp4176.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp42EE.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw4127.tmp
+Mon Dec 12 16:23:35 EST 2011: Running build preparation stage...
+Mon Dec 12 16:23:35 EST 2011: Build preparation stage completed
+The project is up to date
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2011.12.12 16:23:35.900
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpA56A.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpC23A.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwA1A0.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2011.12.15 12:16:07.706
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpDAD5.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpDC4D.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwDAA5.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2011.12.15 12:16:14.268
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpC94E.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpCB24.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwC91F.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2011.12.15 12:17:15.439
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpC2D7.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpC4AD.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwC2B7.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2011.12.15 12:24:52.574
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp95A.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpAD2.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw93A.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2011.12.15 12:25:10.498
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp191D.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp4222.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw14C6.tmp
+Mon Dec 19 17:13:27 EST 2011: Running build preparation stage...
+Mon Dec 19 17:13:27 EST 2011: Build preparation stage completed
+Mon Dec 19 17:13:27 EST 2011: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\iec_90_5_dec.c
+Compiling c:\IEC61850-90-5\src\usr_sample.c
+Compiling c:\IEC61850-90-5\src\usr_sample_load_cfg.c
+Mon Dec 19 17:13:40 EST 2011: Compilation stage completed
+Mon Dec 19 17:13:40 EST 2011: Running C/C++ defects detection stage...
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample_load_cfg.c_3.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_dec.c_1.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_2.o
+Mon Dec 19 17:13:44 EST 2011: C/C++ defects detection stage completed
+Mon Dec 19 17:13:44 EST 2011: Running linking stage...
+Mon Dec 19 17:13:44 EST 2011: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2011.12.19 17:13:48.520
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpA85F.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpA9C8.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwA84F.tmp
+Mon Dec 19 17:13:51 EST 2011: Running build preparation stage...
+Mon Dec 19 17:13:51 EST 2011: Build preparation stage completed
+The project is up to date
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2011.12.19 17:13:52.053
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp1A81.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp2ACD.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw19F3.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2011.12.28 21:49:58.793
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpBB96.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpD019.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwBB18.tmp
+Thu Dec 29 09:50:54 EST 2011: Running build preparation stage...
+Thu Dec 29 09:50:55 EST 2011: Build preparation stage completed
+The project is up to date
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2011.12.29 09:50:55.731
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp6A9C.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp6C62.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw6A8C.tmp
+Thu Dec 29 10:39:36 EST 2011: Running build preparation stage...
+Thu Dec 29 10:39:36 EST 2011: Build preparation stage completed
+The project is up to date
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2011.12.29 10:39:36.671
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp6C9C.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp9860.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw6C3D.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.01.10 21:10:09.247
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpA34F.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpA4C7.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwA32E.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.01.10 21:10:11.769
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp6B17.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp6D0C.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw6B06.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.01.10 21:25:15.285
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpBFF0.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpC1E5.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwBFCF.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.01.10 22:12:35.256
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp8EE4.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp909B.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw8EC4.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.01.10 22:22:12.518
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp112A.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp12F0.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw111A.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.01.10 22:29:19.008
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp66CC.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp6892.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw66BB.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.01.10 22:34:03.164
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp928D.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp9491.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw926C.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.01.10 22:46:15.333
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpA5FC.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpC221.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwA530.tmp
+Tue Jan 17 07:46:07 EST 2012: Running build preparation stage...
+Tue Jan 17 07:46:07 EST 2012: Build preparation stage completed
+Tue Jan 17 07:46:07 EST 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\iec_90_5_enc.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_ErrorHandler.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_udp_rx.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_udp_tx.c
+Compiling c:\IEC61850-90-5\src\sv_fixed_off_enc.c
+Compiling c:\IEC61850-90-5\src\usr_sample_load_cfg.c
+Tue Jan 17 07:46:23 EST 2012: Compilation stage completed
+Tue Jan 17 07:46:23 EST 2012: Running C/C++ defects detection stage...
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_errorhandler.c_5.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample_load_cfg.c_9.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_enc.c_4.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_rx.c_6.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_tx.c_7.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_8.o
+Tue Jan 17 07:46:26 EST 2012: C/C++ defects detection stage completed
+Tue Jan 17 07:46:26 EST 2012: Running linking stage...
+Tue Jan 17 07:46:27 EST 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.01.17 07:46:30.483
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp2E4A.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp2FC2.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw2E39.tmp
+Tue Jan 17 07:46:33 EST 2012: Running build preparation stage...
+Tue Jan 17 07:46:33 EST 2012: Build preparation stage completed
+Tue Jan 17 07:46:33 EST 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\iec_90_5_dec.c
+Compiling c:\IEC61850-90-5\src\iec_crypto_windows.c
+Compiling c:\IEC61850-90-5\src\usr_sample.c
+Tue Jan 17 07:46:39 EST 2012: Compilation stage completed
+Tue Jan 17 07:46:39 EST 2012: Running C/C++ defects detection stage...
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_crypto_windows.c_11.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_errorhandler.c_5.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_dec.c_10.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_enc.c_4.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_rx.c_6.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_tx.c_7.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_8.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_12.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_errorhandler.c_5.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_dec.c_10.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_enc.c_4.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_rx.c_6.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_tx.c_7.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_8.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_12.o
+Tue Jan 17 07:46:45 EST 2012: C/C++ defects detection stage completed
+Tue Jan 17 07:46:45 EST 2012: Running linking stage...
+Tue Jan 17 07:46:46 EST 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.01.17 07:46:47.999
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpC4C4.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpCB2E.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwC3C9.tmp
+Tue Jan 17 08:58:13 EST 2012: Running build preparation stage...
+Tue Jan 17 08:58:14 EST 2012: Build preparation stage completed
+Tue Jan 17 08:58:14 EST 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\sv_dec.c
+Tue Jan 17 08:58:18 EST 2012: Compilation stage completed
+Tue Jan 17 08:58:18 EST 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_13.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_13.o
+Tue Jan 17 08:58:20 EST 2012: C/C++ defects detection stage completed
+Tue Jan 17 08:58:20 EST 2012: Running linking stage...
+Tue Jan 17 08:58:21 EST 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.01.17 08:58:23.236
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp3E2F.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp5BAB.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw399A.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.01.25 11:15:01.601
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp66F8.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp68AE.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw66D7.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.01.25 11:15:04.650
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp89F0.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp9D79.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw8982.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.02.10 16:46:39.287
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpA914.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpAB09.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwA8F4.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.02.10 16:46:42.568
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp2DB0.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp4B3B.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw25DF.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.02.17 12:11:05.558
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp554F.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp56D7.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw553F.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.02.17 12:11:08.371
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp488C.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp4A52.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw487B.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.02.17 13:17:17.670
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpC9C6.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpCB7C.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwC9A5.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.02.17 13:17:50.764
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpFAA9.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpFD69.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwFA79.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.02.17 13:19:09.375
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp7DD3.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp8016.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw7DB3.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.02.18 08:52:40.595
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpFF5B.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp121.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwFF2B.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.02.18 08:53:13.266
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpA13F.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpA2F6.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwA10F.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.02.18 08:57:11.337
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp24ED.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp26B3.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw24DC.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.02.18 08:57:45.044
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpD7E8.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp86F.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwD5D4.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.02.29 17:04:41.830
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp1AA1.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp1FE2.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw1A14.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.02.29 17:04:46.439
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp89C4.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpCB81.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw8771.tmp
+Fri Mar 23 11:09:02 EDT 2012: Running build preparation stage...
+Fri Mar 23 11:09:03 EDT 2012: Build preparation stage completed
+Fri Mar 23 11:09:04 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\iec_90_5_dec.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_enc.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_ErrorHandler.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_udp_rx.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_udp_tx.c
+Compiling c:\IEC61850-90-5\src\iec_crypto_windows.c
+Compiling c:\IEC61850-90-5\src\sv_dec.c
+Compiling c:\IEC61850-90-5\src\sv_fixed_off_enc.c
+Compiling c:\IEC61850-90-5\src\usr_sample.c
+Compiling c:\IEC61850-90-5\src\usr_sample_load_cfg.c
+Fri Mar 23 11:09:40 EDT 2012: Compilation stage completed
+Fri Mar 23 11:09:40 EDT 2012: Running C/C++ defects detection stage...
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_crypto_windows.c_0.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample_load_cfg.c_3.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_errorhandler.c_15.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_dec.c_1.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_enc.c_14.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_rx.c_16.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_tx.c_17.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_2.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_errorhandler.c_15.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_dec.c_1.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_enc.c_14.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_rx.c_16.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_tx.c_17.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_2.o
+Fri Mar 23 11:09:55 EDT 2012: C/C++ defects detection stage completed
+Fri Mar 23 11:09:55 EDT 2012: Running linking stage...
+Fri Mar 23 11:09:59 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.03.23 11:10:05.398
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpE0DC.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpE419.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwE09C.tmp
+Fri Mar 23 11:10:10 EDT 2012: Running build preparation stage...
+Fri Mar 23 11:10:10 EDT 2012: Build preparation stage completed
+The project is up to date
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.03.23 11:10:11.208
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpACB0.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpB82B.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwAA7D.tmp
+Fri Mar 23 11:50:24 EDT 2012: Running build preparation stage...
+Fri Mar 23 11:50:24 EDT 2012: Build preparation stage completed
+Fri Mar 23 11:50:24 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\iec_90_5_key_store.c
+Fri Mar 23 11:50:30 EDT 2012: Compilation stage completed
+Fri Mar 23 11:50:30 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_key_store.c_20.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_key_store.c_20.o
+Fri Mar 23 11:50:35 EDT 2012: C/C++ defects detection stage completed
+Fri Mar 23 11:50:35 EDT 2012: Running linking stage...
+Fri Mar 23 11:50:36 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.03.23 11:50:40.319
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpAE1C.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpB1D7.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwADED.tmp
+Fri Mar 23 12:10:03 EDT 2012: Running build preparation stage...
+Fri Mar 23 12:10:03 EDT 2012: Build preparation stage completed
+Fri Mar 23 12:10:03 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\sv_dec.c
+Fri Mar 23 12:10:08 EDT 2012: Compilation stage completed
+Fri Mar 23 12:10:08 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Fri Mar 23 12:10:09 EDT 2012: C/C++ defects detection stage completed
+Fri Mar 23 12:10:09 EDT 2012: Running linking stage...
+Fri Mar 23 12:10:11 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.03.23 12:10:14.359
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp37BC.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp3C32.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw371F.tmp
+Fri Mar 23 12:12:49 EDT 2012: Running build preparation stage...
+Fri Mar 23 12:12:49 EDT 2012: Build preparation stage completed
+Fri Mar 23 12:12:49 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\sv_dec.c
+Fri Mar 23 12:12:54 EDT 2012: Compilation stage completed
+Fri Mar 23 12:12:54 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Fri Mar 23 12:12:57 EDT 2012: C/C++ defects detection stage completed
+Fri Mar 23 12:12:57 EDT 2012: Running linking stage...
+Fri Mar 23 12:12:59 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.03.23 12:13:02.761
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp45D8.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp4AEA.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw4579.tmp
+Fri Mar 23 12:20:31 EDT 2012: Running build preparation stage...
+Fri Mar 23 12:20:31 EDT 2012: Build preparation stage completed
+Fri Mar 23 12:20:31 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\sv_dec.c
+Fri Mar 23 12:20:36 EDT 2012: Compilation stage completed
+Fri Mar 23 12:20:36 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Fri Mar 23 12:20:41 EDT 2012: C/C++ defects detection stage completed
+Fri Mar 23 12:20:41 EDT 2012: Running linking stage...
+Fri Mar 23 12:20:43 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.03.23 12:20:46.313
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpF5B3.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpFA39.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwF593.tmp
+Fri Mar 23 12:21:17 EDT 2012: Running build preparation stage...
+Fri Mar 23 12:21:17 EDT 2012: Build preparation stage completed
+Fri Mar 23 12:21:17 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\sv_dec.c
+Fri Mar 23 12:21:21 EDT 2012: Compilation stage completed
+Fri Mar 23 12:21:21 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Fri Mar 23 12:21:27 EDT 2012: C/C++ defects detection stage completed
+Fri Mar 23 12:21:27 EDT 2012: Running linking stage...
+Fri Mar 23 12:21:29 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.03.23 12:21:34.363
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpD4DC.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpD8E5.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwD47E.tmp
+Fri Mar 23 12:22:13 EDT 2012: Running build preparation stage...
+Fri Mar 23 12:22:13 EDT 2012: Build preparation stage completed
+Fri Mar 23 12:22:14 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\sv_dec.c
+Fri Mar 23 12:22:18 EDT 2012: Compilation stage completed
+Fri Mar 23 12:22:18 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Fri Mar 23 12:22:19 EDT 2012: C/C++ defects detection stage completed
+Fri Mar 23 12:22:19 EDT 2012: Running linking stage...
+Fri Mar 23 12:22:21 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.03.23 12:22:24.301
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp7912.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp7C7E.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw78E2.tmp
+Fri Mar 23 12:22:55 EDT 2012: Running build preparation stage...
+Fri Mar 23 12:22:55 EDT 2012: Build preparation stage completed
+Fri Mar 23 12:22:55 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\sv_dec.c
+Fri Mar 23 12:23:01 EDT 2012: Compilation stage completed
+Fri Mar 23 12:23:01 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Fri Mar 23 12:23:02 EDT 2012: C/C++ defects detection stage completed
+Fri Mar 23 12:23:02 EDT 2012: Running linking stage...
+Fri Mar 23 12:23:03 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.03.23 12:23:06.924
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpB7AB.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpBB37.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwB78B.tmp
+Fri Mar 23 12:25:23 EDT 2012: Running build preparation stage...
+Fri Mar 23 12:25:23 EDT 2012: Build preparation stage completed
+Fri Mar 23 12:25:23 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\sv_dec.c
+Fri Mar 23 12:25:27 EDT 2012: Compilation stage completed
+Fri Mar 23 12:25:27 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Fri Mar 23 12:25:31 EDT 2012: C/C++ defects detection stage completed
+Fri Mar 23 12:25:31 EDT 2012: Running linking stage...
+Fri Mar 23 12:25:33 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.03.23 12:25:36.193
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp585F.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp5D42.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw5820.tmp
+Fri Mar 23 12:27:09 EDT 2012: Running build preparation stage...
+Fri Mar 23 12:27:09 EDT 2012: Build preparation stage completed
+Fri Mar 23 12:27:10 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\sv_dec.c
+Fri Mar 23 12:27:14 EDT 2012: Compilation stage completed
+Fri Mar 23 12:27:14 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Fri Mar 23 12:27:19 EDT 2012: C/C++ defects detection stage completed
+Fri Mar 23 12:27:19 EDT 2012: Running linking stage...
+Fri Mar 23 12:27:21 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.03.23 12:27:25.214
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp13EB.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp17A5.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw13CB.tmp
+Fri Mar 23 12:30:09 EDT 2012: Running build preparation stage...
+Fri Mar 23 12:30:09 EDT 2012: Build preparation stage completed
+Fri Mar 23 12:30:09 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\sv_dec.c
+Fri Mar 23 12:30:13 EDT 2012: Compilation stage completed
+Fri Mar 23 12:30:13 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Fri Mar 23 12:30:17 EDT 2012: C/C++ defects detection stage completed
+Fri Mar 23 12:30:17 EDT 2012: Running linking stage...
+Fri Mar 23 12:30:19 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.03.23 12:30:21.933
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpFC85.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp6E.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwFC46.tmp
+Fri Mar 23 12:32:14 EDT 2012: Running build preparation stage...
+Fri Mar 23 12:32:14 EDT 2012: Build preparation stage completed
+Fri Mar 23 12:32:14 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\sv_dec.c
+Fri Mar 23 12:32:18 EDT 2012: Compilation stage completed
+Fri Mar 23 12:32:18 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Fri Mar 23 12:32:22 EDT 2012: C/C++ defects detection stage completed
+Fri Mar 23 12:32:22 EDT 2012: Running linking stage...
+Fri Mar 23 12:32:24 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.03.23 12:32:27.202
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp87C9.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp8BD1.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw87A9.tmp
+Fri Mar 23 12:40:28 EDT 2012: Running build preparation stage...
+Fri Mar 23 12:40:28 EDT 2012: Build preparation stage completed
+Fri Mar 23 12:40:29 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\sv_fixed_off_enc.c
+Fri Mar 23 12:40:33 EDT 2012: Compilation stage completed
+Fri Mar 23 12:40:33 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Fri Mar 23 12:40:42 EDT 2012: C/C++ defects detection stage completed
+Fri Mar 23 12:40:42 EDT 2012: Running linking stage...
+Fri Mar 23 12:40:43 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.03.23 12:40:46.497
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpE991.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpED7A.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwE971.tmp
+Fri Mar 23 12:45:15 EDT 2012: Running build preparation stage...
+Fri Mar 23 12:45:16 EDT 2012: Build preparation stage completed
+Fri Mar 23 12:45:16 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\sv_fixed_off_enc.c
+Fri Mar 23 12:45:20 EDT 2012: Compilation stage completed
+Fri Mar 23 12:45:20 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Fri Mar 23 12:45:22 EDT 2012: C/C++ defects detection stage completed
+Fri Mar 23 12:45:22 EDT 2012: Running linking stage...
+Fri Mar 23 12:45:25 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.03.23 12:45:29.987
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpCD25.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpD014.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwCCF5.tmp
+Fri Mar 23 13:13:31 EDT 2012: Running build preparation stage...
+Fri Mar 23 13:13:31 EDT 2012: Build preparation stage completed
+Fri Mar 23 13:13:31 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\sv_fixed_off_enc.c
+Compiling c:\IEC61850-90-5\src\sv_fixed_off_enc.c
+Fri Mar 23 13:13:38 EDT 2012: Compilation stage completed
+Fri Mar 23 13:13:38 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_8.o
+Fri Mar 23 13:13:44 EDT 2012: C/C++ defects detection stage completed
+Fri Mar 23 13:13:44 EDT 2012: Running linking stage...
+Fri Mar 23 13:13:45 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.03.23 13:13:48.478
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp3C26.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp40AC.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw3C06.tmp
+Fri Mar 23 13:19:28 EDT 2012: Running build preparation stage...
+Fri Mar 23 13:19:28 EDT 2012: Build preparation stage completed
+Fri Mar 23 13:19:29 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\sv_dec.c
+Fri Mar 23 13:19:33 EDT 2012: Compilation stage completed
+Fri Mar 23 13:19:33 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Fri Mar 23 13:19:38 EDT 2012: C/C++ defects detection stage completed
+Fri Mar 23 13:19:38 EDT 2012: Running linking stage...
+Fri Mar 23 13:19:40 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.03.23 13:19:45.259
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp5B27.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp6039.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw5AA9.tmp
+Fri Mar 23 13:32:42 EDT 2012: Running build preparation stage...
+Fri Mar 23 13:32:42 EDT 2012: Build preparation stage completed
+Fri Mar 23 13:32:42 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\sv_fixed_off_enc.c
+Compiling c:\IEC61850-90-5\src\sv_fixed_off_enc.c
+Fri Mar 23 13:32:50 EDT 2012: Compilation stage completed
+Fri Mar 23 13:32:50 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_8.o
+Fri Mar 23 13:32:53 EDT 2012: C/C++ defects detection stage completed
+Fri Mar 23 13:32:53 EDT 2012: Running linking stage...
+Fri Mar 23 13:32:54 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.03.23 13:32:57.615
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpCEB3.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpF864.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwCC03.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.03.24 09:34:46.816
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp3D0.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp586.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw390.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.03.24 09:34:49.800
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp5923.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp864F.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw572E.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.03.25 09:57:35.482
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp1611.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp1CD8.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw15C2.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.03.25 11:13:37.794
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp2D74.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp2F5A.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw2D64.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.03.25 11:13:40.622
+------ Analyze started: ProjectConfiguration: Release|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp7C79.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp841B.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw7BAD.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.03.25 11:34:48.793
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp70EC.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp72A3.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw70DC.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.03.25 11:43:27.362
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp41DD.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp4394.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw41CC.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.03.25 11:47:37.488
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpEFB6.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpF16D.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwEFA6.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.03.25 12:14:34.960
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp45CA.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp488A.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw45A9.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.03.25 12:14:57.351
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpC122.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpC47E.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwC0F2.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.03.25 12:20:58.716
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp4E04.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp5112.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw4DE4.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.03.25 12:21:33.122
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpF8FC.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp263.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwF8AD.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.03.25 12:29:58.004
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpF733.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp1A7B.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwF619.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.05.05 10:58:14.360
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp68D1.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp81C8.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw67C6.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.05.21 03:00:32.383
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpA2E3.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpADC1.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwA265.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.05.21 03:11:13.819
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpC6EF.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpC8A5.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwC6CF.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.05.21 03:21:10.735
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp18A6.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp1A6C.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw1828.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.05.21 03:30:16.065
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp8332.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp84F8.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw8302.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.05.21 03:51:28.836
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp3CEC.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp3EA2.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw3CDB.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.05.21 03:53:21.589
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp98D6.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp9A9C.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw98C6.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.05.21 03:54:50.626
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp766F.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp99B7.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw7380.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.01 17:53:16.371
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpA4A6.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpA65D.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwA476.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.01 17:53:19.402
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp29DD.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp2B94.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw2940.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.01 17:56:04.607
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp1F0D.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp2C2D.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw1EDD.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.02 11:58:06.249
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp3ED0.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp6A27.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw3D39.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.05 05:28:33.020
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp791D.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp7DD1.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw78AF.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.05 05:28:37.629
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp370A.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp3D93.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw368C.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.05 05:34:54.489
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp84E5.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp869B.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw84C5.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.06 10:16:15.728
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp8FAA.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp9160.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw8F7A.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.06 10:33:47.119
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp9BA3.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp9D1B.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw9B74.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.06 10:33:50.135
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp332E.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp34E4.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw331D.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.06 10:34:28.996
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpD6A8.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpD85F.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwD688.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.06 10:46:06.216
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpA629.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpA937.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwA609.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.06 10:53:32.948
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp6676.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp73F4.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw6617.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.06 18:57:51.079
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp17BD.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp1993.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw176E.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.06 19:08:23.543
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpFAB4.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpFC4B.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwFA27.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.06 19:11:32.280
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpB66C.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpB841.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwB64B.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.06 19:12:20.429
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpEC6C.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpFC1C.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwEB80.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.07 10:31:26.312
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpB08A.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpB250.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwB079.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.07 10:39:51.602
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp797D.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp7B43.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw796C.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.07 10:43:59.718
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpEA90.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpEC08.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwEA7F.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.13 10:25:27.730
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp73F6.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp75AD.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw73E6.tmp
+Mon Aug 13 10:32:47 EDT 2012: Running build preparation stage...
+Mon Aug 13 10:32:48 EDT 2012: Build preparation stage completed
+0 error(s) and 1 warning(s)
+Mon Aug 13 10:32:53 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\iec_90_5_dec.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_enc.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_kdc_int.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_key_store.c
+Compiling c:\IEC61850-90-5\src\sv_dec.c
+Compiling c:\IEC61850-90-5\src\sv_fixed_off_enc.c
+Compiling c:\IEC61850-90-5\src\usr_sample.c
+Mon Aug 13 10:33:07 EDT 2012: Compilation stage completed
+Mon Aug 13 10:33:07 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_dec.c_1.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_enc.c_14.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_kdc_int.c_21.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_key_store.c_20.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_2.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_dec.c_1.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_enc.c_14.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_kdc_int.c_21.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_key_store.c_20.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_2.o
+Mon Aug 13 10:33:26 EDT 2012: C/C++ defects detection stage completed
+Mon Aug 13 10:33:26 EDT 2012: Running linking stage...
+Mon Aug 13 10:33:30 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.13 10:33:33.262
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp3FD3.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp4283.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw3EF7.tmp
+Mon Aug 13 10:38:00 EDT 2012: Running build preparation stage...
+Mon Aug 13 10:38:01 EDT 2012: Build preparation stage completed
+Mon Aug 13 10:38:06 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\usr_sample.c
+Mon Aug 13 10:38:08 EDT 2012: Compilation stage completed
+Mon Aug 13 10:38:08 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_2.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_2.o
+Mon Aug 13 10:38:18 EDT 2012: C/C++ defects detection stage completed
+Mon Aug 13 10:38:18 EDT 2012: Running linking stage...
+Mon Aug 13 10:38:19 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.13 10:38:21.123
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp6E41.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp893D.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw6799.tmp
+Mon Aug 13 10:52:43 EDT 2012: Running build preparation stage...
+Mon Aug 13 10:52:43 EDT 2012: Build preparation stage completed
+Mon Aug 13 10:52:48 EDT 2012: Running compilation stage...
+Mon Aug 13 10:52:48 EDT 2012: Compilation stage completed
+Mon Aug 13 10:52:48 EDT 2012: Running C/C++ defects detection stage...
+Mon Aug 13 10:53:00 EDT 2012: C/C++ defects detection stage completed
+Mon Aug 13 10:53:00 EDT 2012: Running linking stage...
+Mon Aug 13 10:53:01 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.13 10:53:03.806
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp1051.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp11E8.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw1040.tmp
+Mon Aug 13 10:53:12 EDT 2012: Running build preparation stage...
+Mon Aug 13 10:53:12 EDT 2012: Build preparation stage completed
+The project is up to date
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.13 10:53:13.070
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpD959.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpDB20.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwD939.tmp
+Mon Aug 13 10:59:36 EDT 2012: Running build preparation stage...
+Mon Aug 13 10:59:36 EDT 2012: Build preparation stage completed
+Mon Aug 13 10:59:41 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\usr_sample.c
+Mon Aug 13 10:59:44 EDT 2012: Compilation stage completed
+Mon Aug 13 10:59:44 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_2.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_2.o
+Mon Aug 13 10:59:55 EDT 2012: C/C++ defects detection stage completed
+Mon Aug 13 10:59:55 EDT 2012: Running linking stage...
+Mon Aug 13 10:59:56 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.13 10:59:57.980
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp90C5.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp829.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw89A0.tmp
+Wed Aug 15 18:34:47 EDT 2012: Running build preparation stage...
+Wed Aug 15 18:34:50 EDT 2012: Build preparation stage completed
+Wed Aug 15 18:35:00 EDT 2012: Running compilation stage...
+Wed Aug 15 18:35:01 EDT 2012: Compilation stage completed
+Wed Aug 15 18:35:01 EDT 2012: Running C/C++ defects detection stage...
+Wed Aug 15 18:35:14 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 15 18:35:14 EDT 2012: Running linking stage...
+Wed Aug 15 18:35:25 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.15 18:35:34.341
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp1D54.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp1F0A.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw1D24.tmp
+Wed Aug 15 18:35:47 EDT 2012: Running build preparation stage...
+Wed Aug 15 18:35:47 EDT 2012: Build preparation stage completed
+Wed Aug 15 18:35:52 EDT 2012: Running compilation stage...
+Wed Aug 15 18:35:52 EDT 2012: Compilation stage completed
+Wed Aug 15 18:35:52 EDT 2012: Running C/C++ defects detection stage...
+Wed Aug 15 18:35:58 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 15 18:35:58 EDT 2012: Running linking stage...
+Wed Aug 15 18:35:59 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.15 18:36:01.388
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp80B4.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp823C.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw80A4.tmp
+Wed Aug 15 18:38:25 EDT 2012: Running build preparation stage...
+Wed Aug 15 18:38:25 EDT 2012: Build preparation stage completed
+Wed Aug 15 18:38:30 EDT 2012: Running compilation stage...
+Wed Aug 15 18:38:30 EDT 2012: Compilation stage completed
+Wed Aug 15 18:38:30 EDT 2012: Running C/C++ defects detection stage...
+Wed Aug 15 18:38:36 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 15 18:38:36 EDT 2012: Running linking stage...
+Wed Aug 15 18:38:37 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.15 18:38:39.875
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpF6E1.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpF905.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwF5D7.tmp
+Wed Aug 15 18:38:54 EDT 2012: Running build preparation stage...
+Wed Aug 15 18:38:54 EDT 2012: Build preparation stage completed
+Wed Aug 15 18:39:00 EDT 2012: Running compilation stage...
+Wed Aug 15 18:39:00 EDT 2012: Compilation stage completed
+Wed Aug 15 18:39:00 EDT 2012: Running C/C++ defects detection stage...
+Wed Aug 15 18:39:12 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 15 18:39:12 EDT 2012: Running linking stage...
+Wed Aug 15 18:39:13 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.15 18:39:23.046
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp9A2D.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp9D1C.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw98F3.tmp
+Wed Aug 15 19:00:21 EDT 2012: Running build preparation stage...
+Wed Aug 15 19:00:21 EDT 2012: Build preparation stage completed
+Wed Aug 15 19:00:27 EDT 2012: Running compilation stage...
+Wed Aug 15 19:00:27 EDT 2012: Compilation stage completed
+Wed Aug 15 19:00:27 EDT 2012: Running C/C++ defects detection stage...
+Wed Aug 15 19:00:32 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 15 19:00:32 EDT 2012: Running linking stage...
+Wed Aug 15 19:00:33 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.15 19:00:35.619
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp16EF.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp1951.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw1680.tmp
+Wed Aug 15 19:05:16 EDT 2012: Running build preparation stage...
+Wed Aug 15 19:05:16 EDT 2012: Build preparation stage completed
+Wed Aug 15 19:05:21 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\sv_fixed_off_enc.c
+Wed Aug 15 19:05:31 EDT 2012: Compilation stage completed
+Wed Aug 15 19:05:31 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Wed Aug 15 19:05:43 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 15 19:05:43 EDT 2012: Running linking stage...
+Wed Aug 15 19:05:44 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.15 19:05:46.376
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp37B1.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp3968.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw37A1.tmp
+Wed Aug 15 19:10:51 EDT 2012: Running build preparation stage...
+Wed Aug 15 19:10:51 EDT 2012: Build preparation stage completed
+Wed Aug 15 19:10:57 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\sv_fixed_off_enc.c
+Wed Aug 15 19:10:59 EDT 2012: Compilation stage completed
+Wed Aug 15 19:10:59 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Wed Aug 15 19:11:12 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 15 19:11:12 EDT 2012: Running linking stage...
+Wed Aug 15 19:11:13 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.15 19:11:14.950
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpFFF5.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp17C.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwFFC5.tmp
+Wed Aug 15 19:48:51 EDT 2012: Running build preparation stage...
+Wed Aug 15 19:48:51 EDT 2012: Build preparation stage completed
+Wed Aug 15 19:48:57 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\usr_sample.c
+Wed Aug 15 19:48:59 EDT 2012: Compilation stage completed
+Wed Aug 15 19:48:59 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_2.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_2.o
+Wed Aug 15 19:49:09 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 15 19:49:09 EDT 2012: Running linking stage...
+Wed Aug 15 19:49:10 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.15 19:49:12.614
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp9090.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp9237.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw9080.tmp
+Wed Aug 15 19:49:23 EDT 2012: Running build preparation stage...
+Wed Aug 15 19:49:23 EDT 2012: Build preparation stage completed
+Wed Aug 15 19:49:33 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\usr_sample.c
+Wed Aug 15 19:49:35 EDT 2012: Compilation stage completed
+Wed Aug 15 19:49:35 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_2.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_2.o
+Wed Aug 15 19:49:41 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 15 19:49:41 EDT 2012: Running linking stage...
+Wed Aug 15 19:49:42 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.15 19:49:44.353
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpD88.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpF3E.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwD77.tmp
+Wed Aug 15 20:29:20 EDT 2012: Running build preparation stage...
+Wed Aug 15 20:29:20 EDT 2012: Build preparation stage completed
+Wed Aug 15 20:29:26 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\usr_sample.c
+Wed Aug 15 20:29:28 EDT 2012: Compilation stage completed
+Wed Aug 15 20:29:28 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_2.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_2.o
+Wed Aug 15 20:29:39 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 15 20:29:39 EDT 2012: Running linking stage...
+Wed Aug 15 20:29:39 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.15 20:29:41.681
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp28E8.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp2B7A.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw28C8.tmp
+Wed Aug 15 20:36:00 EDT 2012: Running build preparation stage...
+Wed Aug 15 20:36:00 EDT 2012: Build preparation stage completed
+Wed Aug 15 20:36:06 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\sv_fixed_off_enc.c
+Wed Aug 15 20:36:08 EDT 2012: Compilation stage completed
+Wed Aug 15 20:36:08 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Wed Aug 15 20:36:21 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 15 20:36:21 EDT 2012: Running linking stage...
+Wed Aug 15 20:36:21 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.15 20:36:23.793
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpDD09.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpDEA1.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwDCF9.tmp
+Wed Aug 15 20:48:47 EDT 2012: Running build preparation stage...
+Wed Aug 15 20:48:48 EDT 2012: Build preparation stage completed
+Wed Aug 15 20:48:53 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\sv_fixed_off_enc.c
+Wed Aug 15 20:48:55 EDT 2012: Compilation stage completed
+Wed Aug 15 20:48:55 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Wed Aug 15 20:49:08 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 15 20:49:08 EDT 2012: Running linking stage...
+Wed Aug 15 20:49:09 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.15 20:49:11.172
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp8984.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp8B1B.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw8964.tmp
+Wed Aug 15 21:01:32 EDT 2012: Running build preparation stage...
+Wed Aug 15 21:01:32 EDT 2012: Build preparation stage completed
+Wed Aug 15 21:01:38 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\sv_fixed_off_enc.c
+Wed Aug 15 21:01:40 EDT 2012: Compilation stage completed
+Wed Aug 15 21:01:40 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Wed Aug 15 21:01:53 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 15 21:01:53 EDT 2012: Running linking stage...
+Wed Aug 15 21:01:56 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.15 21:02:01.378
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp8D05.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp8ECB.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw8CE4.tmp
+Wed Aug 15 21:08:07 EDT 2012: Running build preparation stage...
+Wed Aug 15 21:08:07 EDT 2012: Build preparation stage completed
+Wed Aug 15 21:08:13 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\iec_crypto_windows.c
+Wed Aug 15 21:08:15 EDT 2012: Compilation stage completed
+Wed Aug 15 21:08:15 EDT 2012: Running C/C++ defects detection stage...
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_crypto_windows.c_0.o
+Wed Aug 15 21:08:25 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 15 21:08:25 EDT 2012: Running linking stage...
+Wed Aug 15 21:08:26 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.15 21:08:28.562
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpB804.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpB99C.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwB7E4.tmp
+Wed Aug 15 21:14:50 EDT 2012: Running build preparation stage...
+Wed Aug 15 21:14:50 EDT 2012: Build preparation stage completed
+Wed Aug 15 21:14:56 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\iec_90_5_enc.c
+Compiling c:\IEC61850-90-5\src\iec_crypto_windows.c
+Wed Aug 15 21:15:00 EDT 2012: Compilation stage completed
+Wed Aug 15 21:15:00 EDT 2012: Running C/C++ defects detection stage...
+License check failed ... Exiting
+1 error(s) and 0 warning(s)
+Error occurred during build: C/C++ defects detection stage failed. Program exited with 1
+Build contains errors, build.log file can be found here: C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\build.log
+Compilation with build specification failed
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.15 21:15:00.725
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpEC88.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpEE5E.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwEC68.tmp
+Wed Aug 15 21:22:43 EDT 2012: Running build preparation stage...
+Wed Aug 15 21:22:43 EDT 2012: Build preparation stage completed
+Wed Aug 15 21:22:48 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\iec_crypto_windows.c
+Wed Aug 15 21:22:50 EDT 2012: Compilation stage completed
+Wed Aug 15 21:22:50 EDT 2012: Running C/C++ defects detection stage...
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_crypto_windows.c_0.o
+Wed Aug 15 21:23:01 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 15 21:23:01 EDT 2012: Running linking stage...
+Wed Aug 15 21:23:02 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.15 21:23:04.179
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpCE73.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpCFEB.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwCE53.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.15 22:00:38.529
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp1421.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp3BEE.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw126B.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.22 09:14:09.680
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp572E.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp5CDC.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw56B0.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.22 09:24:07.718
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpAD2E.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpAEB6.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwACDF.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.22 09:28:50.743
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp68EE.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp6A76.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw68CE.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.22 09:34:01.026
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp95D8.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp979F.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw95C8.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.22 09:35:17.994
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp8E2A.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp8FB2.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw8E1A.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.22 09:37:27.089
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp9A04.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp9BBB.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw99E4.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.22 09:37:30.261
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp72D1.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp7488.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw72B1.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.22 09:50:26.558
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp5943.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp5ACA.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw5922.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.22 10:18:43.966
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp6F6.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp87D.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw6E5.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.22 10:20:33.958
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp5669.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp57F0.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw5658.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.22 10:28:33.114
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp6233.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp63FA.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw6223.tmp
+Cannot connect to license server
+ The server (lmgrd) has not been started yet, or
+ the wrong port@host or license file is being used, or the
+ port or hostname in the license file has been changed.
+Feature:       kwcheck
+Server name:   192.168.1.143
+License path:  27000@192.168.1.143
+FLEXlm error:  -15,570
+For further information, refer to the FLEXlm End User Manual,
+available at "www.macrovision.com".
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.22 10:28:36.067
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp8D8B.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp8F80.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw8D7B.tmp
+Wed Aug 22 10:45:22 EDT 2012: Running build preparation stage...
+Wed Aug 22 10:45:22 EDT 2012: Build preparation stage completed
+Wed Aug 22 10:45:27 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\dblLnkLst.c
+Wed Aug 22 10:45:33 EDT 2012: Compilation stage completed
+Wed Aug 22 10:45:33 EDT 2012: Running C/C++ defects detection stage...
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\dbllnklst.c_22.o
+Wed Aug 22 10:45:45 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 22 10:45:45 EDT 2012: Running linking stage...
+Wed Aug 22 10:45:52 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.22 10:45:58.961
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp55E0.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp5B20.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw54F4.tmp
+Wed Aug 22 10:46:12 EDT 2012: Running build preparation stage...
+Wed Aug 22 10:46:12 EDT 2012: Build preparation stage completed
+Wed Aug 22 10:46:16 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\iec_90_5_dec.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_enc.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_ErrorHandler.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_kdc_int.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_key_store.c
+Wed Aug 22 10:46:26 EDT 2012: Compilation stage completed
+Wed Aug 22 10:46:26 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_errorhandler.c_15.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_dec.c_1.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_enc.c_14.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_kdc_int.c_21.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_key_store.c_20.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_errorhandler.c_15.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_dec.c_1.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_enc.c_14.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_kdc_int.c_21.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_key_store.c_20.o
+Wed Aug 22 10:46:42 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 22 10:46:42 EDT 2012: Running linking stage...
+Wed Aug 22 10:46:43 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.22 10:46:44.808
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp973.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpB3A.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw953.tmp
+Wed Aug 22 10:46:57 EDT 2012: Running build preparation stage...
+Wed Aug 22 10:46:57 EDT 2012: Build preparation stage completed
+Wed Aug 22 10:47:02 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\iec_90_5_udp_rx.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_udp_tx.c
+Compiling c:\IEC61850-90-5\src\iec_crypto_windows.c
+Compiling c:\IEC61850-90-5\src\sv_dec.c
+Wed Aug 22 10:47:09 EDT 2012: Compilation stage completed
+Wed Aug 22 10:47:09 EDT 2012: Running C/C++ defects detection stage...
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_crypto_windows.c_0.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_tx.c_17.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_rx.c_16.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_tx.c_17.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_rx.c_16.o
+Wed Aug 22 10:47:21 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 22 10:47:21 EDT 2012: Running linking stage...
+Wed Aug 22 10:47:22 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.22 10:47:24.064
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpA21D.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpA3D3.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwA20C.tmp
+Wed Aug 22 10:47:31 EDT 2012: Running build preparation stage...
+Wed Aug 22 10:47:31 EDT 2012: Build preparation stage completed
+Wed Aug 22 10:47:41 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\sv_fixed_off_enc.c
+Compiling c:\IEC61850-90-5\src\usr_sample.c
+Wed Aug 22 10:47:45 EDT 2012: Compilation stage completed
+Wed Aug 22 10:47:45 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_2.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_2.o
+Wed Aug 22 10:47:54 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 22 10:47:54 EDT 2012: Running linking stage...
+Wed Aug 22 10:47:55 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.22 10:47:57.195
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp2324.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp24DB.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw2314.tmp
+Wed Aug 22 10:48:09 EDT 2012: Running build preparation stage...
+Wed Aug 22 10:48:09 EDT 2012: Build preparation stage completed
+Wed Aug 22 10:48:14 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\dblLnkLst.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_dec.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_enc.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_ErrorHandler.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_kdc_int.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_key_store.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_udp_rx.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_udp_tx.c
+Compiling c:\IEC61850-90-5\src\iec_crypto_windows.c
+Compiling c:\IEC61850-90-5\src\sv_dec.c
+Compiling c:\IEC61850-90-5\src\usr_sample.c
+Compiling c:\IEC61850-90-5\src\usr_sample_load_cfg.c
+Wed Aug 22 10:48:34 EDT 2012: Compilation stage completed
+Wed Aug 22 10:48:34 EDT 2012: Running C/C++ defects detection stage...
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\dbllnklst.c_22.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_crypto_windows.c_0.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample_load_cfg.c_3.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_errorhandler.c_15.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_dec.c_1.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_enc.c_14.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_kdc_int.c_21.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_key_store.c_20.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_tx.c_17.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_rx.c_16.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_2.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_errorhandler.c_15.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_dec.c_1.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_enc.c_14.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_kdc_int.c_21.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_key_store.c_20.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_tx.c_17.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_rx.c_16.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_2.o
+Wed Aug 22 10:48:49 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 22 10:48:49 EDT 2012: Running linking stage...
+Wed Aug 22 10:48:50 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.22 10:48:51.593
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpF8D7.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpFA5E.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwF8C6.tmp
+Wed Aug 22 10:51:15 EDT 2012: Running build preparation stage...
+Wed Aug 22 10:51:15 EDT 2012: Build preparation stage completed
+Wed Aug 22 10:51:19 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\iec_90_5_ErrorHandler.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_kdc_int.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_key_store.c
+Wed Aug 22 10:51:25 EDT 2012: Compilation stage completed
+Wed Aug 22 10:51:25 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_errorhandler.c_15.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_kdc_int.c_21.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_key_store.c_20.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_errorhandler.c_15.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_kdc_int.c_21.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_key_store.c_20.o
+Wed Aug 22 10:51:37 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 22 10:51:37 EDT 2012: Running linking stage...
+Wed Aug 22 10:51:37 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.22 10:51:39.571
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp8971.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp8B47.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw8961.tmp
+Wed Aug 22 10:51:47 EDT 2012: Running build preparation stage...
+Wed Aug 22 10:51:47 EDT 2012: Build preparation stage completed
+Wed Aug 22 10:51:56 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\iec_90_5_udp_rx.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_udp_tx.c
+Compiling c:\IEC61850-90-5\src\iec_crypto_windows.c
+Compiling c:\IEC61850-90-5\src\sv_dec.c
+Compiling c:\IEC61850-90-5\src\sv_fixed_off_enc.c
+Compiling c:\IEC61850-90-5\src\usr_sample.c
+Compiling c:\IEC61850-90-5\src\usr_sample_load_cfg.c
+Wed Aug 22 10:52:09 EDT 2012: Compilation stage completed
+Wed Aug 22 10:52:09 EDT 2012: Running C/C++ defects detection stage...
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_crypto_windows.c_0.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample_load_cfg.c_3.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_tx.c_17.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_rx.c_16.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_2.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_tx.c_17.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_fixed_off_enc.c_19.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_rx.c_16.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\usr_sample.c_2.o
+Wed Aug 22 10:52:26 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 22 10:52:26 EDT 2012: Running linking stage...
+Wed Aug 22 10:52:27 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.22 10:52:28.621
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp54BA.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp5670.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw54A9.tmp
+Wed Aug 22 10:52:44 EDT 2012: Running build preparation stage...
+Wed Aug 22 10:52:44 EDT 2012: Build preparation stage completed
+Wed Aug 22 10:52:48 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\dblLnkLst.c
+Wed Aug 22 10:52:51 EDT 2012: Compilation stage completed
+Wed Aug 22 10:52:51 EDT 2012: Running C/C++ defects detection stage...
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\dbllnklst.c_22.o
+Wed Aug 22 10:52:56 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 22 10:52:56 EDT 2012: Running linking stage...
+Wed Aug 22 10:52:56 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.22 10:52:58.343
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpBE54.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpC00A.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwBE34.tmp
+Wed Aug 22 10:53:11 EDT 2012: Running build preparation stage...
+Wed Aug 22 10:53:11 EDT 2012: Build preparation stage completed
+Wed Aug 22 10:53:15 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\iec_90_5_dec.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_ErrorHandler.c
+Wed Aug 22 10:53:20 EDT 2012: Compilation stage completed
+Wed Aug 22 10:53:20 EDT 2012: Running C/C++ defects detection stage...
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_errorhandler.c_15.o
+Creating knowledge base for c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_dec.c_1.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_errorhandler.c_15.o
+Analyzing c:\iec61850-90-5\cmd\win\iec61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_dec.c_1.o
+Wed Aug 22 10:53:30 EDT 2012: C/C++ defects detection stage completed
+Wed Aug 22 10:53:30 EDT 2012: Running linking stage...
+Wed Aug 22 10:53:30 EDT 2012: Linking stage completed
+Analysis is complete.
+Klocwork analysis complete.
+---------------------------
+Analysis finished 2012.08.22 10:53:32.173
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp3F6E.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwp4163.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kw3F5D.tmp
+Wed Aug 22 10:53:39 EDT 2012: Running build preparation stage...
+Wed Aug 22 10:53:39 EDT 2012: Build preparation stage completed
+Wed Aug 22 10:53:49 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\iec_90_5_enc.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_kdc_int.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_key_store.c
+Compiling c:\IEC61850-90-5\src\iec_90_5_udp_rx.c
+Wed Aug 22 10:53:57 EDT 2012: Compilation stage completed
+Wed Aug 22 10:53:57 EDT 2012: Running C/C++ defects detection stage...
+License check failed ... Exiting
+1 error(s) and 0 warning(s)
+Error occurred during build: C/C++ defects detection stage failed. Program exited with 1
+Build contains errors, build.log file can be found here: C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\build.log
+Compilation with build specification failed
+Processing interrupted by user.
+----- Klocwork analysis failed to complete ------
+Analysis finished 2012.08.22 10:54:02.190
+------ Analyze started: ProjectConfiguration: Debug|Win32 ------
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpB4DF.tmp  set -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp klocwork.host=192.168.1.143 klocwork.port=8080 klocwork.ssl=false license.host=192.168.1.143 license.port=27000
+"C:\Klocwork\User 9.2\bin\kwcheck.exe" -kwpipe \\.\Pipe\kwpB6A5.tmp  run --verbose -F quiet -j auto --always-on -pd C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp @C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\temp\kwB4BF.tmp
+Wed Aug 22 10:54:14 EDT 2012: Running build preparation stage...
+Wed Aug 22 10:54:15 EDT 2012: Build preparation stage completed
+Wed Aug 22 10:54:19 EDT 2012: Running compilation stage...
+Compiling c:\IEC61850-90-5\src\iec_90_5_udp_tx.c
+Compiling c:\IEC61850-90-5\src\iec_crypto_windows.c
+Compiling c:\IEC61850-90-5\src\sv_dec.c

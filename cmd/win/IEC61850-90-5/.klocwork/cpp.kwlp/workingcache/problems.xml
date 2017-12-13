@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<errorList xmlns="http://www.klocwork.com/inForce/report/1.0" version="9.2.2">
+<problem>
+ <problemID>1</problemID>
+ <file>C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinUser.h</file>
+ <method>WinUser.h</method>
+ <line>12253</line>
+ <column>5</column>
+ <code>CWARN.SIGNEDBIT</code>
+ <message>Bit field &apos;fBarFocused&apos; has one bit and is signed</message>
+ <anchor>-129330966</anchor>
+ <prefix>wndMenu;//hwndofitemsubmenuifone</prefix>
+ <postfix>BOOLfFocused:1;//itemhasthefocus</postfix>
+ <citingStatus>Analyze</citingStatus>
+ <state>New</state>
+</problem>
+<problem>
+ <problemID>2</problemID>
+ <file>C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinUser.h</file>
+ <method>WinUser.h</method>
+ <line>12254</line>
+ <column>5</column>
+ <code>CWARN.SIGNEDBIT</code>
+ <message>Bit field &apos;fFocused&apos; has one bit and is signed</message>
+ <anchor>-1648360399</anchor>
+ <prefix>Focused:1;//bar,popuphasthefocus</prefix>
+ <postfix>}MENUBARINFO,*PMENUBARINFO,*LPME</postfix>
+ <citingStatus>Analyze</citingStatus>
+ <state>New</state>
+</problem>
+<problem>
+ <problemID>3</problemID>
+ <file>C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\RpcNdr.h</file>
+ <method>RpcNdr.h</method>
+ <line>684</line>
+ <column>5</column>
+ <code>CWARN.SIGNEDBIT</code>
+ <message>Bit field &apos;fInDontFree&apos; has one bit and is signed</message>
+ <anchor>-78311704</anchor>
+ <prefix>RefId;unsignedlongPointerLength;</prefix>
+ <postfix>intfDontCallFreeInst:1;intfInOnl</postfix>
+ <citingStatus>Analyze</citingStatus>
+ <state>New</state>
+</problem>
+<problem>
+ <problemID>4</problemID>
+ <file>C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\RpcNdr.h</file>
+ <method>RpcNdr.h</method>
+ <line>685</line>
+ <column>5</column>
+ <code>CWARN.SIGNEDBIT</code>
+ <message>Bit field &apos;fDontCallFreeInst&apos; has one bit and is signed</message>
+ <anchor>-681518585</anchor>
+ <prefix>gPointerLength;intfInDontFree:1;</prefix>
+ <postfix>intfInOnlyParam:1;intfHasReturn:</postfix>
+ <citingStatus>Analyze</citingStatus>
+ <state>New</state>
+</problem>
+<problem>
+ <problemID>5</problemID>
+ <file>C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\RpcNdr.h</file>
+ <method>RpcNdr.h</method>
+ <line>686</line>
+ <column>5</column>
+ <code>CWARN.SIGNEDBIT</code>
+ <message>Bit field &apos;fInOnlyParam&apos; has one bit and is signed</message>
+ <anchor>94211158</anchor>
+ <prefix>ntFree:1;intfDontCallFreeInst:1;</prefix>
+ <postfix>intfHasReturn:1;intfHasExtension</postfix>
+ <citingStatus>Analyze</citingStatus>
+ <state>New</state>
+</problem>
+<problem>
+ <problemID>6</problemID>
+ <file>C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\RpcNdr.h</file>
+ <method>RpcNdr.h</method>
+ <line>687</line>
+ <column>5</column>
+ <code>CWARN.SIGNEDBIT</code>
+ <message>Bit field &apos;fHasReturn&apos; has one bit and is signed</message>
+ <anchor>-1175186780</anchor>
+ <prefix>allFreeInst:1;intfInOnlyParam:1;</prefix>
+ <postfix>intfHasExtensions:1;intfHasNewCo</postfix>
+ <citingStatus>Analyze</citingStatus>
+ <state>New</state>
+</problem>
+<problem>
+ <problemID>7</problemID>
+ <file>C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\RpcNdr.h</file>
+ <method>RpcNdr.h</method>
+ <line>688</line>
+ <column>5</column>
+ <code>CWARN.SIGNEDBIT</code>
+ <message>Bit field &apos;fHasExtensions&apos; has one bit and is signed</message>
+ <anchor>-348362872</anchor>
+ <prefix>tfInOnlyParam:1;intfHasReturn:1;</prefix>
+ <postfix>intfHasNewCorrDesc:1;intfIsIn:1;</postfix>
+ <citingStatus>Analyze</citingStatus>
+ <state>New</state>
+</problem>
+<problem>
+ <problemID>8</problemID>
+ <file>C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\RpcNdr.h</file>
+ <method>RpcNdr.h</method>
+ <line>689</line>
+ <column>5</column>
+ <code>CWARN.SIGNEDBIT</code>
+ <message>Bit field &apos;fHasNewCorrDesc&apos; has one bit and is signed</message>
+ <anchor>-1150726871</anchor>
+ <prefix>HasReturn:1;intfHasExtensions:1;</prefix>
+ <postfix>intfIsIn:1;intfIsOut:1;intfIsOic</postfix>
+ <citingStatus>Analyze</citingStatus>
+ <state>New</state>
+</problem>
+<problem>
+ <problemID>9</problemID>
+ <file>C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\RpcNdr.h</file>
+ <method>RpcNdr.h</method>
+ <line>690</line>
+ <column>5</column>
+ <code>CWARN.SIGNEDBIT</code>
+ <message>Bit field &apos;fIsIn&apos; has one bit and is signed</message>
+ <anchor>96486773</anchor>
+ <prefix>tensions:1;intfHasNewCorrDesc:1;</prefix>
+ <postfix>intfIsOut:1;intfIsOicf:1;intfBuf</postfix>
+ <citingStatus>Analyze</citingStatus>
+ <state>New</state>
+</problem>
+<problem>
+ <problemID>10</problemID>
+ <file>C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\RpcNdr.h</file>
+ <method>RpcNdr.h</method>
+ <line>691</line>
+ <column>5</column>
+ <code>CWARN.SIGNEDBIT</code>
+ <message>Bit field &apos;fIsOut&apos; has one bit and is signed</message>
+ <anchor>-1303871234</anchor>
+ <prefix>intfHasNewCorrDesc:1;intfIsIn:1;</prefix>
+ <postfix>intfIsOicf:1;intfBufferValid:1;i</postfix>
+ <citingStatus>Analyze</citingStatus>
+ <state>New</state>
+</problem>
+<problem>
+ <problemID>11</problemID>
+ <file>C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\RpcNdr.h</file>
+ <method>RpcNdr.h</method>
+ <line>692</line>
+ <column>5</column>
+ <code>CWARN.SIGNEDBIT</code>
+ <message>Bit field &apos;fIsOicf&apos; has one bit and is signed</message>
+ <anchor>-1765314547</anchor>
+ <prefix>rrDesc:1;intfIsIn:1;intfIsOut:1;</prefix>
+ <postfix>intfBufferValid:1;intfHasMemoryV</postfix>
+ <citingStatus>Analyze</citingStatus>
+ <state>New</state>
+</problem>
+<problem>
+ <problemID>12</problemID>
+ <file>C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\RpcNdr.h</file>
+ <method>RpcNdr.h</method>
+ <line>693</line>
+ <column>5</column>
+ <code>CWARN.SIGNEDBIT</code>
+ <message>Bit field &apos;fBufferValid&apos; has one bit and is signed</message>
+ <anchor>915554134</anchor>
+ <prefix>IsIn:1;intfIsOut:1;intfIsOicf:1;</prefix>
+ <postfix>intfHasMemoryValidateCallback:1;</postfix>
+ <citingStatus>Analyze</citingStatus>
+ <state>New</state>
+</problem>
+<problem>
+ <problemID>13</problemID>
+ <file>C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\RpcNdr.h</file>
+ <method>RpcNdr.h</method>
+ <line>694</line>
+ <column>5</column>
+ <code>CWARN.SIGNEDBIT</code>
+ <message>Bit field &apos;fHasMemoryValidateCallback&apos; has one bit and is signed</message>
+ <anchor>637760528</anchor>
+ <prefix>;intfIsOicf:1;intfBufferValid:1;</prefix>
+ <postfix>intfInFree:1;intfNeedMCCP:1;intf</postfix>
+ <citingStatus>Analyze</citingStatus>
+ <state>New</state>
+</problem>
+<problem>
+ <problemID>14</problemID>
+ <file>C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\RpcNdr.h</file>
+ <method>RpcNdr.h</method>
+ <line>695</line>
+ <column>5</column>
+ <code>CWARN.SIGNEDBIT</code>
+ <message>Bit field &apos;fInFree&apos; has one bit and is signed</message>
+ <anchor>-1770191561</anchor>
+ <prefix>intfHasMemoryValidateCallback:1;</prefix>
+ <postfix>intfNeedMCCP:1;intfUnused:3;intf</postfix>
+ <citingStatus>Analyze</citingStatus>
+ <state>New</state>
+</problem>
+<problem>
+ <problemID>15</problemID>
+ <file>C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\RpcNdr.h</file>
+ <method>RpcNdr.h</method>
+ <line>696</line>
+ <column>5</column>
+ <code>CWARN.SIGNEDBIT</code>
+ <message>Bit field &apos;fNeedMCCP&apos; has one bit and is signed</message>
+ <anchor>1253306527</anchor>
+ <prefix>ValidateCallback:1;intfInFree:1;</prefix>
+ <postfix>intfUnused:3;intfUnused2:16;unsi</postfix>
+ <citingStatus>Analyze</citingStatus>
+ <state>New</state>
+</problem>
+</errorList>

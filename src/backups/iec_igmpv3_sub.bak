@@ -1,0 +1,63 @@
+/************************************************************************/
+/* SISCO SOFTWARE MODULE HEADER *****************************************/
+/************************************************************************/
+/*	(c) Copyright Systems Integration Specialists Company, Inc.,	*/
+/*	2011-2011, All Rights Reserved					*/
+/*									*/
+/* MODULE NAME : udp_rx.c						*/
+/* PRODUCT(S)  : MMS-EASE Lite						*/
+/*									*/
+/* MODULE DESCRIPTION :							*/
+/*	UDP Subscriber receive functions.				*/
+/*									*/
+/* GLOBAL FUNCTIONS DEFINED IN THIS MODULE :				*/
+/*			udp_rx_init					*/
+/*			udp_rx						*/
+/*									*/
+/* MODIFICATION LOG :							*/
+/*  Date     Who	   Comments					*/
+/* --------  ---  ------   -------------------------------------------  */
+/* 07/22/11  JRB	   Initial revision				*/
+/************************************************************************/
+#include "glbtypes.h"
+#include "sysincs.h"
+/* NOTE: "sysincs.h" includes <winsock2.h>.	*/
+#include <ws2tcpip.h>	/* Add this for "ip_mreq".	*/
+#include "udp.h"
+#include "iec_90_5.h"
+
+
+/************************************************************************/
+/* this function will attempt to enroll in a multicast group			*/
+/*  Steps:																*/
+/* 		1). create an appropriate payload								*/
+/*		2). interact with the KDC to get the keys						*/
+/*			if the keys aren't available, abort							*/
+/*		3). create the multicast subscription							*/
+/* 			if NOK, cleanup and abort									*/
+/* and get the keys required											*/
+/************************************************************************/
+IEC_90_5_KEY_PAYLOAD_ID *igmpv3_group_enroll(ST_UINT8 usageType, IEC_KEY_ADDRESS *pAddress, char *pDatSetRef, SOCKET pReceivingSocket)
+     {
+     SOCKET   ReceivingSocket;
+     SOCKADDR_IN        ReceiverAddr;
+     SOCKADDR_IN        SenderAddr;
+     int                SenderAddrSize = sizeof(SenderAddr);
+     int                ByteReceived = 5;
+struct ip_mreq_source mreq_source;	/* for Source Specific Multicast (SSM)	*/
+IEC_90_5_KEY_PAYLOAD_ID *pTempPayload;
+
+	if((pTempPayload= create_KeyPayload( usageType, pAddress,pDatSetRef))==NULL)
+		return(NULL);
+
+    /* use setsockopt() to request that the kernel join a multicast group */
+    mreq_source.imr_multiaddr.s_addr=inet_addr(udp_sub_cfg->IPAddr[j]);
+    mreq_source.imr_interface.s_addr=htonl(INADDR_ANY);
+    mreq_source.imr_sourceaddr.s_addr=inet_addr(udp_sub_cfg->SrcIPAddr[j]);
+    if (setsockopt(ReceivingSocket,IPPROTO_IP,IP_ADD_SOURCE_MEMBERSHIP,
+        (char *)&mreq_source,sizeof(mreq_source)))
+      printf ("Error %d setting IP_ADD_MEMBERSHIP socket option", WSAGetLastError());
+
+ 
+  }
+

@@ -1,0 +1,25 @@
+-----
+Klocwork 9.2.2.10679
+Installation directory: "C:\Klocwork\User 9.2"
+Tables directory: "C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp\workingcache\tables"
+Jobs number: 1
+-----
+Wed Aug 22 10:54:14 EDT 2012: Running build preparation stage...
+Incremental build message: Restriction list has been changed
+Incremental build message: Analysing build specification changes...
+Incremental build message: Analysing source files dependencies...
+Incremental build message: Need to recompile the 'C:\IEC61850-90-5\src\iec_90_5_udp_tx.c' file because it depends on the 'C:\IEC61850-90-5\inc\iec_glbtypes.h' file which was changed since the last build
+Incremental build message: Need to recompile the 'C:\IEC61850-90-5\src\iec_crypto_windows.c' file because it depends on the 'C:\IEC61850-90-5\inc\iec_glbtypes.h' file which was changed since the last build
+Incremental build message: Need to recompile the 'C:\IEC61850-90-5\src\sv_dec.c' file because it depends on the 'C:\IEC61850-90-5\inc\iec_glbtypes.h' file which was changed since the last build
+Incremental build message: Need to recompile the 'C:\IEC61850-90-5\src\sv_fixed_off_enc.c' file because it depends on the 'C:\IEC61850-90-5\inc\iec_glbtypes.h' file which was changed since the last build
+Incremental build message: Need to recompile the 'C:\IEC61850-90-5\src\usr_sample.c' file because it depends on the 'C:\IEC61850-90-5\inc\iec_glbtypes.h' file which was changed since the last build
+Incremental build message: Need to recompile the 'C:\IEC61850-90-5\src\usr_sample_load_cfg.c' file because it depends on the 'C:\IEC61850-90-5\inc\iec_glbtypes.h' file which was changed since the last build
+Wed Aug 22 10:54:15 EDT 2012: Build preparation stage completed
+Wed Aug 22 10:54:19 EDT 2012: Running compilation stage...
+working directory: "c:\IEC61850-90-5\cmd\win\IEC61850-90-5\IEC61850-90-5Sample"
+executing: "C:\Klocwork\User 9.2\bin\kwcc.exe" "-c" "--security" "--metrics" "--ignore-extension" "-o" "C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_90_5_udp_tx.c_17.o" "--deps-file" "C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\dep\iec_90_5_udp_tx.c_17.d" "-nocc" "-e" "ms" "-JC:\Program Files\Microsoft Visual Studio 8\VC\include" "-JC:\Program Files\Microsoft Visual Studio 8\VC\atlmfc\include" "-JC:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include" "-JC:\Program Files\Microsoft Visual Studio 8\SDK\v2.0\include" "-D_MSC_VER=1400" "-D_WIN32" "-D_M_IX86" "--defects-only" "-IC:\Program Files\Microsoft SDKs\Windows\v7.1\Include" "-I..\..\..\..\inc" "-DWIN32" "-D_DEBUG" "-D_CONSOLE" "-D_UNICODE" "-DUNICODE" "-D_CPPUNWIND" "-Zc:wchar_t" "-Zc:forScope" "-D__MSVC_RUNTIME_CHECKS=1" "-x" "c" "c:\IEC61850-90-5\src\iec_90_5_udp_tx.c"
+working directory: "c:\IEC61850-90-5\cmd\win\IEC61850-90-5\IEC61850-90-5Sample"
+executing: "C:\Klocwork\User 9.2\bin\kwcc.exe" "-c" "--security" "--metrics" "--ignore-extension" "-o" "C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\iec_crypto_windows.c_0.o" "--deps-file" "C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\dep\iec_crypto_windows.c_0.d" "-nocc" "-e" "ms" "-JC:\Program Files\Microsoft Visual Studio 8\VC\include" "-JC:\Program Files\Microsoft Visual Studio 8\VC\atlmfc\include" "-JC:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include" "-JC:\Program Files\Microsoft Visual Studio 8\SDK\v2.0\include" "-D_MSC_VER=1400" "-D_WIN32" "-D_M_IX86" "--defects-only" "-IC:\Program Files\Microsoft SDKs\Windows\v7.1\Include" "-I..\..\..\..\inc" "-DWIN32" "-D_DEBUG" "-D_CONSOLE" "-D_UNICODE" "-DUNICODE" "-D_CPPUNWIND" "-Zc:wchar_t" "-Zc:forScope" "-D__MSVC_RUNTIME_CHECKS=1" "-x" "c" "c:\IEC61850-90-5\src\iec_crypto_windows.c"
+working directory: "c:\IEC61850-90-5\cmd\win\IEC61850-90-5\IEC61850-90-5Sample"
+executing: "C:\Klocwork\User 9.2\bin\kwcc.exe" "-c" "--security" "--metrics" "--ignore-extension" "-o" "C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\obj\sv_dec.c_18.o" "--deps-file" "C:\IEC61850-90-5\cmd\win\IEC61850-90-5\.klocwork\cpp.kwlp\workingcache\tables\dep\sv_dec.c_18.d" "-nocc" "-e" "ms" "-JC:\Program Files\Microsoft Visual Studio 8\VC\include" "-JC:\Program Files\Microsoft Visual Studio 8\VC\atlmfc\include" "-JC:\Program Files\Microsoft Visual Studio 8\VC\PlatformSDK\include" "-JC:\Program Files\Microsoft Visual Studio 8\SDK\v2.0\include" "-D_MSC_VER=1400" "-D_WIN32" "-D_M_IX86" "--defects-only" "-IC:\Program Files\Microsoft SDKs\Windows\v7.1\Include" "-I..\..\..\..\inc" "-DWIN32" "-D_DEBUG" "-D_CONSOLE" "-D_UNICODE" "-DUNICODE" "-D_CPPUNWIND" "-Zc:wchar_t" "-Zc:forScope" "-D__MSVC_RUNTIME_CHECKS=1" "-x" "c" "c:\IEC61850-90-5\src\sv_dec.c"
+Error occurred during build: Execution interrupted by user

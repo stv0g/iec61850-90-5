@@ -1,0 +1,20 @@
+List of functions with unknown behavior (and their header files)
+
+<SYSTEM>    InterlockedCompareExchange64;    C:\Program Files\Microsoft SDKs\Windows\v7.1\Include\WinBase.h
+<SYSTEM>    _ctime32;    C:\Program Files\Microsoft Visual Studio 8\VC\include\time.h
+<SYSTEM>    _ctime32_s;    C:\Program Files\Microsoft Visual Studio 8\VC\include\time.h
+<SYSTEM>    _difftime32;    C:\Program Files\Microsoft Visual Studio 8\VC\include\time.h
+<SYSTEM>    _fstat32;    C:\Program Files\Microsoft Visual Studio 8\VC\include\sys\stat.h
+<SYSTEM>    _ftime32;    C:\Program Files\Microsoft Visual Studio 8\VC\include\sys\timeb.h
+<SYSTEM>    _gmtime32;    C:\Program Files\Microsoft Visual Studio 8\VC\include\time.h
+<SYSTEM>    _gmtime32_s;    C:\Program Files\Microsoft Visual Studio 8\VC\include\time.h
+<SYSTEM>    _localtime32;    C:\Program Files\Microsoft Visual Studio 8\VC\include\time.h
+<SYSTEM>    _localtime32_s;    C:\Program Files\Microsoft Visual Studio 8\VC\include\time.h
+<SYSTEM>    _mkgmtime32;    C:\Program Files\Microsoft Visual Studio 8\VC\include\time.h
+<SYSTEM>    _mktime32;    C:\Program Files\Microsoft Visual Studio 8\VC\include\time.h
+<SYSTEM>    _stat32;    C:\Program Files\Microsoft Visual Studio 8\VC\include\sys\stat.h
+<SYSTEM>    _time32;    C:\Program Files\Microsoft Visual Studio 8\VC\include\time.h
+<SYSTEM>    _vswprintf_c_l;    C:\Program Files\Microsoft Visual Studio 8\VC\include\stdio.h
+<SYSTEM>    _wctime32;    C:\Program Files\Microsoft Visual Studio 8\VC\include\time.h
+<SYSTEM>    _wctime32_s;    C:\Program Files\Microsoft Visual Studio 8\VC\include\time.h
+<SYSTEM>    wcsnlen;    C:\Program Files\Microsoft Visual Studio 8\VC\include\string.h

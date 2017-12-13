@@ -1,0 +1,785 @@
+/************************************************************************/
+/* SISCO SOFTWARE MODULE HEADER *****************************************/
+/************************************************************************/
+/*	(c) Copyright Systems Integration Specialists Company, Inc.,	*/
+/*	2011-2011, All Rights Reserved					*/
+/*									*/
+/* MODULE NAME : udp_pub.c						*/
+/* PRODUCT(S)  : MMS-EASE Lite						*/
+/*									*/
+/* MODULE DESCRIPTION :							*/
+/*	UDP Publisher sample application				*/
+/*									*/
+/* GLOBAL FUNCTIONS DEFINED IN THIS MODULE :				*/
+/*	NONE								*/
+/*									*/
+/* MODIFICATION LOG :							*/
+/*  Date     Who			Comments			*/
+/* --------  ---  ------   -------------------------------------------	*/
+/* 08/31/11  JRB	   Fix CLTP encoding.				*/
+/* 07/22/11  JRB	   Initial revision				*/
+/************************************************************************/
+#include "glbtypes.h"
+#include "sysincs.h"
+#include "udp.h"
+#include "gensock2.h"
+#include "clnp_sne.h"	/* for "clnp_snet_*"	*/
+#include "mvl_acse.h"	/* only for MVL_CFG_INFO which is only for osicfgx*/
+#include <ws2tcpip.h>	/* for IP_MULTICAST_TTL	*/
+/************************************************************************/
+/* For debug version, use a static pointer to avoid duplication of 	*/
+/* __FILE__ strings.							*/
+/************************************************************************/
+
+#ifdef DEBUG_SISCO
+SD_CONST static ST_CHAR *SD_CONST thisFileName = __FILE__;
+#endif
+
+ST_UINT32 spdu_num = 0;	/* increment each time PDU sent	*/
+ST_UINT16 spdu_ver = 1;
+
+/************************************************************************/
+/************************************************************************/
+SOCKET udp_pub_socket_get (void)
+  {
+  SOCKET               SendingSocket;
+  DWORD ttl;
+//  DWORD cksum;
+  DWORD nocksum = 0;	/* use this to "enable" checksum	*/
+
+  // Create a new socket to send datagrams on.
+  SendingSocket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+  if (SendingSocket == INVALID_SOCKET)
+    printf("Client: Error at socket(): %ld\n", WSAGetLastError());
+  else
+    {
+    // Add this to set TTL
+    ttl = 128;
+    if (setsockopt(SendingSocket,IPPROTO_IP,IP_MULTICAST_TTL,
+        (char *)&ttl,sizeof(ttl)))
+      printf ("Error %d setting IP_MULTICAST_TTL socket option", WSAGetLastError());
+
+#if 0	//DEBUG: didn't work on XP
+    cksum = 1;
+    if (setsockopt(SendingSocket,IPPROTO_UDP,UDP_CHECKSUM_COVERAGE,
+        (char *)&cksum,sizeof(cksum)))
+      printf ("Error %d setting UDP_CHECKSUM_COVERAGE socket option", WSAGetLastError());
+#endif
+
+    if (setsockopt(SendingSocket,IPPROTO_UDP,UDP_NOCHECKSUM,
+        (char *)&nocksum,sizeof(nocksum)))
+      printf ("Error %d setting UDP_NOCHECKSUM socket option", WSAGetLastError());
+
+#if 0	//DEBUG: do we need this?
+    if (setsockopt(SendingSocket,IPPROTO_IP,IP_TTL,
+        (char *)&ttl,sizeof(ttl)))
+      printf ("Error %d setting IP_TTL socket option", WSAGetLastError());
+#endif
+    }
+  return (SendingSocket);
+  }
+
+/************************************************************************/
+/*			init_log_cfg					*/
+/* NOTE: need usrLogMaskMapCtrl to configure USER_LOG_*.		*/
+/************************************************************************/
+static ST_RET init_log_cfg (ST_VOID)
+  {
+#ifdef DEBUG_SISCO
+
+#if defined(S_SEC_ENABLED)
+  logCfgAddMaskGroup (&secLogMaskMapCtrl);
+  logCfgAddMaskGroup (&ssleLogMaskMapCtrl);
+#endif
+
+//  logCfgAddMaskGroup (&mvlLogMaskMapCtrl);
+//  logCfgAddMaskGroup (&mmsLogMaskMapCtrl);
+  logCfgAddMaskGroup (&acseLogMaskMapCtrl);
+  logCfgAddMaskGroup (&tp4LogMaskMapCtrl);
+  logCfgAddMaskGroup (&clnpLogMaskMapCtrl);
+//  logCfgAddMaskGroup (&asn1LogMaskMapCtrl);
+  logCfgAddMaskGroup (&sxLogMaskMapCtrl);
+#if defined(S_MT_SUPPORT)
+  logCfgAddMaskGroup (&gsLogMaskMapCtrl);
+#endif
+  logCfgAddMaskGroup (&sockLogMaskMapCtrl);
+  logCfgAddMaskGroup (&memLogMaskMapCtrl);
+  logCfgAddMaskGroup (&memDebugMapCtrl);
+  logCfgAddMaskGroup (&usrLogMaskMapCtrl);	/* Need this for USER_LOG_*	*/
+
+  /* At initialization, install a SLOGIPC command handler. The       */
+  /* build in SLOGIPC handler just receives the command and put's    */
+  /* on a list to be handled by the application at it's leisure ...  */
+  sLogCtrl->ipc.slog_ipc_cmd_fun = slog_ipc_std_cmd_fun;
+
+  if (logcfgx_ex (sLogCtrl, "logcfg.xml", NULL, SD_FALSE, SD_FALSE) != SD_SUCCESS)
+    {
+    printf ("\n Parsing of 'logging' configuration file failed.");
+    if (sLogCtrl->fc.fileName)
+      printf ("\n Check log file '%s'.", sLogCtrl->fc.fileName);
+    return (SD_FAILURE);
+    }
+
+  slog_start (sLogCtrl, MAX_LOG_SIZE);  /* call after logging parameters are configured	*/
+  return (SD_SUCCESS);
+#endif  /* DEBUG_SISCO */
+  }
+
+
+#if 0
+/************************************************************************/
+/* NOTE: tunnel_pdu_ptr points to GOOSE/SMPVAL PDU starting right AFTER	*/
+/*   Ethertype ID. This would be easier if it pointed to the		*/
+/*   Ethertype ID, but clnp_snet_read doesn't give us that.		*/
+/************************************************************************/
+ST_UCHAR *udp_tunnel_enc (
+	ST_UCHAR *dst_mac,		/* DST MAC (must be 6 bytes)	*/
+	ST_UINT16 tci,			/* TCI from original message*/
+    ST_UINT16 etype_id,	/* Ethertype ID from original message*/
+	ST_UCHAR *etype_pdu_ptr,	/* pointer after Ethertype ID	*/
+	ST_UINT16 etype_pdu_len,	/* len of PDU after Ethertype ID*/
+	ST_UINT *enc_len_ptr)
+  {
+ST_UCHAR *enc_buf;
+ST_UCHAR *cur_ptr;
+ST_UINT hdr_len;
+ST_UINT common_hdr_len;
+ST_UINT32 spdu_len;
+ST_UINT32 payload_len;
+ST_UINT alloc_len;	/* allocated len for encoded message	*/
+ST_UINT enc_len;	/* total len of encoded message (should match alloc_len)	*/
+ST_UINT16 tunnel_pdu_len;	/* len of tunnelled PDU			*/
+
+  tunnel_pdu_len = etype_pdu_len + 2;	/* add 2 for Ethertype ID	*/
+
+  /* compute len for "commonHeader"	*/
+  common_hdr_len = sizeof (spdu_len)
+            + sizeof (spdu_num)
+            + sizeof(spdu_ver)
+            + SECURITY_INFO_SIZE;
+
+  /* compute len for "main" header	*/
+  hdr_len = common_hdr_len + 2;	/* 2 bytes for commonHeader tag & len	*/
+
+  /* Assume payload is only one Tunneled PDU.	*/
+  payload_len =  6		/* DST MAC	*/
+             + 2		/* TPID	*/
+             + sizeof(tci)	/* TCI (includes VLAN ID and VLAN Priority)*/
+             + sizeof(tunnel_pdu_len)
+             + tunnel_pdu_len;
+
+  spdu_len = sizeof(spdu_num)
+             + sizeof(spdu_ver)
+             + SECURITY_INFO_SIZE
+             + sizeof(payload_len)
+             + payload_len;
+
+  alloc_len = spdu_len + 10;	/* Need 4 bytes for SPDU len	*/
+				/* + 1 for SI	*/
+				/* + 1 for LI	*/
+				/* + 2 for commonHeader	*/
+				/* + 2 for CLTP*/
+
+  enc_buf = chk_calloc (1, alloc_len);
+  cur_ptr = enc_buf;
+
+  /* CLTP Transport	*/
+  *(cur_ptr++) = 0x01;		/* LI - Transport Unit Data header len (variable part empty)*/
+  *(cur_ptr++) = 0x40;		/* Transport Unit Data PDU	*/
+  /* Session	*/  
+  *(cur_ptr++) = 0xa0;		/* SI (Session Identifier)	*/
+  /* LI is len of header. DOES NOT include user data.	*/
+  *(cur_ptr++) = hdr_len;	/* LI	*/
+
+  *(cur_ptr++) = 0x80;			/* commonHeader	*/
+  *(cur_ptr++) = common_hdr_len;	/* commonHeader	length	*/
+
+  *(ST_UINT32 *)cur_ptr = htonl(spdu_len);	/* SPDU len	*/
+  cur_ptr += sizeof(spdu_len);
+
+  *(ST_UINT32 *)cur_ptr = htonl(spdu_num);	/* SPDU number	*/
+  cur_ptr += sizeof(spdu_num);
+
+  *(ST_UINT16 *)cur_ptr = htons(spdu_ver);	/* SPDU Version	*/
+  cur_ptr += sizeof(spdu_ver);
+  
+  //DEBUG: just leave space for security stuff for now. Fill this in later.
+  cur_ptr += SECURITY_INFO_SIZE;
+
+  *(ST_UINT32 *)cur_ptr = htonl(payload_len);
+  cur_ptr += sizeof(payload_len);
+
+  /* START payload	*/
+  memcpy (cur_ptr, dst_mac, 6);
+  cur_ptr += 6;
+
+  *cur_ptr++ = 0x81;			/* TPID	*/
+  *cur_ptr++ = 0x00;
+ 
+  *(ST_UINT16 *)cur_ptr = htons(tci);	/* TCI	*/
+  cur_ptr += sizeof(tci);
+
+  /* Encode the "tunnel_pdu_len"	*/
+  *(ST_UINT16 *)cur_ptr = htons(tunnel_pdu_len);
+  cur_ptr += sizeof(tunnel_pdu_len);
+
+  /* Encode the Ethertype ID.	*/
+  *(ST_UINT16 *)cur_ptr = htons(etype_id);
+  cur_ptr += sizeof(etype_id);
+
+  /* Copy the rest of the "tunnelled" PDU	*/
+  memcpy (cur_ptr, etype_pdu_ptr, etype_pdu_len);
+  cur_ptr += etype_pdu_len;
+
+  enc_len = (ST_UINT)(cur_ptr - enc_buf);
+  if (alloc_len != enc_len)
+    SLOGALWAYS2 ("Error: Encoded len = %u doesn't match allocated len = %u", enc_len, alloc_len);
+  *enc_len_ptr = enc_len;
+
+  spdu_num++;	/* increment global spdu_num for next PDU*/
+  return (enc_buf);
+  }
+
+#endif
+
+
+
+
+
+
+/************************************************************************/
+/* This function encodes the chain of payloads							*/
+/************************************************************************/
+ST_UCHAR *encode_payloads(
+		IEC_90_5_PAYLOAD_DEF *payload_chain,
+		ST_UCHAR *enc_ptr)
+{
+IEC_90_5_PAYLOAD_DEF *internal_payload_chain = payload_chain;
+ST_UCHAR *cur_ptr = enc_ptr;
+
+  while(internal_payload_chain)
+  {
+	  /*encode the payload tag  */
+	  *cur_ptr++ = internal_payload_chain->payload_tag;
+
+	  /*encode the simulation bit  */
+	  if(internal_payload_chain->simulationBit)
+		  *cur_ptr++=0x01;
+	  else
+		  *cur_ptr++=0x00;
+
+	  /*encode the appID */
+      *(ST_UINT16 *)cur_ptr = htons(internal_payload_chain->appID);	/* APPID*/
+		cur_ptr += 2;
+
+	  /* now if it is tunneled payload there is more to do */
+	  if(internal_payload_chain->payload_tag==TUNNEL_PAYLOAD_TYPE_TAG)
+	  {
+		  memcpy(cur_ptr,&internal_payload_chain->dst_mac,6);
+		  cur_ptr+=6;
+
+		  *(ST_UINT16 *)cur_ptr = htons(internal_payload_chain->tpid);	/* TPID*/
+		   cur_ptr += 2;
+
+		   *(ST_UINT16 *)cur_ptr = htons(internal_payload_chain->tci);	/* TCI*/
+		   cur_ptr += 2;
+	  }
+
+	  /*encode the lentgth	(common for all Payloads			*/
+	  *(ST_UINT16 *)cur_ptr = htons(internal_payload_chain->pdu_len);	
+	  cur_ptr += 2;
+
+	  if(internal_payload_chain->payload_tag==TUNNEL_PAYLOAD_TYPE_TAG)
+	  {
+	    /* Encode the Ethertype ID.	*/
+		*(ST_UINT16 *)cur_ptr = htons(internal_payload_chain->etype_id);
+		cur_ptr += 2;
+	  }
+
+  /* Copy the rest of the "tunnelled" PDU	*/
+  memcpy (cur_ptr, internal_payload_chain->pdu_ptr, (size_t)(internal_payload_chain->pdu_len));
+  cur_ptr += internal_payload_chain->pdu_len;
+  internal_payload_chain = internal_payload_chain->next;
+  }
+  return(cur_ptr);
+}
+
+/* the following is a user supplied encryption function					*/
+ST_UCHAR usr_encrypt_payloads(
+	ST_UCAR unencrypted_buffer,
+	ST_UNIT16 *payload_len,
+	ST_UCHAR	secAlgType, 
+	ST_UCHAR	key_ptr)
+{
+ST_UCHAR *enc_buf_ptr;
+ST_UINT16 result_enc_len = *payload_len;
+
+	/* for now, just take the uncrypted buffer and put it into another buffer */
+	/* this buffer will be freed by the 90-5 encoder						  */
+	enc_buf_ptr = chk_calloc (1,*payload_len);
+
+	/* the following will need to be replaced by an actual encryption call */
+	memcpy(enc_buf_ptr,unencrypted_buffer,payload_len);
+
+	/*after the encryption into the buffer, the payload_length must be updated */
+	/* with the resulting encrypted length										*/
+	*payload_len = result_enc_len;
+
+	
+}
+/************************************************************************/
+/* the following function is a user supplied function that encrypts the */
+/* the user data and return a pointer and length to the encrypted data  */
+/* so the rest of 90-5 packet can be put togther						*/
+/************************************************************************/
+ST_UCHAR usr_encrypted_user_data_ptr = encrypt_user_data(
+	ST_UCHAR *key_ptr,						/* pointer to the key that is to be used */
+	ST_UCHR secAlgType,						/* type of encryption to be used	     */
+	ST_UNIT *payload_len,					/* length calculated for unencrypted payload */
+	ST_UINT &encrypted_user_data_len),		/* ptr to where to return the encrypted data lenght */
+	IEC_90_5_PAYLOAD_DEF *payload_chain_ptr	/* ptr to the beggining of the payload chain  */
+	)		
+{
+ST_UCHAR *unencrypted_buffer;
+ST_UCHAR *encrypted_buffer;
+ST_UINT16 encrypted_data_len;				/*to be used to contain the encrypted user data length */
+
+	/* make sure that there is not a mistake					*/
+	if(secAlgType==SEC_ALG_NONE) || (secAlgtype>SEC_ALG_AES_256_GCM)
+	{
+		return(NULL);
+	}
+
+	/* allocate a buffer for the non-encrypted user data	*/
+	unencrypted_buffer = chk_malloc(*payload_len);
+
+	/*now created the un-encrypted user data in the buffer */
+	encode_payloads(payload_chain_ptr,unencrypted_buffer);
+
+	/* allocate the buffer to use for encryption, typically this will be the original lenght */
+	/* and up to 256 additional bytes														 */
+	encrypted_buffer = usr_encrypt_payloads(uncrypted_buffer,payload_len,secAlgType, key_ptr);
+
+	/* get rid of the unencrypted buffer that was allocated									*/
+	chk_free (unencrypted_buffer);
+
+	return(encrypted_buffer);
+}
+
+/************************************************************************/
+/* NOTE: tunnel_pdu_ptr points to GOOSE/SMPVAL PDU starting right AFTER	*/
+/*   Ethertype ID. This would be easier if it pointed to the		*/
+/*   Ethertype ID, but clnp_snet_read doesn't give us that.		*/
+/************************************************************************/
+ST_UCHAR *udp_iec_90_5_enc (
+	IEC_90_5_HDR_INFO *hdr,			/*points to the header information*/
+	IEC_90_5_PAYLOAD_DEF *payload,	/*points to the first in the chain of payload information (freeing of the information is reponsibility of the caller*/
+	ST_UINT32 *enc_len_ptr
+	)
+  {
+/* the overhead for the Session Hdr is		*/
+/* 1 byte - SI								*/
+/* 1 byte - LI								*/
+/* 4 bytes - SPDU Length					Common HDR*/
+/* 4 bytes  - SPDU number					Common HDR*/
+/* 2 bytes  - version						Common HDR*/
+/* 4 bytes - time of current key			Common HDR*/
+/* 2 bytes - time of next key				Common HDR*/
+/* 1 byte	- Encryption Alg				Common HDR*/
+/* 1 byte - Signature Alg					Common HDR*/
+/* 4 byte - KeyID							Common HDR */
+#define IEC_90_5_SESSION_HDR_SIZE 24
+#define IEC_90_5_SI_COMMHDR_SIZE 18
+
+ST_UCHAR *enc_buf;
+ST_UCHAR *cur_ptr;
+ST_UINT hdr_len= IEC_90_5_SESSION_HDR_SIZE ;
+ST_UINT common_hdr_len = IEC_90_5_SI_COMMHDR_SIZE ;
+ST_UINT32 spdu_len=0;
+ST_UINT32 payload_len=0;
+ST_UINT alloc_len;	/* allocated len for encoded message	*/
+ST_UINT enc_len;	/* total len of encoded message (should match alloc_len)	*/
+ST_UCHAR encrypted_user_data_ptr=NULL;
+ST_UCHAR *spdu_start_ptr;					/*needed for the signature			*/
+IEC_90_5_PAYLOAD_DEF *temp_payload_ptr=payload;
+
+/* determine how large of a packet it allocate  */
+
+/* first need to run through the chain of payload definition  and calculate the payload length*/
+  while(temp_payload_ptr!=NULL)
+  {
+	switch(temp_payload_ptr->payload_tag)
+	{
+#define NON_TUNNEL_PAYLOAD_HDR_SIZE	6					/* 1 byte tag + 1 byte Simulation + 2 bytes appID + 2 bytes length = 6 */
+	case GOOSE_PAYLOAD_TYPE_TAG:
+	case  SV_PAYLOAD_TYPE_TAG:
+	case  MNGT_PAYLOAD_TYPE_TAG:
+		payload_len += (temp_payload_ptr->pdu_len)+6;	/* add the PDU length  */
+		temp_payload_ptr= temp_payload_ptr->next;
+		break;
+
+/* overhead for Tunnel Payload			*/
+/* 1 byte -		Payload Tag				*/
+/* 1 byte -		Simulation Bit			*/
+/* 2 bytes -	appid					*/
+/* 6 bytes -	destination Mac			*/
+/* 2 bytes -	TPID					*/
+/* 2 bytes -	TCI						*/
+/* 2 bytes -	pdu_len					*/
+#define TUNNEL_PAYLOAD_HDR_SIZE			16				/* 1 byte tag + 1 byte Simulation + 2 bytes appID + 6 bytes dest mac address 2 bytes length = 6 */
+	case TUNNEL_PAYLOAD_TYPE_TAG:
+		payload_len = (temp_payload_ptr->pdu_len)+TUNNEL_PAYLOAD_HDR_SIZE;
+		temp_payload_ptr= temp_payload_ptr->next;
+		 break;
+
+	default:							/* should never hit this default, but provided as a safety anyway will just use the common stuff */
+		payload_len += (temp_payload_ptr->pdu_len)+6;	/* add the PDU length  */
+		temp_payload_ptr= temp_payload_ptr->next;
+		break;		
+	}
+  }
+
+//if the payload is to be encrypted, the payloads need to be constructed into a buffer and then encrypted
+if(hdr->secAlgType!=SEC_ALG_NONE)
+{
+  encrypted_user_data_ptr = encrypt_user_data(hdr->key_ptr, hdr->secAlgType, payload_len, &encrypted_user_data_len);
+  if (encrypted_user_data_ptr == NULL)			/*then there was an issue and need to halt the encode			*/
+	  return(NULL);
+} 
+
+/* now have calculated the payload length, now need to calculate the SPDU length  */
+
+  spdu_len = payload_len + IEC_90_5_SESSION_HDR_SIZE+sizeof(payload_len);
+
+#define CLTP_HDR_SIZE 2;
+  alloc_len = spdu_len + CLTP_HDR_SIZE;
+
+  if(hdr->hmacAlg!=HMAC_ALG_None)		/*then we need to allocate additional bytes for the HMAC */
+  {
+#define MAX_HMAC_SIZE 64				/*oversized for now										*/
+      alloc_len += MAX_HMAC_SIZE;
+  }
+
+  enc_buf = chk_calloc (1, alloc_len);
+  cur_ptr = enc_buf;
+
+  /* Encode CLTP Transport	*/
+  *(cur_ptr++) = 0x01;		/* LI - Transport Unit Data header len (variable part empty)*/
+  *(cur_ptr++) = 0x40;		/* Transport Unit Data PDU	*/
+  /* Session	*/  
+  *(cur_ptr++) = hdr->SessionIdentifer;		/* SI (Session Identifier)	*/
+  /* LI is len of header. DOES NOT include user data.	*/
+  *(cur_ptr++) = hdr_len;	/* LI	*/
+
+  spdu_start_ptr = cur_ptr;			/*save for the signature  */
+
+  *(cur_ptr++) = 0x80;			/* commonHeader	*/
+  *(cur_ptr++) = common_hdr_len;	/* commonHeader	length	*/
+
+  *(ST_UINT32 *)cur_ptr = htonl(spdu_len);	/* SPDU len	*/
+  cur_ptr += sizeof(spdu_len);
+
+  *(ST_UINT32 *)cur_ptr = htonl(spdu_num);	/* SPDU number	*/
+  cur_ptr += sizeof(spdu_num);
+
+  *(ST_UINT16 *)cur_ptr = htons(spdu_ver);	/* SPDU Version	*/
+  cur_ptr += sizeof(spdu_ver);
+  
+  /* fill in the security informaiton					*/
+  memcpy(cur_ptr,hdr->timeOfCurrentKey,4);
+  cur_ptr+=4;
+  *(ST_UINT16 *)cur_ptr = htons(hdr->timeToNextKey);	/* SPDU Version	*/
+   cur_ptr+=2;
+  *(cur_ptr++)=hdr->secAlgType;
+  *(cur_ptr++)=hdr->hmacAlg;
+
+  /*fill in the key id							*/
+  memcpy(cur_ptr,hdr->key_id,IEC_90_5_SIZE_OF_KEY_ID);
+  cur_ptr += IEC_90_5_SIZE_OF_KEY_ID;
+
+
+/* now need to peform the payload encoding					*/
+  if (encrypted_user_data_ptr==NULL)
+  {
+	*(ST_UINT32 *)cur_ptr = htonl(payload_len);
+    cur_ptr += sizeof(payload_len);
+	cur_ptr = encode_payloads(payload,cur_ptr);
+  }
+  else
+  {
+	   *(ST_UINT32 *)cur_ptr = htonl(payload_len);
+        cur_ptr += sizeof(payload_len);
+	    memcpy(cur_ptr,crypted_user_data_ptr,payload_len);
+		cur_ptr +=payload_len;
+  }
+
+  enc_len = (ST_UINT)(cur_ptr - enc_buf);		/* then encode_length may not match the allocated length since the size of the signature is not known up front*/
+  *enc_len_ptr = enc_len;
+
+  spdu_num++;	/* increment global spdu_num for next PDU*/
+
+  /* now need to do the signature						*/
+    cur_ptr = create_signature(cur_ptr,spdu_start_ptr,hdr->hmacAlg,hdr->key_id);
+  return (enc_buf);
+  }
+
+  
+/************************************************************************/
+/* NOTE: tunnel_pdu_ptr points to GOOSE/SMPVAL PDU starting right AFTER	*/
+/*   Ethertype ID. This would be easier if it pointed to the		*/
+/*   Ethertype ID, but clnp_snet_read doesn't give us that.		*/
+/************************************************************************/
+ST_UCHAR *udp_tunnel_enc (
+	ST_UCHAR *dst_mac,		/* DST MAC (must be 6 bytes)	*/
+	ST_UINT16 tci,			/* TCI from original message*/
+    ST_UINT16 etype_id,	/* Ethertype ID from original message*/
+	ST_UCHAR *etype_pdu_ptr,	/* pointer after Ethertype ID	*/
+	ST_UINT16 etype_pdu_len,	/* len of PDU after Ethertype ID*/
+	ST_UINT *enc_len_ptr)
+  {
+
+IEC_90_5_HDR_INFO hdr_info;
+IEC_90_5_PAYLOAD_DEF payload_info;
+ST_UCHAR *temp_ptr;
+
+
+/* example of filling in the hearder  */
+hdr_info.SessionIdentifer = IEC_90_5_SI_TYPE_TUNNEL;
+hdr_info.hmacAlg = HMAC_ALG_None;
+hdr_info.secAlgType = SEC_ALG_NONE;
+hdr_info.timeToNextKey= 0;
+memset(hdr_info.timeOfCurrentKey,0,4);
+
+/* fill in the payload_information  */
+payload_info.payload_tag = TUNNEL_PAYLOAD_TYPE_TAG;
+payload_info.appID = 0;
+payload_info.pdu_len = etype_pdu_len;
+payload_info.pdu_ptr = etype_pdu_ptr;
+payload_info.etype_id = etype_id;
+payload_info.simulationBit = 0x00;
+payload_info.etype_id = etype_id;
+payload_info.tci = tci;
+payload_info.tpid = 0x00;
+memcpy(&payload_info.dst_mac,dst_mac,6);
+payload_info.next = NULL;
+
+  temp_ptr = udp_iec_90_5_enc(&hdr_info,&payload_info,enc_len_ptr);
+  return (temp_ptr);
+  }
+
+#include "clnp_sne.h"
+#include "ethertyp.h"
+/************************************************************************/
+/*			chk_for_goose_or_sv				*/
+/* NOTE: copied from chk_for_goose_msg in iec_rx.c but deleted		*/
+/* unnecessary code & added call to udp_tx.				*/
+/************************************************************************/
+ST_RET chk_for_goose_or_sv (SOCKET SendingSocket, UDP_PUB_CFG *udp_pub_cfg, SN_UNITDATA *sn_req)
+{
+ST_RET ret= SD_FAILURE;
+ETYPE_INFO etype;
+ST_UCHAR *apdu;
+ST_INT apdu_len;
+ST_UCHAR *enc_ptr;
+ST_UINT enc_len;
+ST_INT map_idx;	/* mapping array index	*/
+
+  /* Check if this is an IEC 61850 GOOSE or SampledValue message	*/
+  if(sn_req->lpdu_len == ETYPE_TYPE_GOOSE || sn_req->lpdu_len == ETYPE_TYPE_SV)
+    {	/* it is GOOSE or SampledValue	*/
+    /* MAC filter isn't perfect. Make sure MAC matches expected.	*/
+    for (map_idx = 0; map_idx < udp_pub_cfg->numAddr; map_idx++)
+      {
+      if (memcmp (sn_req->loc_mac, udp_pub_cfg->MACAddr[map_idx], 6) == 0)
+        break;	/* Match found*/
+      }
+
+    if (map_idx < udp_pub_cfg->numAddr)	
+      {		/* match was found in loop above	*/
+      /* Returns a ptr to the data */
+      apdu = etype_hdr_decode(sn_req, &etype, &apdu_len);
+      
+      //DEBUG: etype_hdr_decode doesn't even decode TCI (always sets etype.tci=0).
+      //      Need a new decode function to decode the TCI (if it was received).
+
+      /* Encode tunnelled PDU.	*/
+      /* This function allocates "enc_ptr". Must free it after message is sent.*/
+      enc_ptr = udp_tunnel_enc (sn_req->loc_mac,	/* DST MAC (must be 6 bytes)	*/
+          etype.tci,	/* TCI from original message	*/
+          etype.etypeID,	/* Ethertype ID from original message*/
+          sn_req->lpdu,	/* pointer after Ethertype ID	*/
+          /* CRITICAL: apdu_len returned doesn't include len of header. Must add it back.*/
+          apdu_len + ETYPE_HEAD_LEN,	/* len of PDU after Ethertype ID	*/
+          &enc_len);
+
+      USER_LOG_CLIENT0 ("UDP packet sent");
+      USER_LOG_CLIENTH (enc_len, enc_ptr);
+
+      /* Send it.	*/
+      udp_tx (SendingSocket, udp_pub_cfg->IPAddr[map_idx], udp_pub_cfg->IPPort, enc_ptr, enc_len);
+      chk_free (enc_ptr);
+      }
+    }
+  return(ret);
+}
+
+extern   ST_UCHAR *udp_tunnel_dec (
+	ST_UCHAR *udp_pdu_ptr,		/* UDP PDU pointer	*/
+	ST_INT udp_pdu_len,		/* UDP PDU length 	*/
+	ST_UCHAR *dst_mac,		/* out: DST MAC (must be 6 bytes)	*/
+	ST_UINT16 *tci_ptr,		/* out: TCI decoded		*/
+	ST_UINT *dec_len_ptr);
+
+/************************************************************************/
+/*                       main						*/
+/************************************************************************/
+int main (int argc, char *argv[])
+  {
+ST_RET ret;
+ST_INT j;
+GEN_SOCK_CTXT *sockCtx;
+MVL_CFG_INFO mvlCfg;
+UDP_PUB_CFG udp_pub_cfg;
+SOCKET SendingSocket;	/* socket used to send all UDP packets	*/
+ST_UCHAR test_pdu[30];
+ST_UCHAR test_mac[6] = {0x01,0x33,0x34,0x35,0x36,0x37};
+ST_UCHAR ret_test_mac[6];
+ST_UINT16 ret_tci;
+unsigned int ret_len;
+unsigned int dec_len_ptr;
+ST_UCHAR *ret_buf1;
+
+ST_UCHAR *ret_buf;
+
+
+  setbuf (stdout, NULL);    /* do not buffer the output to stdout   */
+  setbuf (stderr, NULL);    /* do not buffer the output to stderr   */
+
+  sprintf(test_pdu,"0123456");
+  ret_buf = udp_tunnel_enc(test_mac,0x3333,0x88b8,test_pdu,6,&ret_len);
+  ret_buf1 = udp_tunnel_dec(ret_buf,ret_len,ret_test_mac,&ret_tci,&dec_len_ptr);
+  return(0);
+ 
+ 
+  ret = init_log_cfg ();
+  if (ret)
+    {
+    printf ("log configuration error 0x%X", ret);
+    return (ret);
+    }
+
+  //DEBUG: only need this to get network_device for PCAP.
+  //DEBUG: calling this seems to link in most of stack. Try to fix that.
+  ret = osicfgx ("osicfg.xml", &mvlCfg);	/* Ignore new data in mvlCfg*/
+  if (ret)
+    {
+    printf ("osicfgx error 0x%X", ret);
+    return (ret);
+    }
+
+  ret = clnp_snet_init (&clnp_param);	/* pass global struct	*/
+  if (ret)
+    {
+    printf ("clnp_snet_init error 0x%X", ret);
+    return (ret);
+    }
+
+  /* initialize gensock2 before calling any of the socket functions	*/
+  /* DEBUG: only to start up sockets. delete this and init directly?	*/
+  sockCtx = calloc (1, sizeof(GEN_SOCK_CTXT));
+  ret = sockStart ("udp_test", sockCtx);
+  if (ret != SD_SUCCESS)
+    {
+    return (ret);
+    }
+
+  ret = udp_pub_cfg_read ("udp_pub.cfg", &udp_pub_cfg);
+  if (ret == SD_SUCCESS)
+    {
+    SLOGALWAYS0 ("UDP Publisher mapping:");
+    for (j = 0; j < udp_pub_cfg.numAddr; j++)
+      SLOGCALWAYS7 ("  MAC=%02X-%02X-%02X-%02X-%02X-%02X\tIPAddr=%s",
+        udp_pub_cfg.MACAddr[j][0],
+        udp_pub_cfg.MACAddr[j][1],
+        udp_pub_cfg.MACAddr[j][2],
+        udp_pub_cfg.MACAddr[j][3],
+        udp_pub_cfg.MACAddr[j][4],
+        udp_pub_cfg.MACAddr[j][5],
+        udp_pub_cfg.IPAddr [j]);
+
+    /* CRITICAL: to receive Multicast packets (for GOOSE, SMPVAL, etc.),	*/
+    /* must set multicast filter using clnp_snet_set_multicast_filter	*/
+    /* or clnp_snet_rx_all_multicast_start (accept ALL multicast packets).*/
+
+    /* Filter on multiple MACs configured in "udp_pub.cfg".	*/
+    /* MACAddr is 2 dimensional array.				*/
+    if ((ret = clnp_snet_set_multicast_filter(&udp_pub_cfg.MACAddr[0][0], udp_pub_cfg.numAddr)) != SD_SUCCESS)
+      {
+      SLOGALWAYS1 ("Error 0x%04X setting multicast filter.", ret);
+      printf      ("Error 0x%04X setting multicast filter.\n", ret);
+      return (ret);
+      }
+
+#if 0  //DEBUG: enable this to test udp_tunnel_enc with dummy data. Delete this later.
+  {
+  ST_UCHAR *enc_ptr;	/* ptr encoded UDP message	*/
+  ST_UINT enc_len;	/* len of encoded UDP message	*/
+  ST_UCHAR dst_mac[6] = {1,2,3,4,5,6};
+  ST_UINT16 tci = 0xf008;
+  ST_CHAR *etype_pdu_ptr = "dummy data to test udp_tunnel_enc. This is where GOOSE APDU would go";
+  ST_UINT16 etype_pdu_len = (ST_UINT16) strlen (etype_pdu_ptr);
+  
+  enc_ptr = udp_tunnel_enc (dst_mac,	/* DST MAC (must be 6 bytes)	*/
+	tci,		/* TCI from original message*/
+        0x88B8,		/* fake the ethertype id.	*/
+	etype_pdu_ptr,
+	etype_pdu_len,
+        &enc_len);
+  udp_tx ("239.0.0.1", 102, enc_ptr, enc_len);
+  chk_free (enc_ptr);
+  }
+#endif
+    /* Spawn the "Subscriber" as a separate thread.	*/
+    {
+    ST_THREAD_HANDLE thread1Handle;
+    ST_THREAD_ID thread1Id;
+    gs_start_thread (&subscriber_thread, (ST_THREAD_ARG)NULL, 
+		 &thread1Handle, &thread1Id);
+    }
+    }
+  else
+    {
+    printf ("ERROR reading 'udp_pub.cfg'. Publisher disabled.\n");
+    /* No need to spawn thread for Subscriber. Just call as normal funct.*/
+    subscriber_thread (NULL);
+    }
+  if (ret == SD_SUCCESS)	/* Publisher init successful	*/
+    {
+    SendingSocket = udp_pub_socket_get ();
+
+    /* Wait for incoming GOOSE messages.	*/
+    while (1)
+      {
+      ST_RET ret;
+      SN_UNITDATA sn_req;
+      /* IMPORTANT: call wait_any_event to avoid hogging CPU.	*/
+      /* CRITICAL: must define GOOSE_RX_SUPP when compiling event.c to make this work.*/
+      wait_any_event (10000);
+
+      if( (ret = clnp_snet_read  (&sn_req)) == SD_SUCCESS)
+        {
+        ret = chk_for_goose_or_sv (SendingSocket, &udp_pub_cfg, &sn_req);	/* Calls "udp_tx" only when GOOSE received*/
+        clnp_snet_free (&sn_req);	/* CRITICAL: free resources	*/
+        }
+      /* DEBUG: this loops forever. Do we need to break out of loop?	*/
+      }
+    }
+
+  //DEBUG: if we ever break out of loop, should probably also call sockEnd here too.
+  clnp_snet_term ();
+  return (0);
+  }
+
+  
+
+  
