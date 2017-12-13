@@ -40,6 +40,7 @@
 /* MODIFICATION LOG :							    */
 /*  Date     Who			Comments			    */
 /* --------  ---  ------   -------------------------------------------	    */
+/* 09/25/12  HSF	   Updated SPDU_LEN calculation to remove the length */
 /* 08/11/12  HSF	   Modified header to include Apache License	    */
 /* 08/15/12  HSF	   Corrected SPDU header length value		    */
 /* 10/04/11  HSF	   Initial revision				    */
@@ -246,7 +247,7 @@ if(hdr->secAlgType!=SEC_ALG_NONE)
 
 /* now have calculated the payload length, now need to calculate the SPDU length  */
 
-  spdu_len = payload_len + IEC_90_5_SESSION_HDR_SIZE+sizeof(payload_len);
+  spdu_len = payload_len + IEC_90_5_SESSION_HDR_SIZE+sizeof(payload_len)-6; //-6 to remove SPDU lenght from calculation.
 
 #define CLTP_HDR_SIZE 2;
   alloc_len = spdu_len + CLTP_HDR_SIZE;
